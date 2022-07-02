@@ -1,1 +1,195 @@
-site_name: My Docs
+# Project information
+site_name: CrossDB
+site_description: A High Performance Embedded Distributed RDBMS
+site_url: https://crossdb.org/
+site_author: JC Wang
+
+# Repository
+repo_name: CrossDB
+repo_url: https://github.com/cross-db/crossdb
+
+# Copyright
+copyright: Copyright &copy; 2022 CrossDB
+
+# Configuration
+theme:
+  name: material
+  logo: assets/favicon.png
+  custom_dir: !ENV [THEME_DIR, "material"]
+
+  # Static files
+  static_templates:
+    - 404.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    - content.code.annotate
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    #- navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - scheme: default
+      primary: white
+      #primary: white
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+# Plugins
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+  - minify:
+      minify_html: true
+
+# Customization
+extra:
+  analytics:
+    provider: google
+    property: G-VPTG3S10X7
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cross-db/crossdb
+      name: Github
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/questions/tagged/CrossDB
+      name: Stackoverflow
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/Cross-DB/CrossDB/discussions
+      name: Discussion
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/CrossDbOrg
+      name: Twitter
+
+extra_css:
+
+extra_javascript:
+    - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
+    - 'assets/javascripts/baidu-tongji.js'
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home:                           index.md  
+  - Document:
+    - Tutorial:
+      - Introduction:                   tutorial/introduction.md
+      - Getting Started:                tutorial/getting-started.md
+    - RDBMS:
+      - Overview:                       rdbms/overview.md
+      - RDBMS Model:                    rdbms/rdbms-model.md
+      - SQL:                            rdbms/sql.md
+    - C Struct ORM:
+      - Overiview:                      c-orm/overview.md
+      - Schema:                         c-orm/schema.md
+      - ORM API:                        c-orm/orm-api.md
+    - Foreign Key and Trigger:
+      - Overview:                       fkey-trigger/overview.md
+      - Foreing Key:                    fkey-trigger/foreign-key.md
+      - Trigger:                        fkey-trigger/trigger.md
+      - Cascade Trigger:                fkey-trigger/cascade-trigger.md
+      - Data-Driven:                    fkey-trigger/data-driven.md
+    - Server:
+      - Overview:                       server/overview.md
+      - Event Loop:                     server/event-loop.md
+      - Scheduler:                      server/scheduler.md
+    - PubSub:
+      - Overview:                       pubsub/overview.md
+      - PubSub Model:                   pubsub/pubsub-model.md
+      - Replication:                    pubsub/replication.md
+      - Reverse PubSub:                 pubsub/reverse-pubsub.md
+    - RPC:
+      - Overview:                       rpc/overview.md
+      - Serailization:                  rpc/Serailization.md
+      - RPC Model:                      rpc/rpc-model.md
+    - Connector:                        connector.md
+    - Troubleshooting:
+      - Overview:                       troubleshooting/overview.md
+      - Shell:                          troubleshooting/shell.md
+      - Web GUI:                        troubleshooting/web-gui.md
+      - DB Log:                         troubleshooting/db-log.md
+    - Appendix:
+      - Internals:                      appendix/internals.md
+      - FAQ:                            appendix/faq.md
+      - Changelog:                      appendix/changelog.md
+      - Refrence:                       appendix/reference.md
+  - Best Practice:
+    - best-practice/index.md
+  - Blog:
+    - blog/index.md
+    - 2022:
+      - blog/2022/pp-oo-db.md
+  - Community:                      community.md
