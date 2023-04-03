@@ -1,6 +1,6 @@
 # Project information
 site_name: CrossDB
-site_description: A High Performance Embedded Distributed RDBMS
+site_description: A High Performance Embedded RDBMS and Development Framework
 site_url: https://crossdb.org/
 site_author: JC Wang
 
@@ -9,7 +9,7 @@ repo_name: CrossDB
 repo_url: https://github.com/cross-db/crossdb
 
 # Copyright
-copyright: Copyright &copy; 2022 CrossDB
+copyright: Copyright &copy; 2023 CrossDB
 
 # Configuration
 theme:
@@ -193,3 +193,4 @@ nav:
     - 2022:
       - blog/2022/pp-oo-db.md
   - Community:                      community.md
+  - Buy:                            buy.md
