@@ -4,15 +4,25 @@
 {% extends "overrides/main.html" %}
 {% block content %}
   {{ super() }}
+
+<!--
+	Initialize the Store Builder Library
+-->
 <script
-    id="fsc-api"
-    src="https://sbl.onfastspring.com/sbl/0.9.4/fastspring-builder.min.js"
-    type="text/javascript"
-    data-storefront="crossdb.test.onfastspring.com/embedded-crossdb">
+	id="fsc-api"
+	src="https://sbl.onfastspring.com/sbl/0.9.4/fastspring-builder.min.js"
+	type="text/javascript"
+	data-storefront="crossdb.test.onfastspring.com/popup-crossdb">
 </script>
-<!--- The following DIV element will become the container for embedded checkout.
-Place this DIV element in the page, wherever the embedded checkout is expected to be placed --->
-<div id="fsc-embedded-checkout-container">
-</div>
+
+<!-- 
+	data-storefront="fastspringexamples.test.onfastspring.com/popup-fastspringexamples">
+	To add a product to the purchase session we need to define the data-fsc-item-path-value 
+	with the product path and also define the data-fsc-action where we first Add this item to the
+	session and then initiate Checkout
+-->
+<button data-fsc-item-path-value='cross-embedded-database' data-fsc-action="Add, Checkout" >
+	Add to cart
+</button>
 
 {% endblock %}

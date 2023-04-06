@@ -144,53 +144,61 @@ markdown_extensions:
 # Page tree
 nav:
   - Home:                           index.md  
+  - Product:
+    - CrossDB:                          product/crossdb.md
+    - How to Buy:                       product/buy.md
+    - Popup Buy:                        product/buy2.md
+    - Embedded Buy:                     product/buy3.md
   - Document:
     - Tutorial:
       - Introduction:                   tutorial/introduction.md
       - Getting Started:                tutorial/getting-started.md
-    - RDBMS:
-      - Overview:                       rdbms/overview.md
-      - RDBMS Model:                    rdbms/rdbms-model.md
-      - SQL:                            rdbms/sql.md
-    - C Struct ORM:
-      - Overiview:                      c-orm/overview.md
-      - Schema:                         c-orm/schema.md
-      - ORM API:                        c-orm/orm-api.md
-    - Foreign Key and Trigger:
-      - Overview:                       fkey-trigger/overview.md
-      - Foreing Key:                    fkey-trigger/foreign-key.md
-      - Trigger:                        fkey-trigger/trigger.md
-      - Cascade Trigger:                fkey-trigger/cascade-trigger.md
-      - Data-Driven:                    fkey-trigger/data-driven.md
-    - Server:
-      - Overview:                       server/overview.md
-      - Event Loop:                     server/event-loop.md
-      - Scheduler:                      server/scheduler.md
-    - PubSub:
-      - Overview:                       pubsub/overview.md
-      - PubSub Model:                   pubsub/pubsub-model.md
-      - Replication:                    pubsub/replication.md
-      - Reverse PubSub:                 pubsub/reverse-pubsub.md
-    - RPC:
-      - Overview:                       rpc/overview.md
-      - Serailization:                  rpc/Serailization.md
-      - RPC Model:                      rpc/rpc-model.md
-    - Connector:                        connector.md
-    - Troubleshooting:
-      - Overview:                       troubleshooting/overview.md
-      - Shell:                          troubleshooting/shell.md
-      - Web GUI:                        troubleshooting/web-gui.md
-      - DB Log:                         troubleshooting/db-log.md
-    - Appendix:
-      - Internals:                      appendix/internals.md
-      - FAQ:                            appendix/faq.md
-      - Changelog:                      appendix/changelog.md
-      - Reference:                      appendix/reference.md
-  - Best Practice:
-    - best-practice/index.md
-  - Blog:
-    - blog/index.md
-    - 2022:
-      - blog/2022/pp-oo-db.md
-  - Community:                      community.md
-  - Buy:                            buy.md
+#    - RDBMS:
+#      - Overview:                       rdbms/overview.md
+#      - RDBMS Model:                    rdbms/rdbms-model.md
+#      - SQL:                            rdbms/sql.md
+#    - C Struct ORM:
+#      - Overiview:                      c-orm/overview.md
+#      - Schema:                         c-orm/schema.md
+#      - ORM API:                        c-orm/orm-api.md
+#    - Foreign Key and Trigger:
+#      - Overview:                       fkey-trigger/overview.md
+#      - Foreing Key:                    fkey-trigger/foreign-key.md
+#      - Trigger:                        fkey-trigger/trigger.md
+#      - Cascade Trigger:                fkey-trigger/cascade-trigger.md
+#      - Data-Driven:                    fkey-trigger/data-driven.md
+#    - Server:
+#      - Overview:                       server/overview.md
+#      - Event Loop:                     server/event-loop.md
+#      - Scheduler:                      server/scheduler.md
+#    - PubSub:
+#      - Overview:                       pubsub/overview.md
+#      - PubSub Model:                   pubsub/pubsub-model.md
+#      - Replication:                    pubsub/replication.md
+#      - Reverse PubSub:                 pubsub/reverse-pubsub.md
+#    - RPC:
+#      - Overview:                       rpc/overview.md
+#      - Serailization:                  rpc/Serailization.md
+#      - RPC Model:                      rpc/rpc-model.md
+#    - Connector:                        connector.md
+#    - Troubleshooting:
+#      - Overview:                       troubleshooting/overview.md
+#      - Shell:                          troubleshooting/shell.md
+#      - Web GUI:                        troubleshooting/web-gui.md
+#      - DB Log:                         troubleshooting/db-log.md
+#    - Appendix:
+#      - Internals:                      appendix/internals.md
+#      - FAQ:                            appendix/faq.md
+#      - Changelog:                      appendix/changelog.md
+#      - Reference:                      appendix/reference.md
+#  - Best Practice:
+#    - best-practice/index.md
+  - About: 
+    - Refund:                           about/refund.md
+    - Privacy:                          about/privacy.md
+    - Terms:                            about/terms.md
+#  - Blog:
+#    - blog/index.md
+#    - 2022:
+#      - blog/2022/pp-oo-db.md
+#  - Community:                      community.md
