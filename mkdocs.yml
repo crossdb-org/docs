@@ -74,6 +74,7 @@ plugins:
       redirect_maps:
   - minify:
       minify_html: true
+#  - table-reader
 
 # Customization
 extra:
@@ -109,6 +110,7 @@ markdown_extensions:
   - footnotes
   - meta
   - md_in_html
+  - tables
   - toc:
       permalink: true
   - pymdownx.arithmatex:
@@ -146,9 +148,9 @@ nav:
   - Home:                           index.md  
   - Product:
     - CrossDB:                          product/crossdb.md
-    - How to Buy:                       product/buy.md
-    - Popup Buy:                        product/buy2.md
-    - Embedded Buy:                     product/buy3.md
+#    - How to Buy:                       product/buy.md
+    - Price and Buy:                     product/price.md
+#    - Embedded Buy:                     product/buy3.md
   - Document:
     - Tutorial:
       - Introduction:                   tutorial/introduction.md

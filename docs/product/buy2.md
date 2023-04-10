@@ -109,4 +109,26 @@ hide:
 
 <a href="#!" class="paddle_button" data-product="821041">Buy Now!</a>
 
+<script>
+    (function (document, src, libName, config) {
+        var script             = document.createElement('script');
+        script.src             = src;
+        script.async           = true;
+        var firstScriptElement = document.getElementsByTagName('script')[0];
+        script.onload          = function () {
+            for (var namespace in config) {
+                if (config.hasOwnProperty(namespace)) {
+                    window[libName].setup.setConfig(namespace, config[namespace]);
+                }
+            }
+            window[libName].register();
+        };
+
+        firstScriptElement.parentNode.insertBefore(script, firstScriptElement);
+    })(document, 'https://secure.2checkout.com/checkout/client/twoCoInlineCart.js', 'TwoCoInlineCart',{"app":{"merchant":"254310101981","iframeLoad":"checkout"},"cart":{"host":"https:\/\/secure.2checkout.com","customization":"inline-one-step"}});
+</script>
+
+<a href="#buy" class="avangate_button" product-code="7GM9GTYDR8" product-quantity="1">Buy now!</a>
+
 :material-arrow-right-circle:{ .cdb-arrow } We also have Volume Discounts when you buy. If you need more licenses than shown here, please contact us for a quote.
+
