@@ -27,7 +27,7 @@ CrossDB(CDB) 是一个强大的高性能分布式嵌入式 SQL RDBMS 数据库�
 - CDB SQL 连接器（RESP3、Python）
 - CDB SQL 驱动程序（C、Python）
 
-## Architecture
+## 架构
 
 ![图片](/assets/images/cdb-arch.svg)
 
