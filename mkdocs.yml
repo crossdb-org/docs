@@ -97,6 +97,7 @@ extra:
 
 extra_css:
     - assets/style/extra.css
+    - assets/style/bootstrap.min.css
 extra_javascript:
     - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
     - 'assets/javascripts/baidu-tongji.js'

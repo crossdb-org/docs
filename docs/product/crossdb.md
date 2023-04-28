@@ -32,3 +32,27 @@ CrossDB combines on-disk and in-memory data storage in a single embedded databas
 * CDB Serialization and RPC
 * CDB SQL Connectors (RESP3, Python)
 * CDB SQL Drivers (C, Python)
+
+# Vesions and Price
+
+<script>
+    (function (document, src, libName, config) {
+        var script             = document.createElement('script');
+        script.src             = src;
+        script.async           = true;
+        var firstScriptElement = document.getElementsByTagName('script')[0];
+        script.onload          = function () {
+            for (var namespace in config) {
+                if (config.hasOwnProperty(namespace)) {
+                    window[libName].setup.setConfig(namespace, config[namespace]);
+                }
+            }
+            window[libName].register();
+        };
+
+        firstScriptElement.parentNode.insertBefore(script, firstScriptElement);
+    })(document, 'https://secure.2checkout.com/checkout/client/twoCoInlineCart.js', 'TwoCoInlineCart',{"app":{"merchant":"254310101981","iframeLoad":"checkout"},"cart":{"host":"https:\/\/secure.2checkout.com","customization":"inline-one-step"}});
+</script>
+
+{{ read_csv('./version.csv') }}
+

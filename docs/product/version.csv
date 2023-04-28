@@ -1,4 +1,4 @@
-,Free,Bronze,Silver,Gold,Platinum,Diamond
+  ,Free,Bronze,Silver,Gold,Platinum,Diamond
 Price,$0 ,$100 ,$250 ,$500 ,"$1,000 ","$2,000 "
 DB/Process,2,16,32,64,128,128
 Table/DB,16,128,256,512,1024,1024
@@ -9,3 +9,4 @@ Max Index/Table,4,8,12,12,16,16
 Max Trigger/Table,4,8,12,12,16,16
 Max Foreign key/Table,4,8,12,12,16,16
 CPU Core,1,2,4,8,16,256
+Buy,Free,<a href="#buy" class="avangate_button" product-code="7GM9GTYDR8" product-quantity="1">Buy now!</a>,<a href="#buy" class="avangate_button" product-code="7GM9GTYDR8" product-quantity="1">Buy now!</a>,<a href="#buy" class="avangate_button" product-code="7GM9GTYDR8" product-quantity="1">Buy now!</a>,<a href="#buy" class="avangate_button" product-code="7GM9GTYDR8" product-quantity="1">Buy now!</a>,<a href="#buy" class="avangate_button" product-code="7GM9GTYDR8" product-quantity="1">Buy now!</a>

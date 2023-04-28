@@ -132,3 +132,7 @@ hide:
 
 :material-arrow-right-circle:{ .cdb-arrow } We also have Volume Discounts when you buy. If you need more licenses than shown here, please contact us for a quote.
 
+<div class="shadow-none p-3 mb-5 bg-light rounded">无阴影</div>
+<div class="shadow-sm p-3 mb-5 bg-white rounded">小阴影</div>
+<div class="shadow p-3 mb-5 bg-white rounded">常规阴影</div>
+<div class="shadow-lg p-3 mb-5 bg-info rounded">大阴影</div>
