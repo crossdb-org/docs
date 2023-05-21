@@ -1,15 +1,22 @@
 # Project information
 site_name: CrossDB
-site_description: A High Performance Embedded RDBMS and Development Framework
+site_description: High Performance Embedded Database Development Platform
 site_url: https://crossdb.org/
-site_author: JC Wang
+site_author: CrossDB
+#docs_dir: 'site/content'
+#site_dir: 'docs'
 
 # Repository
 repo_name: CrossDB
 repo_url: https://github.com/cross-db/crossdb
 
 # Copyright
-copyright: Copyright &copy; 2023 CrossDB
+copyright: 'Copyright &copy; 2023 CrossDB | 
+            <a href="/about/terms">Terms</a> | 
+            <a href="/about/privacy">Privacy</a> | 
+            <a href="/about/refund">Refund</a> | 
+            <a href="/about/about">About</a> | 
+            <span id="busuanzi_container_page_pv">View <span id="busuanzi_value_page_pv"></span>'
 
 # Configuration
 theme:
@@ -49,8 +56,7 @@ theme:
   palette:
     - scheme: default
       primary: white
-      #primary: white
-      accent: indigo
+      accent: light blue
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -75,6 +81,28 @@ plugins:
   - minify:
       minify_html: true
 #  - table-reader
+#  - with-pdf:
+#      cover_subtitle: High Performance Embedded Database Development Platform
+#      cover_logo: assets/favicon.png
+#      toc_title:  Table of Contents
+#      copyright: Copyright &copy; 2023 CrossDB
+      #cover_title:
+      #back_cover: true
+      #toc_level: 3
+      #excludes_children:
+      #  - 'releases/changelog/:upgrading'
+      #exclude_pages:
+      #    - 'bugs/'
+      #    - 'appendix/contribute/'
+      #two_columns_level: 3
+#      render_js: true
+      #headless_chrome_path: google-chrome
+      #output_path: ../document.pdf
+      #debug_html: true
+      #verbose: true
+      #show_anchors: true
+      #enabled_if_env: ENABLE_PDF_EXPORT
+#  - table-reader
 
 # Customization
 extra:
@@ -94,10 +122,16 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/CrossDbOrg
       name: Twitter
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: 中文
+      link: /zh/
+      lang: zh
 
 extra_css:
     - assets/style/extra.css
-    - assets/style/bootstrap.min.css
 extra_javascript:
     - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
     - 'assets/javascripts/baidu-tongji.js'
@@ -146,62 +180,32 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - Home:                           index.md  
-  - Product:
-    - CrossDB:                          product/crossdb.md
-#    - How to Buy:                       product/buy.md
-    - Price and Buy:                     product/price.md
-#    - Embedded Buy:                     product/buy3.md
+  - Home:                               index.md  
+  - Products:
+    - Overview:                         products/overview.md
+    - Features:                         products/features.md
+    - Download:                         products/download.md
+    - Sponsor:                          products/price.md
+    #- Sponsor:                          products/sponsor.md
   - Document:
     - Tutorial:
-      - Introduction:                   tutorial/introduction.md
-      - Getting Started:                tutorial/getting-started.md
-#    - RDBMS:
-#      - Overview:                       rdbms/overview.md
-#      - RDBMS Model:                    rdbms/rdbms-model.md
-#      - SQL:                            rdbms/sql.md
-#    - C Struct ORM:
-#      - Overiview:                      c-orm/overview.md
-#      - Schema:                         c-orm/schema.md
-#      - ORM API:                        c-orm/orm-api.md
-#    - Foreign Key and Trigger:
-#      - Overview:                       fkey-trigger/overview.md
-#      - Foreing Key:                    fkey-trigger/foreign-key.md
-#      - Trigger:                        fkey-trigger/trigger.md
-#      - Cascade Trigger:                fkey-trigger/cascade-trigger.md
-#      - Data-Driven:                    fkey-trigger/data-driven.md
-#    - Server:
-#      - Overview:                       server/overview.md
-#      - Event Loop:                     server/event-loop.md
-#      - Scheduler:                      server/scheduler.md
-#    - PubSub:
-#      - Overview:                       pubsub/overview.md
-#      - PubSub Model:                   pubsub/pubsub-model.md
-#      - Replication:                    pubsub/replication.md
-#      - Reverse PubSub:                 pubsub/reverse-pubsub.md
-#    - RPC:
-#      - Overview:                       rpc/overview.md
-#      - Serailization:                  rpc/Serailization.md
-#      - RPC Model:                      rpc/rpc-model.md
-#    - Connector:                        connector.md
-#    - Troubleshooting:
-#      - Overview:                       troubleshooting/overview.md
-#      - Shell:                          troubleshooting/shell.md
-#      - Web GUI:                        troubleshooting/web-gui.md
-#      - DB Log:                         troubleshooting/db-log.md
-#    - Appendix:
-#      - Internals:                      appendix/internals.md
-#      - FAQ:                            appendix/faq.md
-#      - Changelog:                      appendix/changelog.md
-#      - Reference:                      appendix/reference.md
-#  - Best Practice:
-#    - best-practice/index.md
-  - About: 
-    - Refund:                           about/refund.md
-    - Privacy:                          about/privacy.md
-    - Terms:                            about/terms.md
-#  - Blog:
+      - Introduction:                   docs/crossdb/tutorial/introduction.md
+      - Getting Started:                docs/crossdb/tutorial/getting-started.md
+    - Reference:
+      - CrossLine:                      docs/reference/crossline.md
+      - Markdown:                       docs/reference/markdown.md
+      - API:                            
+        - All:                          docs/reference/api/cdb__api_8h.md
+        - Database:                     docs/reference/api/group__Database.md
+        - Table:                        docs/reference/api/group__Table.md
+  - Blog:
+    - blog/test.md
+    - blog/avx512-in-golang.md
+    - blog/frontend-in-go-modules.md
 #    - blog/index.md
 #    - 2022:
 #      - blog/2022/pp-oo-db.md
-#  - Community:                      community.md
+  - About:
+    - Community:                        about/community.md
+    - FAQ:                              about/faq.md
+    - About US:                         about/about.md

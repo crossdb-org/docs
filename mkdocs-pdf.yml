@@ -1,0 +1,212 @@
+# Project information
+site_name: CrossDB
+site_description: High Performance Embedded Database Development Platform
+site_url: https://crossdb.org/
+site_author: CrossDB
+#docs_dir: 'site/content'
+#site_dir: 'docs'
+
+# Repository
+repo_name: CrossDB
+repo_url: https://github.com/cross-db/crossdb
+
+# Copyright
+copyright: 'Copyright &copy; 2023 CrossDB | 
+            <a href="/about/terms">Terms</a> | 
+            <a href="/about/privacy">Privacy</a> | 
+            <a href="/about/refund">Refund</a> | 
+            <a href="/about/about">About</a> | 
+            <span id="busuanzi_container_page_pv">View <span id="busuanzi_value_page_pv"></span>'
+
+# Configuration
+theme:
+  name: material
+  logo: assets/favicon.png
+  custom_dir: !ENV [THEME_DIR, "material"]
+
+  # Static files
+  static_templates:
+    - 404.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    - content.code.annotate
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    #- navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - scheme: default
+      primary: white
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+# Plugins
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+  - minify:
+      minify_html: true
+#  - table-reader
+  - with-pdf:
+      cover_subtitle: High Performance Embedded Database Development Platform
+      cover_logo: assets/favicon.png
+      toc_title:  Table of Contents
+      copyright: Copyright &copy; 2023 CrossDB
+
+      #cover_title:
+      #back_cover: true
+      #toc_level: 3
+      #excludes_children:
+      #  - 'releases/changelog/:upgrading'
+      #exclude_pages:
+      #    - 'bugs/'
+      #    - 'appendix/contribute/'
+      #two_columns_level: 3
+#      render_js: true
+      #headless_chrome_path: google-chrome
+      #output_path: ../document.pdf
+      #debug_html: true
+      #verbose: true
+      #show_anchors: true
+      #enabled_if_env: ENABLE_PDF_EXPORT
+#  - table-reader
+
+# Customization
+extra:
+  analytics:
+    provider: google
+    property: G-VPTG3S10X7
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cross-db/crossdb
+      name: Github
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/questions/tagged/CrossDB
+      name: Stackoverflow
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/Cross-DB/CrossDB/discussions
+      name: Discussion
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/CrossDbOrg
+      name: Twitter
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: 中文
+      link: /zh/
+      lang: zh
+
+extra_css:
+    - assets/style/extra.css
+extra_javascript:
+    - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
+    - 'assets/javascripts/baidu-tongji.js'
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home:                               index.md  
+  - Products:
+    - Overview:                         products/overview.md
+    - Features:                         products/features.md
+    - Download:                         products/download.md
+    - Sponsor:                          products/price.md
+    #- Sponsor:                          products/sponsor.md
+  - Document:
+    - Tutorial:
+      - Introduction:                   docs/crossdb/tutorial/introduction.md
+      - Getting Started:                docs/crossdb/tutorial/getting-started.md
+    - Reference:
+      - CrossLine:                      docs/reference/crossline.md
+      - Markdown:                       docs/reference/markdown.md
+      - API:                            
+        - All:                          docs/reference/api/cdb__api_8h.md
+        - Database:                     docs/reference/api/group__Database.md
+        - Table:                        docs/reference/api/group__Table.md
+  - Blog:
+    - blog/test.md
+    - blog/avx512-in-golang.md
+    - blog/frontend-in-go-modules.md
+#    - blog/index.md
+#    - 2022:
+#      - blog/2022/pp-oo-db.md
+  - About:
+    - Community:                        about/community.md
+    - FAQ:                              about/faq.md
+    - About US:                         about/about.md

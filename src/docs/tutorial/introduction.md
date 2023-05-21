@@ -31,7 +31,7 @@ improve development efficiency for embedded programmers.
 ## Architecture
 
 ![img](/assets/images/cdb-arch.svg)
-	
+
 ## Feature List
 
 TDB

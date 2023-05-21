@@ -10,6 +10,8 @@ export default defineUserConfig({
   head: [
     ["script", { src: "/assets/scripts/baidu-tongji.js" }],
     ["script", { src: "/assets/scripts/busuanzi.pure.mini.js" }],
+    ["script", { src: "/assets/scripts/2co.js" }],
+    ["link", { rel: "stylesheet", href: "/assets/styles/extra.css" }],
     //["link", { rel: "stylesheet", href: "/assets/styles/bootstrap.min.css" }],
   ],
 

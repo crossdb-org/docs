@@ -1,7 +1,0 @@
-# Serailization
-
-## Schema
-
-## Serailization
-
-## Binary

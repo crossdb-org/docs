@@ -1,6 +1,6 @@
 /site
-
-node_modules/
+node_modules
+src/.vuepress/dist/
 src/.vuepress/.cache/
 src/.vuepress/.temp/
-src/.vuepress/dist/
+pnpm-lock.yaml

@@ -14,14 +14,6 @@ export default hopeTheme({
   docsRepo: "cross-db/docs",
   docsDir: "docs",
 
-  themeColor: {
-    blue: "#2196f3",
-    red: "#f26d6d",
-    green: "#3eaf7c",
-    orange: "#fb9b5f",
-  },
-  fullscreen: true,
-
   hotReload: true,
 
   displayFooter: true,
@@ -35,7 +27,13 @@ export default hopeTheme({
       sidebar: enSidebar,
 
       copyright: false,
-      footer: 'Copyright © 2023 CrossDB | ' + 
+      //footer: 'Copyright © 2023 CrossDB | ' + 
+      //      '<span id="busuanzi_container_page_pv">View <span id="busuanzi_value_page_pv"></span>',
+	  footer: 'Copyright &copy; 2023 CrossDB | ' +
+            '<a href="/about/terms">Terms</a> | ' +
+            '<a href="/about/privacy">Privacy</a> | ' +
+            '<a href="/about/refund">Refund</a> | ' +
+            '<a href="/about/about">About</a> | ' +
             '<span id="busuanzi_container_page_pv">View <span id="busuanzi_value_page_pv"></span>',
 
       metaLocales: {
@@ -80,10 +78,10 @@ export default hopeTheme({
       card:  true,
       container: true,
       //demo: true,
-      //chart: true,
-      //echarts: true,
-      //mermaid: true,
-      //flowchart: true,
+      chart: true,
+      echarts: true,
+      mermaid: true,
+      flowchart: true,
       figure: true,
       imgLazyload: true,
       imgSize: true,
