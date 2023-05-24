@@ -292,3 +292,18 @@ X^2^
 http://www.example.com
 
 `http://www.example.com`
+
+
+### Admonition
+
+I'm Note
+
+>**Note**: Some text here
+>Addtional Content
+
+I'm Warning
+
+>**Warning**: Some text here
+>Addtional Content
+
+The End

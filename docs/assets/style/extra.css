@@ -4,6 +4,7 @@
 .md-typeset h1 {
 	/*color: black;*/
     font-weight: 800;
+    margin: 0;
 }
 .md-typeset h2 {
     font-weight: 700;
@@ -20,21 +21,20 @@
 .md-typeset hr {
     margin: 0.8em 0;
 }
-.md-typeset h1 {
-    margin: 0;
-}
 /*
 .md-typeset code {
     font-size: .85em;
 }*/
+/* tab label font size */
 .md-typeset .tabbed-labels>label {
-    font-size: .85rem;
+    font-size: 0.85rem;
 }
+/* table */
 .md-typeset ol li, .md-typeset ul li {
     margin-bottom: 0;
 }
 .md-typeset table:not([class]) {
-    font-size: .7rem;
+    font-size: 0.7rem;
     border-radius: 0.5rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05), 0 0 0.05rem rgba(0,0,0,.1);
 }
@@ -42,6 +42,7 @@
     color: var(--md-default-bg-color);
     background-color: var(--md-default-fg-color--light);
 }
+/* with-pdf compatible */
 .md-typeset :where(.admonition-title,summary):before {
     left: 0.6rem;
 }
@@ -54,12 +55,12 @@
 	margin: 12px 12px 12px
 }
 .cdb-card h2 {
-	/*color: #333;*/
+    color: var(--md-typeset-color);
 	font-size: 25px;
 	margin: 10px 10px 10px
 }
 .cdb-card p {
-	/*color: #111;*/
+    color: var(--md-typeset-color);
 	font-size: 16px;
 	margin: 10px 10px 10px
 }

@@ -80,6 +80,7 @@ plugins:
       redirect_maps:
   - minify:
       minify_html: true
+  - callouts
 #  - table-reader
   - with-pdf:
       cover_subtitle: High Performance Embedded Database Development Platform

@@ -59,22 +59,144 @@ features:
 @tab 🌄 Define Schema
 ``` c
 typedef struct {
-	char 	name[20];
-	char 	age;
-	int		id;
-	bool	sex;
-} student_t;
+	uint32_t 			prefix;
+	uint8_t 			mask;
+	uint32_t			nexthop;
+	uint8_t 			metric;
+	char				intf[16];
+	uint32_t			birth;
+	uint32_t			flags;
+} route_t;
+
+#undef	CROSS_STRUCT_NAME
+#define	CROSS_STRUCT_NAME	route_t
+cross_field_t 	route_schema[] = {
+	CROSS_FIELD (prefix,	UINT,	IPv4, 0),
+	CROSS_FIELD (mask, 		UINT,	DFT,  0),
+	CROSS_FIELD (nexthop,	UINT,	IPv4, 0),
+	CROSS_FIELD (metric, 	UINT,	DFT,  0),
+	CROSS_FIELD (type,		UINT,	DFT,  0),
+	CROSS_FIELD (intf,		CHAR,	DFT,  0),
+	CROSS_FIELD (birth, 	UINT,	TS,   0),
+	CROSS_FIELD (flags, 	UINT,	HEX,  0),
+	CROSS_END (route_t)
+};
 ```
 @tab ♻️ Create Database and Table
 ``` c
-cross_dbCreate ();
-cross_tblCreate ();
+	// Open ondisk database (create if not exist)
+	printf ("Open databse: mydb\n");
+	ret = cross_dbOpen (&hDb, "mydb", CROSS_DB_CREATE|CROSS_DB_ONDISK);
+	CHECK (ret, "Failed to open mydb");
+
+	// Open table (create if not exist), PrimaryKey is ipAddr,mask
+	printf ("Open table: route\n");
+	ret = cross_tblOpen (hDb, &hRtTbl, "route", route_schema, "ipAddr,mask", CROSS_DB_CREATE);
+	CHECK (ret, "Failed to open route table");
+
+	// Create index on nexthop to accelarate lookup by nexthop
+	printf ("Create index: idx_nexthpp[\n");
+	ret = cross_idxCreate (hRtTbl, "idx_nexthop", "nexthop", 0);
+	CHECK (ret, "Failed to create index idx_nexthop");
 ```
-@tab 💮 CURD Operation
+@tab 💮 Inert Rows
 ``` c
-cross_tblGetByPk ();
-cross_tblDelByPk ();
+	printf ("Insert route 192.168.1.0/24->192.168.1.254\n");
+	route.prefix	= IP4ADDR(192,168,1,0);
+	route.mask		= 24;	
+	route.nexthop	= IP4ADDR(10,1,2,254);
+	route.metric	= 1;
+	route.flags		= 0;
+	strcpy (route.intf, "eth1");
+	route.birth		= time (NULL);
+	ret = cross_dbInsertRow (hRtTbl, &route, 0); 
+	CHECK (ret, "Failed to insert row");
+
+	printf ("Insert route 10.1.1.0/24->10.1.2.254\n");
+	route.prefix	= IP4ADDR(100,1,0,0);
+	route.mask		= 24;	
+	route.nexthop	= IP4ADDR(10,1,1,254);
+	route.metric	= 1;
+	route.flags		= 0;
+	strcpy (route.intf, "eth2");
+	route.birth		= time (NULL);
+	ret = cross_dbInsertRow (hRtTbl, &route, 0); 
+	CHECK (ret, "Failed to insert row");
+
+	printf ("Insert route 10.1.2.0/24->10.1.2.254\n");
+	route.prefix	= IP4ADDR(10,1,1,0);
+	route.mask		= 24;	
+	route.nexthop	= IP4ADDR(10,1,2,254);
+	route.metric	= 2;
+	route.flags		= 0;
+	strcpy (route.intf, "eth2");
+	route.birth		= time (NULL);
+	ret = cross_dbInsertRow (hRtTbl, &route, 0); 
+	CHECK (ret, "Failed to insert row");
 ```
+@tab 🌄 Query Rows
+``` c
+	// Get all rows count
+	count = cross_dbGetRowsCount (hRtTbl, NULL, NULL, 0);
+	printf ("Total %d routes\n", count);
+
+	// Get rows count where nexthop=10.1.2.254
+	route.nexthop	= IP4ADDR(10,1,2,254);
+	count = cross_dbGetRowsCount (hRtTbl, "nexthop", &route, 0);
+	printf ("There're %d routes where nexthop=10.1.2.254\n", count);
+
+	// Get single route 192.168.1.0/24 by PK
+	memset (&route, 0, sizeof(route));
+	route.prefix	= IP4ADDR(192,168,1,0);
+	route.mask		= 24;	
+	ret = cross_dbGetRowByPk (hRtTbl, &route, &route, 0); 
+	CHECK (ret, "Failed to get row by PK");
+	printf ("Get single route: %d.%d.%d.%d/%d->%d.%d.%d.%d intf: %s metric: %d flags: 0x%x\n", 
+		IP4STR(route.prefix), route.mask, IP4STR(route.prefix), route.intf, route.metric, route.flags);
+
+	// Use cursor to get routes where nexthop=10.1.2.254
+	cross_cursor_h hCursor = NULL;
+	route.nexthop	= IP4ADDR(10,1,2,254);
+	count = cross_dbQueryRowsCursor (hRtTbl, &hCursor, "nexthop", &route, 0);
+	CHECK (count, "Failed to query rows");
+	printf ("Get %d routes where nexthop=10.1.2.254\n", count);
+	while (CROSS_OK == cross_cursorGetNextRow (hCursor, &route, 0)) {
+		printf ("  route: %d.%d.%d.%d/%d->%d.%d.%d.%d intf: %s metric: %d flags: 0x%x\n", 
+			IP4STR(route.prefix), route.mask, IP4STR(route.prefix), route.intf, route.metric, route.flags);
+	}
+	cross_cursorFree (hCursor);
+```
+@tab ♻️ Update Rows
+``` c
+	printf ("Update single route 192.168.1.0/24 by PK: set flags 0->0x10\n");
+	route.prefix	= IP4ADDR(192,168,1,0);
+	route.mask		= 24;	
+	route.flags		= 0x10;
+	ret = cross_dbUpdRowByPk (hRtTbl, &route, "flags", &route, 0); 
+	CHECK (ret, "Failed to update row by PK");
+
+	// Update routes where nexthop=10.1.2.254: set flags 0->0x20
+	route.nexthop	= IP4ADDR(10,1,2,254);
+	route.flags		= 0x20;
+	count = cross_dbUpdateRows (hRtTbl, "nexthop", &route, "flags", &route, 0);
+	CHECK (count, "Failed to update rows");
+	printf ("Update %d routes where nexthop=10.1.2.254\n", count);	
+```
+@tab ♻️ Delete Rows
+``` c
+	printf ("Delete single route 192.168.1.0/24 by PK\n");
+	route.prefix	= IP4ADDR(192,168,1,0);
+	route.mask		= 24;	
+	ret = cross_dbDelRowByPk (hRtTbl, &route, 0); 
+	CHECK (ret, "Failed to delete row by PK");
+
+	// Delete routes where nexthop=10.1.2.254
+	route.nexthop	= IP4ADDR(10,1,2,254);
+	count = cross_dbDeleteRows (hRtTbl, "nexthop", &route, 0);
+	CHECK (count, "Failed to update rows");
+	printf ("Update %d routes where nexthop=10.1.2.254\n", count);
+```
+
 :::
 
 ## Sponsors
@@ -160,8 +282,7 @@ cross_tblDelByPk ();
 </a>
 </p>
 
-
-![](/images/cdb-arch.svg)
+![img](/images/cdb-arch.svg)
 
 ```card
 title: Mr.Hope

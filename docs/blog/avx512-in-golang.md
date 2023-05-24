@@ -1,5 +1,5 @@
 ---
-template: overrides/blog.html
+comments: true
 date: 2023-03-01
 category:
   - technical

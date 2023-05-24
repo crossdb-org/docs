@@ -36,6 +36,7 @@ theme:
   language: en
   features:
     - content.code.annotate
+    - content.code.copy
     # - content.tabs.link
     - content.tooltips
     # - header.autohide
@@ -78,6 +79,7 @@ plugins:
   - search
   - redirects:
       redirect_maps:
+  - callouts
   - minify:
       minify_html: true
 #  - table-reader
@@ -177,7 +179,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-
+  #- callouts
+ 
 # Page tree
 nav:
   - Home:                               index.md  
