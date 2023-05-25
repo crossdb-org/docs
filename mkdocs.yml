@@ -113,24 +113,24 @@ extra:
     property: G-VPTG3S10X7
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/cross-db/crossdb
+      link: https://github.com/crossdb-org/crossdb
       name: Github
     - icon: fontawesome/brands/stack-overflow
       link: https://stackoverflow.com/questions/tagged/CrossDB
       name: Stackoverflow
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/Cross-DB/CrossDB/discussions
+      link: https://github.com/crossdb-org/CrossDB/discussions
       name: Discussion
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/CrossDbOrg
       name: Twitter
-  alternate:
-    - name: English
-      link: /
-      lang: en
-    - name: 中文
-      link: /zh/
-      lang: zh
+#  alternate:
+#    - name: English
+#      link: /
+#      lang: en
+#    - name: 中文
+#      link: /zh/
+#      lang: zh
 
 extra_css:
     - assets/style/extra.css
@@ -194,6 +194,8 @@ nav:
     - Tutorial:
       - Introduction:                   docs/crossdb/tutorial/introduction.md
       - Getting Started:                docs/crossdb/tutorial/getting-started.md
+    - Embedded Database Core:
+      - API Reference:                  docs/crossdb/api.md
     - Reference:
       - CrossLine:                      docs/reference/crossline.md
       - Markdown:                       docs/reference/markdown.md
