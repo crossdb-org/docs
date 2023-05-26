@@ -15,10 +15,10 @@ hide:
     <div class="cdb-col-md-8">
 		<p class="cdb-description"><span class="cdb-accent">CrossDB</span><br>High Performance Embedded Database Development Framework✨</p>
 		<p>
-			<a class="cdb-button cdb-button-primary" href="/tutorial/getting-started/">Start 🧭</a> 
-			<a class=cdb-button href="/tutorial/introduction/">Docs 📜</a>
-			<a class=cdb-button href="/tutorial/introduction/">Download 💾</a>
-			</p>
+			<a class="cdb-button cdb-button-primary" href="#lean-in-5m">Quick Learn🧭</a> 
+			<a class=cdb-button href="docs/introduction">Docs 📜</a>
+			<a class=cdb-button href="products/download/">Download 💾</a>
+		</p>
     </div>
   </div>
 
@@ -27,68 +27,68 @@ hide:
   <div class="cdb-container">
 
     <div class="cdb-card"> 
-		<a href="Troubleshooting/Overview">
-			<h2>🌌 RDBMS</h2>
-			<p>CDB follows standard RDBMS model DB, Tabel, Record, Index, Cursor, Transaction, SQL.</p>
+		<a href="docs/crossdb/ddl">
+			<h2>🌌 RDBMS Model</h2>
+			<p>Follows standard RDBMS model: DB, Table, Column, Row, Index, Cursor, Transaction, etc.</p>
 		</a>
     </div>
 
     <div class="cdb-card"> 
-		<a href="Troubleshooting/Overview">
-			<h2>🚊 C ORM</h2>
-			<p>CDB supports C Struct to access DB direclty. Almost all C data types are supported Enum, Union, Bitfield, Array, nested struct, etc.</p>
+		<a href="docs/crossdb/ddl">
+			<h2>⛽ Storage Mode</h2>
+			<p>Supports On-Disk database, In-Memory database and optimized On-RamDisk database.</p>
 		</a>
     </div>
 
     <div class="cdb-card"> 
-		<a href="Troubleshooting/Overview">
-			<h2>🚀 Trigger</h2>
-			<p>CDB Supports Foreign Key, Trigger and Cascade Trigger. They can be used to do Data-driven programming and unit test.</p>
+		<a href="docs/crossdb/transaction">
+			<h2>🔱 Transaction</h2>
+			<p>Support the ACID (Atomic, Consistent, Isolated and Durable) principles.</p>
 		</a>
     </div>
 
     <div class="cdb-card"> 
-		<a href="Troubleshooting/Overview">
-			<h2>⛽ PubSub</h2>
-			<p>CDB supports PubSbub to subscribe DB from other source.</p>
+		<a href="docs/crossdb/schema">
+			<h2>🚊 C Struct ORM</h2>
+			<p>Supports using C Struct to access DB directly. Almost all C data types are supported.</p>
 		</a>
     </div>
 
     <div class="cdb-card"> 
-		<a href="Troubleshooting/Overview">
-			<h2>💮 RPC</h2>
-			<p>CDB supports C struct serailization and a gRPC like RPC framework for C language in future.</p>
+		<a href="docs/crossdb/dml">
+			<h2>🚀 Native APIs</h2>
+			<p>Well desgined high Performance Native APIs to define and manipulate DB.</p>
 		</a>
     </div>
 
     <div class="cdb-card"> 
-		<a href="Troubleshooting/Overview">
-			<h2>🔱 Connector</h2>
-			<p>CDB supports C/C++ and Python Connectors now, will support more connectors later.</p>
+		<a href="docs/crossdb/ddl/#table">
+			<h2>💮 Auto-Upgrade</h2>
+			<p>Change your struct, existing table will be upgraded automatically for you.</p>
 		</a>
     </div>
 
     <div class="cdb-card"> 
-		<a href="Troubleshooting/Overview">
-			<h2>♻️ Best Practice</h2>
-			<p>Use CDB to Manage Data, do Data-Driven Programming, ISSU, distribut provisioning, etc.</p>
+		<a href="docs/crossdb/ddl">
+			<h2>♻️ ISSU</h2>
+			<p>Put all your program ISSU data into CrossDB, then you get In-Service Software Upgrade feature easily.</p>
 		</a>
     </div>
 
     <div class="cdb-card"> 
-		<a href="Troubleshooting/Overview">
-			<h2>🌄 Troubleshooting</h2>
-			<p>CDB supports CLI, WEB, Staticstics, Status, Log, DB backup and restore to do troubleshooting.</p>
+		<a href="docs/get-started">
+			<h2>🌄 Out-of-the-Box</h2>
+			<p>No complex configuration or provisioning, single header file and library. Very easy to learn and use.</p>
 		</a>
     </div>
-	
+
   </div>
 
 ## CrossDB Model
 
 ![img](images/crossdb_model.png)
 
-## 5 Minutes to Learn CrossDB
+## Learn CrossDB in 5 Minutes {#lean-in-5m}
 
 === "🛶 Schema"
 	``` c linenums="1"
@@ -223,4 +223,8 @@ hide:
 	CHECK (ret, "Failed to commit transaction");
 	```
 
-## [Want to Lean More?](docs/)
+## Want to Lean More?
+<p>
+	<a class="cdb-button cdb-button-primary" href="docs/get-started">Get Started 🧭</a> 
+	<a class=cdb-button href="docs/tutorial">Tutorial 📜</a>
+</p>

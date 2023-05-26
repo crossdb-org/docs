@@ -1,5 +1,4 @@
 ---
-title: Privacy Notice
 hide:
   - feedback
 ---

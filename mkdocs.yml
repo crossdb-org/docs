@@ -185,32 +185,24 @@ markdown_extensions:
 nav:
   - Home:                               index.md  
   - Products:
-    - Overview:                         products/overview.md
-    - Features:                         products/features.md
-    - Download:                         products/download.md
-    - Sponsor:                          products/price.md
-    #- Sponsor:                          products/sponsor.md
+    - products/products.md
+    - products/download.md
+    - products/CHANGELOG.md
   - Document:
-    - Tutorial:
-      - Introduction:                   docs/crossdb/tutorial/introduction.md
-      - Getting Started:                docs/crossdb/tutorial/getting-started.md
+    - docs/introduction.md
+    - docs/get-started.md
+    - docs/tutorial.md
     - Embedded Database Core:
-      - API Reference:                  docs/crossdb/api.md
-    - Reference:
-      - CrossLine:                      docs/reference/crossline.md
-      - Markdown:                       docs/reference/markdown.md
-      - API:                            
-        - All:                          docs/reference/api/cdb__api_8h.md
-        - Database:                     docs/reference/api/group__Database.md
-        - Table:                        docs/reference/api/group__Table.md
+      - docs/crossdb/schema.md
+      - docs/crossdb/ddl.md
+      - docs/crossdb/dml.md
+      - docs/crossdb/cursor.md
+      - docs/crossdb/transaction.md
+      - docs/crossdb/misc.md
+      - docs/crossdb/api.md
   - Blog:
-    - blog/test.md
-    - blog/avx512-in-golang.md
-    - blog/frontend-in-go-modules.md
-#    - blog/index.md
-#    - 2022:
-#      - blog/2022/pp-oo-db.md
+    - blog/why-new-embdb.md
   - About:
+    - About US:                         about/about.md
     - Community:                        about/community.md
     - FAQ:                              about/faq.md
-    - About US:                         about/about.md

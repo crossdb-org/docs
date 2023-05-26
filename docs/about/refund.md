@@ -1,5 +1,4 @@
 ---
-title: Refund Policy
 hide:
   - feedback
 ---

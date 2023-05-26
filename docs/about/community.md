@@ -1,7 +1,10 @@
 # Community
 
+## Report Bugs
+[Github Issues](https://github.com/crossdb-org/CrossDB/issues)
+
+## Require Fetures
+[Github Fetures](https://github.com/crossdb-org/CrossDB/issues)
+
 ## Discussion
-
-## Issue
-
-## Requirement
+[Github Discussion](https://github.com/crossdb-org/CrossDB/discussions)
