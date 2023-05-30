@@ -86,7 +86,12 @@ hide:
 
 ## CrossDB Model
 
-![img](images/crossdb_model.png)
+<figure class="cdb-figure">
+	<a href="docs/crossdb/rdbms">
+		<img src="../images/crossdb-model.png">
+	</a>
+</figure>
+
 
 ## Learn CrossDB in 5 Minutes {#lean-in-5m}
 

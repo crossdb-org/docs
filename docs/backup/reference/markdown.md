@@ -6,6 +6,8 @@ This Markdown cheat sheet provides a quick overview of all the Markdown syntax e
 
 ---
 
+<!–– comment -->
+
 ## Basic Syntax
 
 These are the elements outlined in John Gruber’s original design document. All Markdown applications support these elements.
@@ -157,10 +159,34 @@ See the section on [`code`](#code).
 
 abs img
 
-[![An old rock in the desert](/images/cdb-arch.png "Shiprock, New Mexico by Beau Rogers")](https://crossdb.org/)
+[![An old rock in the desert](/images/cdb.png "Shiprock, New Mexico by Beau Rogers")](https://crossdb.org/)
 
 rel img
-[![An old rock in the desert](../../images/cdb-arch.png "Shiprock, New Mexico by Beau Rogers")](https://crossdb.org/)
+[![An old rock in the desert](../../images/cdb.png "Shiprock, New Mexico by Beau Rogers")](https://crossdb.org/)
+
+Std img
+![Image title](../../images/crossdb-model.png)
+
+<figure markdown>
+  ![Image title](../../images/crossdb-model.png)
+  <figcaption>Image caption</figcaption>
+</figure>
+
+new fig
+<div class="cdb-figure">
+<figure>
+	<img src="../../../images/crossdb-model.png">
+</figure>
+</div>
+
+<figure class="cdb-figure">
+	<img src="../../../images/crossdb-model.png">
+</figure>
+
+gif
+<figure class="cdb-gif">
+	<img src="../img.gif">
+</figure>
 
 ![Image title](../../images/cdb-arch.png){ align=left width=400 }
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod

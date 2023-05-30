@@ -1,18 +1,9 @@
-# Database Definition
-
-- Decide where to store the database: on disk, on ramdisk or in memory.
-- Decide the database is accessed by single process or multiple proceses.
-- Use [cross_dbCreate](#cross_dbCreate) to create or open database.
-- Use [Schema](schema.md#schema) to define table scheam.
-- Decide Table Primary Key: fields list, index type.
-- Use [cross_dbTblCreate](#cross_dbtblcreate) to create or open table with schema defined above and provide the primary key.
-- Decide how many secondary indexes: fields list, index type, whether unique.
-- Use [cross_dbIdxCreate](#cross_dbidxcreate) to create table secondary index.
+# Database Definition APIs
 
 ## Database
 -------------------------------------------------------------------------------
 
-### Create Database {#cross_dbCreate}
+### cross_dbCreate {#cross_dbCreate}
 
 Create or Open Database
 ```c
@@ -76,8 +67,9 @@ Example
 	CHECK (ret, "Failed to create database");
 ```
 
-### Close Database {#cross_dbClose}
+### cross_dbClose {#cross_dbClose}
 
+Close Database
 ```c
 cross_ret cross_dbClose (cross_db_h hDb, uint32_t flags)
 ```
@@ -97,8 +89,9 @@ Returns
 > DB handle can't be used after close.
 
 
-### Drop Database {#cross_dbDrop}
+### cross_dbDrop {#cross_dbDrop}
 
+Drop Database
 ```c
 cross_ret cross_dbDrop (cross_db_h hDb, uint32_t flags)
 ```
@@ -115,13 +108,14 @@ Returns
 - `Other`:		Decode with [cross_errMsg](#cross_errmsg)
 
 > **Warning**
+> All tables and indexes will be removed.
 > DB handle can't be used after drop.
 
 
 ## Table
 -------------------------------------------------------------------------------
 
-### Create Table {#cross_dbtblcreate}
+### cross_dbtblcreate {#cross_dbtblcreate}
 
 Create or Open Table
 ```c
@@ -137,7 +131,7 @@ hDb      | In   | DB Handle
 phDb     | Out  | Table Handle
 tblName  | In   | Table Name
 pFields  | In   | Table [Schema](schema/) Fields
-priKey   | In   | Table Primary Key, default is HASH type
+priKey   | In   | Primary Key cloumn list seperated by `,`
 flags    | In   | See following tables
 
  Flag              | Descritpion
@@ -153,6 +147,10 @@ Returns
 Description
 
 - If table exists and pFields is different with table schema, table will be upgraded automatically.
+- If you want to know if table exists, you can use `CROSS_DB_OPEN` to get handle first.
+- Primary Key is `HASH` type by default to achieve highest performance.
+- If you don't care about performance, you can set `CROSS_DB_BTREE` to create `BTREE` type Primary Key.
+- If you need both exact match and range match for Primary Key, you can create another `RBTREE` index with same column list.
 
 Example
 
@@ -171,7 +169,9 @@ Example
 ```
 
 
-### Drop Table {#cross_dbTblDrop}
+### cross_dbTblDrop {#cross_dbTblDrop}
+
+Drop Table
 ```c
 cross_ret cross_dbTblDrop (cross_tbl_h hTbl, uint32_t flags);
 ```
@@ -189,20 +189,58 @@ Returns
 - `Other`:		Decode with [cross_errMsg](#cross_errmsg)
 
 > **Warning**
-> DB handle can't be used after drop.
+> Table handle can't be used after drop.
 
 
 ## Index
 -------------------------------------------------------------------------------
 
-### cross_dbIdxCreate
+### cross_dbIdxCreate {#cross_dbIdxCreate}
+
+Create Index on Table
 ```c
 cross_ret cross_dbIdxCreate (cross_tbl_h hTbl, const char *idxName, const char *fldsStr, uint32_t flags);
 ```
 
-### cross_dbIdxDrop
+Parameters
+
+ Arg     | Type | Descritpion
+ ----    | ---- | ----
+hTbl     | In   | Table Handle
+idxName  | In   | index name(table scope)
+fldsStr  | In   | cloumn list seperated by `,`
+
+ Flag              | Descritpion
+ ----              | ----
+CROSS_DB_HASH      | Index type HASH (default)
+CROSS_DB_RBTREE    | Index type RBTREE
+CROSS_DB_UNIQUE    | Index is Unique
+
+Description
+
+- Default index is `HASH` type.
+- `HASH` index has highest O(1) performance. It's optimized a lot to achieve best performance.
+- `HASH` index can dynamically scale with table rows number to get high performance.
+- `HASH` index only supports exact match.
+- `RBTREE` index is almost the same with popular RDBMS BTree, which is core index engine of RDBMS.
+- `RBTREE` index can support exact match, range match and leftmost prefix match with multiple-column.
+- If one query matches both HASH index and BTREE index, then Hash index is selected in most cases.
+- You can create `HASH` index for high performance query and `BTREE` index for normal performance queries.
+- Index is not free, it occupies space and all inexes may be updated during INSERT/UPDATE/DELET row.
+
+Example
+
+
+### cross_dbIdxDrop {#cross_dbIdxDrop}
+
+Drop Table Index
 ```c
 cross_ret cross_dbIdxDrop (cross_tbl_h hTbl, const char *idxName, uint32_t flags);
 ```
+Parameters
 
-
+ Arg     | Type | Descritpion
+ ----    | ---- | ----
+hTbl     | In   | Table Handle
+idxName  | In   | index name(table scope)
+flags    | In   | Not used

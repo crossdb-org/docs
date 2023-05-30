@@ -183,26 +183,29 @@ markdown_extensions:
  
 # Page tree
 nav:
-  - Home:                               index.md  
+  - index.md  
   - Products:
     - products/products.md
     - products/download.md
     - products/CHANGELOG.md
   - Document:
-    - docs/introduction.md
-    - docs/get-started.md
-    - docs/tutorial.md
-    - Embedded Database Core:
-      - docs/crossdb/schema.md
+    - Get Started:
+      - docs/introduction.md
+      - docs/get-started.md
+      - docs/tutorial.md
+    - CrossDB Programming Guide:
+      - docs/crossdb/rdbms.md
       - docs/crossdb/ddl.md
       - docs/crossdb/dml.md
-      - docs/crossdb/cursor.md
-      - docs/crossdb/transaction.md
-      - docs/crossdb/misc.md
-      - docs/crossdb/api.md
+    - API Reference:
+      - docs/api/api.md
+      - docs/api/schema.md
+      - docs/api/ddl.md
+      - docs/api/dml.md
+      - docs/api/misc.md
   - Blog:
     - blog/why-new-embdb.md
   - About:
-    - About US:                         about/about.md
-    - Community:                        about/community.md
-    - FAQ:                              about/faq.md
+    - about/about.md
+    - about/community.md
+    - about/faq.md
