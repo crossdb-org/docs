@@ -16,7 +16,8 @@ copyright: 'Copyright &copy; 2023 CrossDB |
             <a href="/about/privacy">Privacy</a> | 
             <a href="/about/refund">Refund</a> | 
             <a href="/about/about">About</a> | 
-            <span id="busuanzi_container_page_pv">View <span id="busuanzi_value_page_pv"></span>'
+            <span id="busuanzi_container_site_uv">Visitor <span id="busuanzi_value_site_uv"></span> |
+            <span id="busuanzi_container_page_pv">View <span id="busuanzi_value_page_pv"></span> '
 
 # Configuration
 theme:
