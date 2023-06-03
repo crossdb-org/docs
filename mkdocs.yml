@@ -42,6 +42,7 @@ theme:
     # - header.autohide
     # - navigation.expand
     - navigation.indexes
+    - navigation.footer
     # - navigation.instant
     # - navigation.prune
     #- navigation.sections
@@ -115,15 +116,17 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/crossdb-org/crossdb
       name: Github
-    - icon: fontawesome/brands/stack-overflow
-      link: https://stackoverflow.com/questions/tagged/CrossDB
-      name: Stackoverflow
-    - icon: fontawesome/brands/github-alt
-      link: https://github.com/crossdb-org/CrossDB/discussions
-      name: Discussion
+#    - icon: fontawesome/brands/stack-overflow
+#      link: https://stackoverflow.com/questions/tagged/CrossDB
+#      name: Stackoverflow
+#    - icon: fontawesome/brands/github-alt
+#      link: https://github.com/crossdb-org/CrossDB/discussions
+#      name: Discussion
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/CrossDbOrg
       name: Twitter
+    - icon: fontawesome/solid/envelope
+      link: mailto:support@crossdb.org
 #  alternate:
 #    - name: English
 #      link: /
@@ -189,22 +192,21 @@ nav:
     - products/download.md
     - products/CHANGELOG.md
   - Document:
-    - Get Started:
-      - docs/introduction.md
-      - docs/get-started.md
-      - docs/tutorial.md
-    - CrossDB Programming Guide:
-      - docs/crossdb/rdbms.md
-      - docs/crossdb/ddl.md
+    - docs/introduction.md
+    - docs/get-started.md
+    - Embedded RDBMS:
+      - docs/crossdb/database.md
+      - docs/crossdb/schema.md
+      - docs/crossdb/table.md
+      - docs/crossdb/indexes.md
       - docs/crossdb/dml.md
     - API Reference:
       - docs/api/api.md
-      - docs/api/schema.md
       - docs/api/ddl.md
       - docs/api/dml.md
       - docs/api/misc.md
-  - Blog:
-    - blog/why-new-embdb.md
+#  - Blog:
+#    - blog/why-new-embdb.md
   - About:
     - about/about.md
     - about/community.md

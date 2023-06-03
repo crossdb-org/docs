@@ -1,3 +1,7 @@
+---
+template: overrides/blog.html
+---
+
 # Community
 
 ## Report Bugs

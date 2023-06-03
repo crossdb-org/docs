@@ -1,3 +1,7 @@
+---
+template: overrides/blog.html
+---
+
 # Table
 **CrosDB** Table is a collection of rows(record or tuple) and columns.
 
@@ -13,5 +17,30 @@
 - Primay Key column list shouldn't change during the row lifecycle.
 - Primary Key is implemented with unique `HASH` index for high performance. You can change to `RBTREE` as well.
 
+
+## Guide
+-------------------------------------------------------------------------------
+
+- If table exists and pFields is different with table schema, table will be upgraded automatically.
+- If you want to know if table exists, you can use `CROSS_DB_OPEN` to get handle first.
+- Primary Key is `HASH` type by default to achieve highest performance.
+- If you don't care about performance, you can set `CROSS_DB_BTREE` to create `BTREE` type Primary Key.
+- If you need both exact match and range match for Primary Key, you can create another `RBTREE` index with same column list.
+
+
 ## Example
 -------------------------------------------------------------------------------
+
+```c linenums="1"
+// Create table with PrimaryKey="prefix,mask", HASH Type
+ret = cross_dbTblCreate (hDb, &hRtTbl, "route", route_schema, "prefix,mask", 0);
+CHECK (ret, "Failed to create route table");
+
+// Create table with PrimaryKey="prefix,mask", BTREE Type
+ret = cross_dbTblCreate (hDb, &hRtTbl, "route", route_schema, "prefix,mask", CROSS_DB_BTREE);
+CHECK (ret, "Failed to create route table");
+
+// Get table handle
+ret = cross_dbTblCreate (hDb, &hRtTbl, "route", NULL, NULL, CROSS_DB_OPEN);
+CHECK (ret, "Failed to get route table");
+```

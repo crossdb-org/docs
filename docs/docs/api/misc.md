@@ -1,7 +1,13 @@
-## Misc
+---
+template: overrides/blog.html
+---
 
-### cross_errMsg {#cross_errMsg}
+# Misc APIs
+
+## cross_errMsg {#cross_errMsg}
+
+Return error code message
 ```c
-const char *cross_errMsg (cross_ret ret);
+const char*
+cross_errMsg (cross_ret ret);
 ```
-

@@ -1,3 +1,7 @@
+---
+template: overrides/blog.html
+---
+
 ## Schema Definition
 
 Schem is used to define CrossDB table and it's defined based on C struct with some CrossDB macro.
@@ -32,7 +36,7 @@ CrossDB Format
 
 Example
 
-```c
+```c linenums="1"
 typedef struct {
 	char			val_char;
 	int64_t			val_int64;
@@ -56,7 +60,7 @@ typedef struct {
 Set `CROSS_STRUCT_NAME` to the struct name `basic_types_t` for `CROSS_FIELD` to define the schema entry. 
 `CROSS_END` is used to mark the end of schema definition.
 
-```c
+```c linenums="1"
 #undef	CROSS_STRUCT_NAME
 #define	CROSS_STRUCT_NAME	basic_types_t
 cross_field_t 	basic_types_schema[] = {
@@ -82,7 +86,7 @@ cross_field_t 	basic_types_schema[] = {
 To keep struct and schema in header file, you can define them together like following way.
 
 Define macro `ROUTE_SCHEMA()` in header file
-```c
+```c linenums="1"
 // In header file
 typedef struct {
 	uint32_t 			prefix;
@@ -107,7 +111,7 @@ typedef struct {
 ```
 
 Define schema in source file. `CROSS_END` can be define in `route_schema` also then you can reuse the macro `ROUTE_SCHEMA()` or combine them.
-```c
+```c linenums="1"
 	// In source file
 	#undef	CROSS_STRUCT_NAME
 	#define	CROSS_STRUCT_NAME	route_t
@@ -115,5 +119,3 @@ Define schema in source file. `CROSS_END` can be define in `route_schema` also t
 		ROUTE_SCHEMA()
 	}
 ```
-
-

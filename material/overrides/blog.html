@@ -5,20 +5,25 @@
 {% block content %}
   {{ super() }}
   <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
-  <script src="https://giscus.app/client.js"
-    data-repo="cross-db/crossdb"
-    data-repo-id="R_kgDOHf7xYg"
-    data-category="_Blog Comments"
-    data-category-id="DIC_kwDOHf7xYs4CP6kp"
-    data-mapping="pathname"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="light"
-    data-lang="en"
-    crossorigin="anonymous"
-    async>
-  </script>
+<script src="https://giscus.app/client.js"
+        data-repo="crossdb-org/docs"
+        data-repo-id="R_kgDOHf96fA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOHf96fM4CWGDD"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!--
+        data-lang="zh-CN"
+-->
 
   <script>
   var giscus = document.querySelector("script[src*=giscus]")
