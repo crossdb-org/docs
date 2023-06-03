@@ -2,227 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://crossdb.org/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/community/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/about/about/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/connector/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/about/community/</loc>
+         <lastmod>2023-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://crossdb.org/about/faq/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/privacy/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/refund/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/terms/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/appendix/changelog/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/backup/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/appendix/faq/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/backup/features/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/appendix/internals/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/backup/introduction/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/appendix/reference/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/backup/usecases/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/best-practice/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/backup/blog/avx512-in-golang/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/blog/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/backup/blog/frontend-in-go-modules/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/blog/2022/pp-oo-db/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/backup/reference/crossline/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/c-orm/orm-api/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/backup/reference/markdown/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/c-orm/overview/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/blog/why-new-embdb/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/c-orm/schema/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/get-started/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/fkey-trigger/cascade-trigger/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/introduction/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/fkey-trigger/data-driven/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/api/api/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/fkey-trigger/foreign-key/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/api/ddl/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/fkey-trigger/overview/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/api/dml/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/fkey-trigger/trigger/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/api/misc/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/product/buy/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/crossdb/database/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/product/buy2/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/crossdb/dml/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/product/buy3/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/crossdb/indexes/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/product/crossdb/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/crossdb/schema/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/product/price/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/docs/crossdb/table/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/pubsub/overview/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/products/CHANGELOG/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/pubsub/pubsub-model/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/products/download/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/pubsub/replication/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/products/price/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/pubsub/reverse-pubsub/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/products/products/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://crossdb.org/rdbms/overview/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/rdbms/rdbms-model/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/rdbms/sql/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/rpc/Serailization/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/rpc/overview/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/rpc/rpc-model/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/server/event-loop/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/server/overview/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/server/scheduler/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/troubleshooting/db-log/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/troubleshooting/overview/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/troubleshooting/shell/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/troubleshooting/web-gui/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/tutorial/getting-started/</loc>
-         <lastmod>2023-04-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://crossdb.org/tutorial/introduction/</loc>
-         <lastmod>2023-04-10</lastmod>
+         <loc>https://crossdb.org/products/sponsor/</loc>
+         <lastmod>2023-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
