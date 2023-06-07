@@ -5,15 +5,25 @@ template: overrides/blog.html
 # Get Started
 
 ## Download
+-------------------------------------------------------------------------------
 
 Choose the OS and CPU, then [**Download**](https://crossdb.org/products/download/) here.
 
-Linux package file list
+**Linux package file list**
 
  File             | Descritpion
  ----             | ----
 crossdb.h         | The only header file
 libcrossdb.so     | The only shared library
+examples/         | CrossDB example code
+
+**Windows package file list**
+
+ File             | Descritpion
+ ----             | ----
+crossdb.h         | The only header file
+crossdb.dll       | The only shared library
+crossdb.lib       | For build with MSCV compiler
 examples/         | CrossDB example code
 
 <!--
@@ -26,7 +36,10 @@ schema.c   | CrossDB Schema Example
 upgrade/   | `old.c` is old struct program, `new.c` is new struct program
 -->
 
-## Run Examples
+## Linux
+-------------------------------------------------------------------------------
+
+### Run Examples
 
 ```sh
 cd examples
@@ -39,7 +52,7 @@ cd examples
 
 ```
 
-## Build in your project
+### Build in your project
 
 - You can check examples/build.sh to build the library in project folder.
 
@@ -53,6 +66,51 @@ cd examples
 	```
 
 	2\. Build this way: `gcc my.c -lcrossdb -pthread -ldl`
+
+
+## Windows
+-------------------------------------------------------------------------------
+
+### Run Examples with MSVC
+
+Start `Visual Studio` command line from menu `x64 Native Tools Command Prompt for VS 20xx`
+
+Enter CrossDB package folder
+
+```sh
+cd examples
+
+build example.c
+example.exe
+
+build tutorial.c
+tutorial.exe
+
+```
+
+### Run Examples with MINGW64
+
+```sh
+cd examples
+
+./build.sh example.c
+./example.bin
+
+./build.sh tutorial.c
+./tutorial.bin
+
+```
+
+>**Note**
+>You can run in `git bash` or `MSYS2 MINGW64`
+>If you only have MINGW64, you an run in commandline
+>
+>`gcc -o example.exe -Wall -O2 example.c -I.. crossdb.dll`
+
+### Build in your project
+
+- For `MINGW64`, you can just use `crossdb.h` and `crossdb.dll` to compile.
+- For `Visual Studio`, You can add `crossdb.h` `crossdb.lib` and `crossdb.dll` to your project.
 
 <!--
 === "🛶 Windows MSVC Command Line"
