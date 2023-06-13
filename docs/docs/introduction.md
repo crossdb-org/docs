@@ -13,7 +13,7 @@ improve development efficiency for embedded application or embedded system devel
 - Support X86/ARM/PPC/MIPS etc CPU
 - Support OnDisk/In-memory/RamDisk Storage
 - Support Primary Key and multiple Secondary Index
-- Support Standard HASH and BTREE Index
+- Support HASH and RBTREE Index
 - Support Multi-columns Index
 - Support Exact Match, Leftmost Match, Range Match
 - Support C/C++ Struct/Union ORM APIs

@@ -22,15 +22,15 @@ phDb     | out  | DB Handle
 dbName   | in   | DB Name(can with Path)
 flags    | [in] | See following tables
 
- Flag              | Descritpion
- ----              | ----
-CROSS_DB_ONDISK    | DB is on persistent disk, survive with power cycle (Default)
-CROSS_DB_RAMDISK   | DB is on ramdisk/tmpfs/ramfs, survive with process restart, lose after power cycle
-CROSS_DB_INMEM     | DB is in memory, survie when process is runnig, lose after process terminates
-CROSS_DB_EXCLUSIVE | DB is used exclusively by single process (Default)
-CROSS_DB_SHARED    | DB is shared by multiple processes
-CROSS_DB_AUTOLOCK  | DB will do lock automatically (Default)
-CROSS_DB_OPEN      | Open DB (don't create if not exist)
+ Flag           | Descritpion
+ ----           | ----
+CROSS_ONDISK    | DB is on persistent disk, survive with power cycle (Default)
+CROSS_RAMDISK   | DB is on ramdisk/tmpfs/ramfs, survive with process restart, lose after power cycle
+CROSS_INMEM     | DB is in memory, survie when process is runnig, lose after process terminates
+CROSS_EXCLUSIVE | DB is used exclusively by single process (Default)
+CROSS_SHARED    | DB is shared by multiple processes
+CROSS_AUTOLOCK  | DB will do lock automatically (Default)
+CROSS_OPEN      | Open DB (don't create if not exist)
 
 Returns
 
@@ -108,10 +108,10 @@ pFields  | [in] | Table [Schema](schema/) Fields
 priKey   | [in] | Primary Key cloumn list seperated by `,`
 flags    | [in] | See following tables
 
- Flag              | Descritpion
- ----              | ----
-CROSS_DB_BTREE     | Primary Key is BTREE
-CROSS_DB_OPEN      | Open DB (don't create if not exist)
+ Flag           | Descritpion
+ ----           | ----
+CROSS_RBTREE    | Primary Key is RBTREE
+CROSS_OPEN      | Open DB (don't create if not exist)
 
 Returns
 
@@ -164,11 +164,11 @@ idxName  | in   | index name(table scope)
 fldsStr  | in   | cloumn list seperated by `,`
 flags    | [in] | See following tables
 
- Flag              | Descritpion
- ----              | ----
-CROSS_DB_HASH      | index type HASH (default)
-CROSS_DB_RBTREE    | index type RBTREE
-CROSS_DB_UNIQUE    | index is Unique
+ Flag           | Descritpion
+ ----           | ----
+CROSS_HASH      | index type HASH (default)
+CROSS_RBTREE    | index type RBTREE
+CROSS_UNIQUE    | index is Unique
 
 Returns
 

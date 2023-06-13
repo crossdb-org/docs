@@ -3,6 +3,17 @@
 We provide precompiled binaries for CrossDB components.  
 [Download the latest release](https://github.com/crossdb-org/CrossDB/releases) of CrossDB for your platform.
 
+## CrossDB v0.3.0
+
+* 2023-06-13 [Release notes](CHANGELOG.md#0.3.0)
+
+ File Name | OS | Arch
+ --------- | -------- | ----
+ [crossdb-0.3.0-linux-x64.tar.gz](https://github.com/crossdb-org/CrossDB/releases/download/0.3.0/crossdb-0.3.0-linux-x64.tar.gz) | Linux | X64
+ [crossdb-0.3.0-linux-arm64.tar.gz](https://github.com/crossdb-org/CrossDB/releases/download/0.3.0/crossdb-0.3.0-linux-arm64.tar.gz) | Linux | ARM64
+ [crossdb-0.3.0-windows-x64.zip](https://github.com/crossdb-org/CrossDB/releases/download/0.3.0/crossdb-0.3.0-windows-x64.zip) | Windows | X64
+ [crossdb-0.3.0-macos.tar.gz](https://github.com/crossdb-org/CrossDB/releases/download/0.3.0/crossdb-0.3.0-macos.tar.gz) | Windows | X64 and ARM64
+
 ## CrossDB v0.2.0
 
 * 2023-06-07 [Release notes](CHANGELOG.md#0.2.0)

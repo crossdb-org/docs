@@ -297,7 +297,7 @@ phCursor | io\|out | Return Cursor handle or
 pMatFlds | in    | Fields to match
 pMatRow  | in    | Row buffer with match row
 pSelFlds | [in]  | Select specified fields
-flags    | [in]  | `CROSS_DB_REUSE` means phCursor points to a valid cursor handle and it'll be reused
+flags    | [in]  | `CROSS_REUSE` means phCursor points to a valid cursor handle and it'll be reused
 
 Returns
 

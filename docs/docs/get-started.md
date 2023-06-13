@@ -26,6 +26,14 @@ crossdb.dll       | The only shared library
 crossdb.lib       | For build with MSCV compiler
 examples/         | CrossDB example code
 
+**MacOS package file list**
+
+ File             | Descritpion
+ ----             | ----
+crossdb.h         | The only header file
+libcrossdb.dylib  | The only shared library for X64 and AMD64
+examples/         | CrossDB example code
+
 <!--
 examples List
  File      | Descritpion
@@ -54,14 +62,14 @@ cd examples
 
 ### Build in your project
 
-- You can check examples/build.sh to build the library in project folder.
+- You can check examples/build.sh to build the library in your project folder.
 
 - Yo can also install CrossDB globally and use it as common library.
 
-	1\. Install `libcrossdb.so` to `/usr/lib` and `crossdb.h` to `/usr/include`
+	1\. Install `libcrossdb.so` to `/usr/lib`
 
 	```c
-	#include <crossdb.h>
+	#include "crossdb.h"
 	// your code
 	```
 
@@ -111,6 +119,39 @@ cd examples
 
 - For `MINGW64`, you can just use `crossdb.h` and `crossdb.dll` to compile.
 - For `Visual Studio`, You can add `crossdb.h` `crossdb.lib` and `crossdb.dll` to your project.
+
+
+## MacOS
+-------------------------------------------------------------------------------
+
+### Run Examples
+
+```sh
+cd examples
+
+./build.sh example.c
+./example.bin
+
+./build.sh tutorial.c
+./tutorial.bin
+
+```
+
+### Build in your project
+
+- You can check examples/build.sh to build the library in your project folder.
+
+- Yo can also install CrossDB globally and use it as common library.
+
+	1\. Install `libcrossdb.dylib` to `/usr/local/lib`
+
+	```c
+	#include "crossdb.h"
+	// your code
+	```
+
+	2\. Build this way: `clang my.c -lcrossdb`
+
 
 <!--
 === "🛶 Windows MSVC Command Line"

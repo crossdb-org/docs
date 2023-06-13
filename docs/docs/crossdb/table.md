@@ -22,9 +22,9 @@ template: overrides/blog.html
 -------------------------------------------------------------------------------
 
 - If table exists and pFields is different with table schema, table will be upgraded automatically.
-- If you want to know if table exists, you can use `CROSS_DB_OPEN` to get handle first.
+- If you want to know if table exists, you can use `CROSS_OPEN` to get handle first.
 - Primary Key is `HASH` type by default to achieve highest performance.
-- If you don't care about performance, you can set `CROSS_DB_BTREE` to create `BTREE` type Primary Key.
+- If you don't care about performance, you can set `CROSS_RBTREE` to create `RBTREE` type Primary Key.
 - If you need both exact match and range match for Primary Key, you can create another `RBTREE` index with same column list.
 
 
@@ -36,11 +36,11 @@ template: overrides/blog.html
 ret = cross_dbTblCreate (hDb, &hRtTbl, "route", route_schema, "prefix,mask", 0);
 CHECK (ret, "Failed to create route table");
 
-// Create table with PrimaryKey="prefix,mask", BTREE Type
-ret = cross_dbTblCreate (hDb, &hRtTbl, "route", route_schema, "prefix,mask", CROSS_DB_BTREE);
+// Create table with PrimaryKey="prefix,mask", RBTREE Type
+ret = cross_dbTblCreate (hDb, &hRtTbl, "route", route_schema, "prefix,mask", CROSS_RBTREE);
 CHECK (ret, "Failed to create route table");
 
 // Get table handle
-ret = cross_dbTblCreate (hDb, &hRtTbl, "route", NULL, NULL, CROSS_DB_OPEN);
+ret = cross_dbTblCreate (hDb, &hRtTbl, "route", NULL, NULL, CROSS_OPEN);
 CHECK (ret, "Failed to get route table");
 ```

@@ -33,14 +33,14 @@ Steps to define a database
 
 **RamDisk Database**
 
-- Database is on `ramdisk` `tmpfs` `ramfs`(`CROSS_DB_RAMDISK`), survive with process restart, lose after power cycle. 
+- Database is on `ramdisk` `tmpfs` `ramfs`(`CROSS_RAMDISK`), survive with process restart, lose after power cycle. 
 - This is designed for process runtime databse and the transaction performance is higher than On-Disk database. 
 - The performance is almost the same with In-Memory database. 
 - For Linux embedded system, this is the prefered database as the database can be viewed and stayed there even process crashed.
 
 **In-Memory Database**
 
-- Database is in memory(`CROSS_DB_INMEM`), survie when process is runnig, lose after process terminates. 
+- Database is in memory(`CROSS_INMEM`), survie when process is runnig, lose after process terminates. 
 - This is not recommented, but if you don't want the process runtime database visible, it's the solution.
 
 
@@ -53,7 +53,7 @@ Steps to define a database
 
 **Shared**
 
-- Databse is accessd by multiple process(`CROSS_DB_SHARED`), then performance will be low as file lock is used to access DB which can recover lock when process crashed.
+- Databse is accessd by multiple process(`CROSS_SHARED`), then performance will be low as file lock is used to access DB which can recover lock when process crashed.
 
 > **Note**
 > Database is accessed exclusively by default.
@@ -81,14 +81,14 @@ ret = cross_dbCreate (&hDb, "ondiskdb", 0);
 CHECK (ret, "Failed to create database");
 
 // Create on disk database for multiple process access
-ret = cross_dbCreate (&hDb, "cdb_data/shareddb", CROSS_DB_SHARED);
+ret = cross_dbCreate (&hDb, "cdb_data/shareddb", CROSS_SHARED);
 CHECK (ret, "Failed to create database");
 
 // Create ramdisk database for single process access
-ret = cross_dbCreate (&hDb, "/tmp/cdb_data/mydb", CROSS_DB_RAMDISK);
+ret = cross_dbCreate (&hDb, "/tmp/cdb_data/mydb", CROSS_RAMDISK);
 CHECK (ret, "Failed to create database");
 
 // Create in memory database
-ret = cross_dbCreate (&hDb, "imdb", CROSS_DB_INMEM);
+ret = cross_dbCreate (&hDb, "imdb", CROSS_INMEM);
 CHECK (ret, "Failed to create database");
 ```

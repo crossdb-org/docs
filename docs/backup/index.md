@@ -118,12 +118,12 @@ hide:
 	``` c linenums="1"
 	// Open ondisk database (create if not exist)
 	printf ("Open databse: mydb\n");
-	ret = cross_dbOpen (&hDb, "mydb", CROSS_DB_CREATE|CROSS_DB_ONDISK);
+	ret = cross_dbOpen (&hDb, "mydb", CROSS_CREATE|CROSS_ONDISK);
 	CHECK (ret, "Failed to open mydb");
 
 	// Open table (create if not exist), PrimaryKey is ipAddr,mask
 	printf ("Open table: route\n");
-	ret = cross_tblOpen (hDb, &hRtTbl, "route", route_schema, "ipAddr,mask", CROSS_DB_CREATE);
+	ret = cross_tblOpen (hDb, &hRtTbl, "route", route_schema, "ipAddr,mask", CROSS_CREATE);
 	CHECK (ret, "Failed to open route table");
 
 	// Create index on nexthop to accelarate lookup by nexthop
