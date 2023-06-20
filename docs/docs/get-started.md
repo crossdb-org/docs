@@ -9,7 +9,7 @@ template: overrides/blog.html
 
 Choose the OS and CPU, then [**Download**](https://crossdb.org/products/download/) here.
 
-**Linux package file list**
+**Linux/FreeBSD package file list**
 
  File             | Descritpion
  ----             | ----
@@ -44,7 +44,7 @@ schema.c   | CrossDB Schema Example
 upgrade/   | `old.c` is old struct program, `new.c` is new struct program
 -->
 
-## Linux
+## Linux/FreeBSD
 -------------------------------------------------------------------------------
 
 ### Run Examples
