@@ -2,162 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://crossdb.org/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/about/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/community/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/faq/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/privacy/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/refund/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/terms/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/backup/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/backup/features/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/backup/introduction/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/backup/usecases/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/backup/blog/avx512-in-golang/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/backup/blog/frontend-in-go-modules/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/backup/reference/crossline/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/backup/reference/markdown/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/blog/why-new-embdb/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/get-started/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/introduction/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/api/api/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/api/ddl/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/api/dml/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/api/misc/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/crossdb/database/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/crossdb/dml/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/crossdb/indexes/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/crossdb/schema/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/docs/crossdb/table/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/products/CHANGELOG/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/products/download/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/products/price/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/products/products/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/products/sponsor/</loc>
-         <lastmod>2023-06-13</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
