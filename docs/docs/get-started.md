@@ -15,7 +15,7 @@ Choose the OS and CPU, then [**Download**](https://crossdb.org/products/download
  ----             | ----
 crossdb.h         | The only header file
 libcrossdb.so     | The only shared library
-crossdb-cli       | CrossDB command line tool
+[crossdb-cli](../reference/crossdb-cli)       | CrossDB command line tool
 examples/         | CrossDB example code
 
 **Windows package file list**
@@ -25,7 +25,7 @@ examples/         | CrossDB example code
 crossdb.h         | The only header file
 crossdb.dll       | The only shared library
 crossdb.lib       | For build with MSCV compiler
-crossdb-cli.exe   | CrossDB command line tool
+[crossdb-cli.exe](../reference/crossdb-cli)       | CrossDB command line tool
 examples/         | CrossDB example code
 
 **MacOS package file list**
@@ -34,7 +34,7 @@ examples/         | CrossDB example code
  ----             | ----
 crossdb.h         | The only header file
 libcrossdb.dylib  | The only shared library for X64 and AMD64
-crossdb-cli       | CrossDB command line tool
+[crossdb-cli](../reference/crossdb-cli)       | CrossDB command line tool
 examples/         | CrossDB example code
 
 <!--
@@ -156,20 +156,20 @@ cd examples
 	2\. Build this way: `clang my.c -lcrossdb`
 
 
-<!--
-=== "🛶 Windows MSVC Command Line"
-	``` c linenums="1"
-	start cl
-	c1 example.c -llib
-	```
+## Use CrossDB CLI
+-------------------------------------------------------------------------------
 
-=== "🛶 MacOS/FreeBSD clang"
-	``` c linenums="1"
-	clang example.c -llib
-	```
+```sql
+../crossdb-cli db_data
 
-=== "🛶 Linux gcc"
-	``` c linenums="1"
-	gcc example.c -llib
-	```
--->
+CrossDB> insert into route set prefix=1.1.1.1 mask=24 nexthop=1.1.1.254 metric=5 intf='eth1'
+
+CrossDB> select * from route
+ID  prefix   mask  nexthop    metric  intf  birth                flags
+==  =======  ====  =========  ======  ====  ===================  =====
+1   1.1.1.1  24    1.1.1.254  5       eth1  1970-01-01T08:00:00  0x0
+
+Qualified Rows: 1       Select Rows: 1    Use time 2us QPS 500000
+```
+
+More commands can be found [here](../reference/crossdb-cli)

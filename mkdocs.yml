@@ -200,12 +200,16 @@ nav:
       - docs/crossdb/schema.md
       - docs/crossdb/table.md
       - docs/crossdb/indexes.md
+      - docs/crossdb/transaction.md
       - docs/crossdb/dml.md
     - API Reference:
       - docs/api/api.md
       - docs/api/ddl.md
       - docs/api/dml.md
       - docs/api/misc.md
+    - Reference:
+      - docs/reference/crossdb-cli.md
+      - docs/reference/crossbench.md
 #  - Blog:
 #    - blog/why-new-embdb.md
   - About:

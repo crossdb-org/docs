@@ -45,3 +45,7 @@ cross_ret   | [**cross_dbTransRollback**](dml.md#cross_dbTransRollback)	(cross_d
 |           | API                   | Descritpion
  ----       | ----                  | ----
 const char* | [**cross_errMsg**](misc.md#cross_errMsg) (cross_db_h hDb, uint32_t flags) | Return error code message
+cross_ret   | [**cross_fieldsCreate**](misc.md#cross_fieldsCreate) (cross_tbl_h hTbl, cross_fields_h *phFlds, const char *FldsStr, uint32_t flags) | Create fields handle
+void        | [**cross_fieldsFree**](misc.md#cross_fieldsFree) (cross_fields_h hFlds) | Free fields handle
+cross_ret   | [**cross_matchCreate**](misc.md#cross_matchCreate) (cross_tbl_h hTbl, cross_match_h *phMatch, const char *MatchStr, uint32_t flags) | Create match handle
+void        | [**cross_matchFree**](misc.md#cross_matchFree) (cross_match_h hMatch) | Free match handle

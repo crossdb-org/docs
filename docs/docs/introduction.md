@@ -9,7 +9,7 @@ improve development efficiency for embedded application or embedded system devel
 
 ## Features
 
-- Support Multiple OS Platform: Linux/Windows/MacOS etc
+- Support Multiple OS Platform: Linux/Windows/MacOS/FreeBSD etc
 - Support X86/ARM/PPC/MIPS etc CPU
 - Support OnDisk/In-memory/RamDisk Storage
 - Support Primary Key and multiple Secondary Index

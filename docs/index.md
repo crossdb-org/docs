@@ -93,6 +93,15 @@ hide:
 </figure>
 
 
+## CrossDB CLI
+
+<figure class="cdb-figure">
+	<a href="docs/reference/crossdb-cli">
+		<img src="../images/crossdb-cli.gif">
+	</a>
+</figure>
+
+
 ## Learn CrossDB in 5 Minutes {#lean-in-5m}
 
 === "🛶 Schema"

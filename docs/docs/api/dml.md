@@ -75,7 +75,6 @@ Parameters
  ----    | ----  | ----
 hTbl     | in    | Table Handle
 pInRow   | in    | Row buffer with Primary Key
-pSelFlds | [in]  | Select specified fields
 pOutRow  | [out] | Row buffer to return DB row
 flags    | [in]  | Not used
 
@@ -87,8 +86,6 @@ Returns
 
 Description
 
-- `pSelFlds` can be cloumn list seperated by `,`,
-- `pSelFlds` = `NULL` returns whole row
 - `pOutRow` = NULL can be used to check if row exists by Primary Key
 - `pOutRow` can = `pInRow`
 
@@ -121,6 +118,7 @@ Returns
 Description
 
 - `pUpdFlds` can be cloumn list seperated by `,`
+- `pUpdFlds` can be handle created by [cross_fieldsCreate](misc.md#cross_fieldsCreate)
 - `pUpdFlds` = NULL will update whole DB row
 - `pUpdRow` can = `pInRow`
 
@@ -164,7 +162,6 @@ Parameters
 hTbl     | in    | Table Handle
 pMatFlds | in    | Fields to match
 pMatRow  | in    | Row buffer with match row
-pSelFlds | [in]  | Select specified fields
 pOutRow  | [out] | Row buffer to return DB row
 flags    | [in]  | Not used
 
@@ -183,8 +180,7 @@ Description
 	* `fld>=`: greater than or equal to match `dbRow.fld` >= `pMatRow.fld`.
 	* `fld<`: less match `dbRow.fld` < `pMatRow.fld`.
 	* `fld<=`: leas than or equal to match `dbRow.fld` < `pMatRow.fld`.
-- `pSelFlds` can be cloumn list seperated by `,`,
-- `pSelFlds` = `NULL` returns whole row
+- `pMatFlds` can be handle created by [cross_matchCreate](misc.md#cross_matchCreate)
 - `pOutRow` = NULL can be used to check if row exists
 
 
@@ -219,7 +215,9 @@ Returns
 Description
 
 - `pMatFlds` can be cloumn list seperated by `,`, they are `AND` together.  Refer [cross_dbGetOneRow](#cross_dbGetOneRow)
+- `pMatFlds` can be handle created by [cross_matchCreate](misc.md#cross_matchCreate)
 - `pUpdFlds` can be cloumn list seperated by `,`,
+- `pUpdFlds` can be handle created by [cross_fieldsCreate](misc.md#cross_fieldsCreate)
 - `pUpdFlds` = `NULL` updates whole row
 
 
@@ -248,6 +246,7 @@ Returns
 
 Description
 - `pMatFlds` can be cloumn list seperated by `,`, they are `AND` together.  Refer [cross_dbGetOneRow](#cross_dbGetOneRow)
+- `pMatFlds` can be handle created by [cross_matchCreate](misc.md#cross_matchCreate)
 
 
 ###  cross_dbGetRowsCount {#cross_dbGetRowsCount}
@@ -275,6 +274,7 @@ Returns
 
 Description
 - `pMatFlds` can be cloumn list seperated by `,`, they are `AND` together.  Refer [cross_dbGetOneRow](#cross_dbGetOneRow)
+- `pMatFlds` can be handle created by [cross_matchCreate](misc.md#cross_matchCreate)
 
 
 ## Cursor
@@ -296,7 +296,6 @@ hTbl     | in    | Table Handle
 phCursor | io\|out | Return Cursor handle or 
 pMatFlds | in    | Fields to match
 pMatRow  | in    | Row buffer with match row
-pSelFlds | [in]  | Select specified fields
 flags    | [in]  | `CROSS_REUSE` means phCursor points to a valid cursor handle and it'll be reused
 
 Returns
@@ -307,8 +306,7 @@ Returns
 Description
 
 - `pMatFlds` can be cloumn list seperated by `,`, they are `AND` together.  Refer [cross_dbGetOneRow](#cross_dbGetOneRow)
-- `pSelFlds` can be cloumn list seperated by `,`,
-- `pSelFlds` = `NULL` returns whole row
+- `pMatFlds` can be handle created by [cross_matchCreate](misc.md#cross_matchCreate)
 
 
 ### cross_cursorGetNextRow {#cross_cursorGetNextRow}
@@ -324,8 +322,6 @@ Parameters
  Arg     | Type  | Descritpion
  ----    | ----  | ----
 hCursor  | in    | Cursor Handle
-pInRow   | in    | Row buffer with Primary Key
-pSelFlds | [in]  | Select specified fields
 pOutRow  | [out] | Row buffer to return DB row
 flags    | [in]  | Not used
 
@@ -390,6 +386,7 @@ Begin Transaction
 ```c
 cross_ret cross_dbTransBegin (cross_db_h hDb, uint32_t flags);
 ```
+
 Parameters
 
  Arg     | Type  | Descritpion
