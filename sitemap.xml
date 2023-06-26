@@ -141,6 +141,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://crossdb.org/docs/crossdb/transaction/</loc>
+         <lastmod>2023-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://crossdb.org/docs/reference/crossbench/</loc>
+         <lastmod>2023-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://crossdb.org/docs/reference/crossdb-cli/</loc>
+         <lastmod>2023-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://crossdb.org/products/CHANGELOG/</loc>
          <lastmod>2023-06-26</lastmod>
          <changefreq>daily</changefreq>
