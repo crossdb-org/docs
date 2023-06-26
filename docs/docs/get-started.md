@@ -15,6 +15,7 @@ Choose the OS and CPU, then [**Download**](https://crossdb.org/products/download
  ----             | ----
 crossdb.h         | The only header file
 libcrossdb.so     | The only shared library
+crossdb-cli       | CrossDB command line tool
 examples/         | CrossDB example code
 
 **Windows package file list**
@@ -24,6 +25,7 @@ examples/         | CrossDB example code
 crossdb.h         | The only header file
 crossdb.dll       | The only shared library
 crossdb.lib       | For build with MSCV compiler
+crossdb-cli.exe   | CrossDB command line tool
 examples/         | CrossDB example code
 
 **MacOS package file list**
@@ -32,6 +34,7 @@ examples/         | CrossDB example code
  ----             | ----
 crossdb.h         | The only header file
 libcrossdb.dylib  | The only shared library for X64 and AMD64
+crossdb-cli       | CrossDB command line tool
 examples/         | CrossDB example code
 
 <!--
