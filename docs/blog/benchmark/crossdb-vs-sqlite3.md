@@ -10,7 +10,7 @@ DB Driver: [SQLite3](https://github.com/crossdb-org/CrossBench/blob/main/sqlite-
 
 Test Config: Random Access, Single Thread, Bind CPU Core
 
-## Sqlite3 Config
+## SQLite3 Config
 === "On-Disk"
 	```
 	PRAGMA synchronous = NORMAL
@@ -38,7 +38,7 @@ Test Config: Random Access, Single Thread, Bind CPU Core
 CPU			: Intel(R) Xeon(R) Gold 5318Y CPU @ 2.10GHz	cache size 36864 KB
 HDD			: DELL PERC H755 Front SCSI Disk
 OS			: Ubuntu 20.04
-SQLit3		: v3.31.1
+SQLite3		: v3.31.1
 CrossDB		: v0.5.0
 ```
 
@@ -50,7 +50,7 @@ sudo lshw -class disk
 ## On-Disk Database Test
 -------------------------------------------------------------------------------
 
-Test Script
+**Test Script**
 
 === "CrossDB"
 	```
@@ -64,7 +64,7 @@ Test Script
 	for i in $loop; do ./crossdb-bench.bin -s d -i 100m -q 5m  -u 1m  -Q -H -c $cpu; done
 	```
 
-=== "SQLit3"
+=== "SQLite3"
 	```
 	loop="1 2 3"
 	./sqlite-bench.bin -H -r 0
@@ -77,15 +77,21 @@ Test Script
 	for i in $loop; do ./sqlite-bench.bin -s d -i 100m -q 1m  -u 1m  -Q -H -c $cpu; done
 	```
 
+**Small Data Set Test**
 <figure class="cdb-figure">
-	<img src="../images/benchmark/crossdb-vs-sqlite-ondisk.png">
+	<img src="../../../images/benchmark/crossdb-vs-sqlite-ondisk-small.png">
+</figure>
+
+**Large Data Set Test**
+<figure class="cdb-figure">
+	<img src="../../../images/benchmark/crossdb-vs-sqlite-ondisk-large.png">
 </figure>
 
 
 ## RamDisk Database Test
 -------------------------------------------------------------------------------
 
-Test Script
+**Test Script**
 
 === "CrossDB"
 	```
@@ -99,7 +105,7 @@ Test Script
 	for i in $loop; do ./crossdb-bench.bin -s r -i 100m -q 10m -u 10m -Q -H -c $cpu; done
 	```
 
-=== "SQLit3"
+=== "SQLite3"
 	```
 	loop="1 2 3"
 	./sqlite-bench.bin -H -r 0
@@ -111,15 +117,21 @@ Test Script
 	for i in $loop; do ./sqlite-bench.bin -s r -i 100m -q 500k -u 250k -Q -H -c $cpu; done
 	```
 
+**Small Data Set Test**
 <figure class="cdb-figure">
-	<img src="../images/benchmark/crossdb-vs-sqlite-ramdisk.png">
+	<img src="../../../images/benchmark/crossdb-vs-sqlite-ramdisk-small.png">
+</figure>
+
+**Large Data Set Test**
+<figure class="cdb-figure">
+	<img src="../../../images/benchmark/crossdb-vs-sqlite-ramdisk-large.png">
 </figure>
 
 
 ## In-Memory Database Test
 -------------------------------------------------------------------------------
 
-Test Script
+**Test Script**
 
 === "CrossDB"
 	```
@@ -133,7 +145,7 @@ Test Script
 	for i in $loop; do ./crossdb-bench.bin -s m -i 100m -q 10m -u 10m -Q -H -c $cpu; done
 	```
 
-=== "SQLit3"
+=== "SQLite3"
 	```
 	loop="1 2 3"
 	./sqlite-bench.bin -H -r 0
@@ -145,6 +157,12 @@ Test Script
 	for i in $loop; do ./sqlite-bench.bin -s m -i 100m -q 1m -u 1m  -Q -H -c $cpu; done
 	```
 
+**Small Data Set Test**
 <figure class="cdb-figure">
-	<img src="../images/benchmark/crossdb-vs-sqlite-inmem.png">
+	<img src="../../../images/benchmark/crossdb-vs-sqlite-inmem-small.png">
+</figure>
+
+**Large Data Set Test**
+<figure class="cdb-figure">
+	<img src="../../../images/benchmark/crossdb-vs-sqlite-inmem-large.png">
 </figure>
