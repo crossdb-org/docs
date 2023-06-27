@@ -1,6 +1,6 @@
 # Project information
 site_name: CrossDB
-site_description: High Performance Embedded Database Development Platform
+site_description: The Fastest Embedded Database in the world
 site_url: https://crossdb.org/
 site_author: CrossDB
 #docs_dir: 'site/content'
@@ -86,7 +86,7 @@ plugins:
       minify_html: true
 #  - table-reader
 #  - with-pdf:
-#      cover_subtitle: High Performance Embedded Database Development Platform
+#      cover_subtitle: The Fastest Embedded Database in the world
 #      cover_logo: assets/favicon.png
 #      toc_title:  Table of Contents
 #      copyright: Copyright &copy; 2023 CrossDB
@@ -210,7 +210,11 @@ nav:
     - Reference:
       - docs/reference/crossdb-cli.md
       - docs/reference/crossbench.md
-#  - Blog:
+  - Blog:
+     - Benchmark:
+        - blog/benchmark/crossdb-vs-sqlite3.md
+        - blog/benchmark/crossdb-vs-lmdb.md
+        - blog/benchmark/crossdb-vs-stlmap.md
 #    - blog/why-new-embdb.md
   - About:
     - about/about.md

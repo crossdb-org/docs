@@ -13,7 +13,7 @@ hide:
 		</p>
     </div>
     <div class="cdb-col-md-8">
-		<p class="cdb-description"><span class="cdb-accent">CrossDB</span><br>High Performance Embedded Database Development Framework✨</p>
+		<p class="cdb-description"><span class="cdb-accent">CrossDB</span><br>The Fastest Embedded Database in the world ✨</p>
 		<p>
 			<a class="cdb-button cdb-button-primary" href="#lean-in-5m">Quick Learn🧭</a> 
 			<a class=cdb-button href="docs/introduction">Docs 📜</a>

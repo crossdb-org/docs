@@ -2,27 +2,149 @@
 template: overrides/blog.html
 ---
 
-# CrossDB vs. Sqlite3 Benchmark Test
+# CrossDB vs. SQLite3 Benchmark
 
-## On-Disk Test
+Test tool: [CrossBench](../../../docs/reference/crossbench)  
+
+DB Driver: [SQLite3](https://github.com/crossdb-org/CrossBench/blob/main/sqlite-bench.c) [CrossDB](https://github.com/crossdb-org/CrossBench/blob/main/crossdb-bench.c) 
+
+Test Config: Random Access, Single Thread, Bind CPU Core
+
+## Sqlite3 Config
+=== "On-Disk"
+	```
+	PRAGMA synchronous = NORMAL
+	PRAGMA journal_mode = WAL
+	PRAGMA temp_store = memory
+	PRAGMA optimize
+	```
+=== "RamDisk"
+	```
+	PRAGMA synchronous = OFF
+	PRAGMA journal_mode = WAL
+	PRAGMA temp_store = memory
+	PRAGMA optimize
+	```  
+=== "In-Memory"
+	```
+	PRAGMA synchronous = OFF
+	PRAGMA journal_mode = OFF
+	PRAGMA temp_store = memory
+	PRAGMA optimize
+	```
+
+## Test Server
+```
+CPU			: Intel(R) Xeon(R) Gold 5318Y CPU @ 2.10GHz	cache size 36864 KB
+HDD			: DELL PERC H755 Front SCSI Disk
+OS			: Ubuntu 20.04
+SQLit3		: v3.31.1
+CrossDB		: v0.5.0
+```
+
+<!--
+cat /proc/cpuinfo
+sudo lshw -class disk
+-->
+
+## On-Disk Database Test
 -------------------------------------------------------------------------------
 
-## RamDisk Test
+Test Script
+
+=== "CrossDB"
+	```
+	loop="1 2 3"
+	./crossdb-bench.bin -H -r 0
+	for i in $loop; do ./crossdb-bench.bin -s d -i 1k   -q 30m -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s d -i 10k  -q 30m -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s d -i 100k -q 20m -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s d -i 1m   -q 10m -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s d -i 10m  -q 5m  -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s d -i 100m -q 5m  -u 1m  -Q -H -c $cpu; done
+	```
+
+=== "SQLit3"
+	```
+	loop="1 2 3"
+	./sqlite-bench.bin -H -r 0
+	for i in $loop; do ./sqlite-bench.bin -s d -i 1k   -q 1k  -u 1k  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s d -i 10k  -q 1m  -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s d -i 100k -q 1m  -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s d -i 1m   -q 1m  -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s d -i 10m  -q 1m  -u 1m  -Q -H -c $cpu; done
+	# This test is very very very slow
+	for i in $loop; do ./sqlite-bench.bin -s d -i 100m -q 1m  -u 1m  -Q -H -c $cpu; done
+	```
+
+<figure class="cdb-figure">
+	<img src="../images/benchmark/crossdb-vs-sqlite-ondisk.png">
+</figure>
+
+
+## RamDisk Database Test
 -------------------------------------------------------------------------------
 
-- Database is on persistent disk, survive with power cycle. 
-- If you have data persistency requirements, please use this type. The performance is ver high. 
-- You need use transaction to guarantee data integrity even power cycle happened. 
+Test Script
 
-**RamDisk Database**
+=== "CrossDB"
+	```
+	loop="1 2 3"
+	./crossdb-bench.bin -H -r 0
+	for i in $loop; do ./crossdb-bench.bin -s r -i 1k   -q 40m -u 30m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s r -i 10k  -q 40m -u 30m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s r -i 100k -q 40m -u 30m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s r -i 1m   -q 10m -u 10m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s r -i 10m  -q 10m -u 10m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s r -i 100m -q 10m -u 10m -Q -H -c $cpu; done
+	```
 
-- Database is on `ramdisk` `tmpfs` `ramfs`(`CROSS_RAMDISK`), survive with process restart, lose after power cycle. 
-- This is designed for process runtime databse and the transaction performance is higher than On-Disk database. 
-- The performance is almost the same with In-Memory database. 
-- For Linux embedded system, this is the prefered database as the database can be viewed and stayed there even process crashed.
+=== "SQLit3"
+	```
+	loop="1 2 3"
+	./sqlite-bench.bin -H -r 0
+	for i in $loop; do ./sqlite-bench.bin -s r -i 1k   -q 1m -u 500k  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s r -i 10k  -q 1m -u 500k  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s r -i 100k -q 1m -u 300k  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s r -i 1m   -q 500k -u 250k -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s r -i 10m  -q 500k -u 250k -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s r -i 100m -q 500k -u 250k -Q -H -c $cpu; done
+	```
 
-**In-Memory Database**
+<figure class="cdb-figure">
+	<img src="../images/benchmark/crossdb-vs-sqlite-ramdisk.png">
+</figure>
 
-- Database is in memory(`CROSS_INMEM`), survie when process is runnig, lose after process terminates. 
-- This is not recommented, but if you don't want the process runtime database visible, it's the solution.
 
+## In-Memory Database Test
+-------------------------------------------------------------------------------
+
+Test Script
+
+=== "CrossDB"
+	```
+	loop="1 2 3"
+	./crossdb-bench.bin -H -r 0
+	for i in $loop; do ./crossdb-bench.bin -s m -i 1k   -q 40m -u 30m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s m -i 10k  -q 40m -u 30m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s m -i 100k -q 40m -u 30m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s m -i 1m   -q 10m -u 10m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s m -i 10m  -q 10m -u 10m -Q -H -c $cpu; done
+	for i in $loop; do ./crossdb-bench.bin -s m -i 100m -q 10m -u 10m -Q -H -c $cpu; done
+	```
+
+=== "SQLit3"
+	```
+	loop="1 2 3"
+	./sqlite-bench.bin -H -r 0
+	for i in $loop; do ./sqlite-bench.bin -s m -i 1k   -q 2m -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s m -i 10k  -q 2m -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s m -i 100k -q 2m -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s m -i 1m   -q 1m -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s m -i 10m  -q 1m -u 1m  -Q -H -c $cpu; done
+	for i in $loop; do ./sqlite-bench.bin -s m -i 100m -q 1m -u 1m  -Q -H -c $cpu; done
+	```
+
+<figure class="cdb-figure">
+	<img src="../images/benchmark/crossdb-vs-sqlite-inmem.png">
+</figure>
