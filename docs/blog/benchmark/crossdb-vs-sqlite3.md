@@ -2,7 +2,7 @@
 template: overrides/blog.html
 ---
 
-# CrossDB vs. SQLite3 Benchmark
+# CrossDB vs SQLite3 Benchmark
 
 Test tool: [CrossBench](../../../docs/reference/crossbench)  
 
@@ -10,7 +10,12 @@ DB Driver: [SQLite3](https://github.com/crossdb-org/CrossBench/blob/main/sqlite-
 
 Test Config: Random Access, Single Thread, Bind CPU Core
 
+> **Note**
+> The SQLite DB driver tries to tune SQLite performance as fast as possible and uses sqlite3_prepare_v2 to precompile SQL statements. 
+> If you have better optimization methods and it works, please let us know.
+
 ## SQLite3 Config
+
 === "On-Disk"
 	```
 	PRAGMA synchronous = NORMAL
@@ -47,7 +52,7 @@ cat /proc/cpuinfo
 sudo lshw -class disk
 -->
 
-## On-Disk Database Test
+## On-Disk Database Benchmark
 -------------------------------------------------------------------------------
 
 **Test Script**
@@ -88,7 +93,7 @@ sudo lshw -class disk
 </figure>
 
 
-## RamDisk Database Test
+## On-RamDisk Database Benchmark
 -------------------------------------------------------------------------------
 
 **Test Script**
@@ -128,7 +133,7 @@ sudo lshw -class disk
 </figure>
 
 
-## In-Memory Database Test
+## In-Memory Database Benchmark
 -------------------------------------------------------------------------------
 
 **Test Script**

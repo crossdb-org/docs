@@ -213,7 +213,7 @@ nav:
   - Blog:
      - Benchmark:
         - blog/benchmark/crossdb-vs-sqlite3.md
-#        - blog/benchmark/crossdb-vs-lmdb.md
+        - blog/benchmark/crossdb-vs-lmdb.md
 #        - blog/benchmark/crossdb-vs-stlmap.md
 #    - blog/why-new-embdb.md
   - About:

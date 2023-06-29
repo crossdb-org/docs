@@ -2,7 +2,7 @@
 template: overrides/blog.html
 ---
 
-# CrossDB vs. STL Map and Hashmap Benchmark
+# CrossDB vs STL Map and Hashmap Benchmark
 
 Test tool: [CrossBench](../../../docs/reference/crossbench)  
 
@@ -24,7 +24,7 @@ cat /proc/cpuinfo
 sudo lshw -class disk
 -->
 
-## In-Memory Database Test
+## In-Memory Database Benchmark
 -------------------------------------------------------------------------------
 
 **Test Script**

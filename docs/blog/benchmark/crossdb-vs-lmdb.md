@@ -2,7 +2,7 @@
 template: overrides/blog.html
 ---
 
-# CrossDB vs. LMDB Benchmark
+# CrossDB vs LMDB Benchmark
 
 Test tool: [CrossBench](../../../docs/reference/crossbench)  
 
@@ -24,7 +24,13 @@ cat /proc/cpuinfo
 sudo lshw -class disk
 -->
 
-## On-Disk Database Test
+## LMDB Config
+
+```
+MDB_NOSYNC | MDB_NOMETASYNC | MDB_WRITEMAP | MDB_MAPASYNC | MDB_NORDAHEAD
+```
+
+## On-Disk Database Benchmark
 -------------------------------------------------------------------------------
 
 **Test Script**
@@ -63,7 +69,7 @@ sudo lshw -class disk
 </figure>
 
 
-## On-RamDisk Database Test
+## On-RamDisk Database Benchmark
 -------------------------------------------------------------------------------
 
 **Test Script**
