@@ -63,6 +63,9 @@ MDB_NOSYNC | MDB_NOMETASYNC | MDB_WRITEMAP | MDB_MAPASYNC | MDB_NORDAHEAD
 	<img src="../../../images/benchmark/crossdb-vs-lmdb-ondisk-small.png">
 </figure>
 
+>**Note**
+> LMDB DB size is fixed and preallocated, so it's faster is 1K insert test.
+
 **Large Data Set Test**
 <figure class="cdb-figure">
 	<img src="../../../images/benchmark/crossdb-vs-lmdb-ondisk-large.png">
