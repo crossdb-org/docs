@@ -30,5 +30,5 @@ Links to third party websites are provided for your convenience. By using these 
 
 ## Contact us
 
-If you have any question about the information you provided to us or about the CrossDB Software Privacy Policy, please contact us at wang_junchuan@163.com
+If you have any question about the information you provided to us or about the CrossDB Software Privacy Policy, please contact us at support@crossdb.org
 

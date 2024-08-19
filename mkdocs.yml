@@ -11,10 +11,9 @@ repo_name: CrossDB
 repo_url: https://github.com/cross-db/crossdb
 
 # Copyright
-copyright: 'Copyright &copy; 2023 CrossDB | 
+copyright: 'Copyright &copy; 2024 CrossDB | 
             <a href="/about/terms">Terms</a> | 
             <a href="/about/privacy">Privacy</a> | 
-            <a href="/about/about">About</a> | 
             <span id="busuanzi_container_site_uv">Visitor <span id="busuanzi_value_site_uv"></span> |
             <span id="busuanzi_container_page_pv">View <span id="busuanzi_value_page_pv"></span> '
 
@@ -116,15 +115,15 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/crossdb-org/crossdb
       name: Github
-#    - icon: fontawesome/brands/stack-overflow
-#      link: https://stackoverflow.com/questions/tagged/CrossDB
-#      name: Stackoverflow
-#    - icon: fontawesome/brands/github-alt
-#      link: https://github.com/crossdb-org/CrossDB/discussions
-#      name: Discussion
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/CrossDbOrg
-      name: Twitter
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/questions/tagged/CrossDB
+      name: Stackoverflow
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/crossdb-org/CrossDB/discussions
+      name: Discussion
+#    - icon: fontawesome/brands/twitter
+#      link: https://twitter.com/CrossDbOrg
+#      name: Twitter
     - icon: fontawesome/solid/envelope
       link: mailto:support@crossdb.org
 #  alternate:
@@ -160,8 +159,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -187,36 +186,44 @@ markdown_extensions:
 # Page tree
 nav:
   - index.md  
-  - Products:
-    - products/products.md
-    - products/download.md
-    - products/CHANGELOG.md
   - Document:
-    - docs/introduction.md
-    - docs/get-started.md
-    - Embedded RDBMS:
-      - docs/crossdb/database.md
-      - docs/crossdb/schema.md
-      - docs/crossdb/table.md
-      - docs/crossdb/indexes.md
-      - docs/crossdb/transaction.md
-      - docs/crossdb/dml.md
-    - API Reference:
-      - docs/api/api.md
-      - docs/api/ddl.md
-      - docs/api/dml.md
-      - docs/api/misc.md
-    - Reference:
-      - docs/reference/crossdb-cli.md
-      - docs/reference/crossbench.md
-  - Blog:
-     - Benchmark:
-        - blog/benchmark/crossdb-vs-sqlite3.md
-        - blog/benchmark/crossdb-vs-lmdb.md
-        - blog/benchmark/crossdb-vs-stlmap.md
-        - blog/benchmark/crossdb-vs-stlhmap.md
-#    - blog/why-new-embdb.md
-  - About:
-    - about/about.md
-    - about/community.md
-    - about/faq.md
+    - intro.md
+    - Get Started:
+      - get-started/install.md
+      - get-started/bench.md
+      - get-started/tutorial.md
+    - Developer Guide:
+      - develop/connect.md
+      - develop/ddl.md
+      - develop/dml.md
+      - develop/query.md
+      - develop/transaction.md
+      - develop/multi-stmts.md
+      - develop/prep-stmts.md
+    - Client APIs:
+      - client/api-c.md
+      - client/api-python.md
+    - SQL:
+      - sql/statements.md
+      - sql/data-types.md
+      - sql/operators.md
+      - sql/functions.md
+      - sql/name-limit.md
+      - sql/database.md
+      - sql/table.md
+      - sql/indexes.md
+      - sql/dml.md
+      - sql/transaction.md
+      - sql/backup.md
+      - sql/misc.md
+    - System Tables:
+      - sysdb/system.md
+      - sysdb/information-schema.md
+    - Administration:
+      - admin/shell.md
+      - admin/data-backup.md
+      - admin/data-restore.md
+    - faq.md
+    - CHANGELOG.md
+    - community.md
+    - glossary.md
