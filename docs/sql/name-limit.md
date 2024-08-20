@@ -17,16 +17,16 @@ template: overrides/blog.html
 
 ## Limit
 
-| **Type**   			| **Limit**  
-| ::         			| ----
-  DB Name    			| 64
-  Table Name 			| 64
-  Column Name			| 64
-  Index Name 			| 64
-  Single SQL statement  | 1048576 (1M)
-  DB per process		| 1024
-  Table per DB  		| 4095
-  Rows per Table  		| 2,000,000,000 (2B)
-  Row size				| 524288 (512K)
-  Index per Table    	| 16
-  Filter Fields    		| 64
+| **Type**   			| **Default Limit**    | **Configurable** 
+| ::         			| ----                 | ----
+  DB Name    			| 64                   | Yes
+  Table Name 			| 64                   | Yes
+  Column Name			| 64                   | Yes
+  Index Name 			| 64                   | Yes
+  Single SQL statement  | 1048576 (1M)         | Yes
+  DB per process		| 1024                 | Yes
+  Table per DB  		| 4095                 | Yes (at most 4095 now, will support more than 4K later)
+  Rows per Table  		| 2,000,000,000 (2B)   | Not now, will support more than 2B later
+  Row size				| 524288 (512K)        | Yes
+  Index per Table    	| 16                   | Yes (at most 64)
+  Filter Fields    		| 64                   | Yes

@@ -13,7 +13,7 @@ hide:
 		</p>
     </div>
     <div class="xdb-col-md-8">
-		<p class="xdb-description"><span class="xdb-accent">CrossDB</span><br>Super High-performance Embedded and Server RDBMS✨</p>
+		<p class="xdb-description"><span class="xdb-accent">CrossDB</span><br>Super High-performance Lightweight Embedded and Server SQL RDBMS✨</p>
 		<p>
 			<a class="xdb-button xdb-button-primary" href="get-started/install/">Quick Learn🧭</a> 
 			<a class=xdb-button href="get-started/bench/#bench-test">Benchmark 📜</a>
@@ -56,11 +56,11 @@ hide:
 
     CrossDB supports On-Disk database and In-Memory database(IMDB). It can also support Hybrid mode with some tables On-Disk and some In-Memory.
 
--   🔱 __MySQL-like SQL__
+-   🔱 __SQL__
 
     ---
 
-    Most SQL commands are similar with MySQL.
+    Most SQL statements are Standard, and also support many extensive statements from MySQL for convenient management.
 
     [:octicons-arrow-right-24: Read more](sql/statements/)
 

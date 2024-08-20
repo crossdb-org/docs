@@ -4,8 +4,8 @@ template: overrides/blog.html
 
 # Introduction
 
-**CrossDB** is a super high-performance embedded and server RDBMS. 
-It's developed for high performance scenarios with main memory can hold whole DB. 
+**CrossDB** is a super high-performance lightweight embedded and server SQL RDBMS. 
+It's developed for high performance scenarios with main memory can hold whole DB.
 
 ## Features
 
@@ -13,8 +13,9 @@ It's developed for high performance scenarios with main memory can hold whole DB
 - Support Multiple CPU ARCH: X86/ARM/PPC/MIPS etc
 - Support OnDisk/In-memory/RamDisk/Hybrid Storage
 - Support Standard RDBMS model
-- Support MySQL like SQL
+- Support Standard SQL and many extensions from MySQL
 - Support Multiple databases
+- Support Embedded and Client-Server mode(TBD)
 - Support Primary Key and multiple Secondary Indexes
 - Support HASH and RBTREE(TBD) Index
 - Support Multi-columns Index
@@ -24,7 +25,7 @@ It's developed for high performance scenarios with main memory can hold whole DB
 - Support Multiple Threads and Multiple Processes Access
 - Support Table level read-write lock
 - Support Reader-Writer MVCC
-- Support Embedded CrossDB Shell
+- Support Embedded CrossDB Shell with convenient auto-completion
 - Support Multi-Statments APIs
 - Support Prepared Statments APIs
 - Super High Performance
@@ -33,9 +34,11 @@ It's developed for high performance scenarios with main memory can hold whole DB
 
 ## Use Cases
 
-- You can use CrossDB In-Memory DB to manage Process Runtime Data to replace STL or hand-wrting data structures.
+- High-frenquency trade (OLTP)
+- High-peformance query
+- High-peformance data manamgent: You can use CrossDB OnDisk DB to store data on Disk/Flash/SDD.
+- High-peformance IMDB: You can use CrossDB In-Memory DB to manage Process Runtime Data to replace STL or hand-written data structures.
 - You can use CrossDB RamDisk DB to support Process Restartability, In-Service Software Upgrade(ISSU) easily.
-- You can use CrossDB OnDisk DB to store data on Disk/Flash/SDD.
 - You can use CrossDB to work as a super fast cache DB.
 
 <!--
