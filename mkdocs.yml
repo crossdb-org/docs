@@ -121,9 +121,9 @@ extra:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/crossdb-org/CrossDB/discussions
       name: Discussion
-#    - icon: fontawesome/brands/twitter
-#      link: https://twitter.com/CrossDbOrg
-#      name: Twitter
+    - icon: fontawesome/brands/twitter
+      link: https://x.com/CrossDbOrg
+      name: Twitter
     - icon: fontawesome/solid/envelope
       link: mailto:support@crossdb.org
 #  alternate:
@@ -190,8 +190,8 @@ nav:
     - intro.md
     - Get Started:
       - get-started/install.md
-      - get-started/bench.md
       - get-started/tutorial.md
+      - get-started/bench.md
     - Developer Guide:
       - develop/connect.md
       - develop/ddl.md
@@ -227,3 +227,6 @@ nav:
     - CHANGELOG.md
     - community.md
     - glossary.md
+#  - Blog:
+#     - Benchmark:
+#        - blog/benchmark/crossdb-vs-sqlite3.md

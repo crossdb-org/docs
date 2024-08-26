@@ -23,6 +23,7 @@ xdb_stmt_t*  | [**xdb_stmt_prepare**](#xdb_stmt_prepare) (xdb_conn_t* pConn, con
 xdb_ret      | [**xdb_bind_int**](#xdb_bind_int) (xdb_stmt_t *pStmt, uint16_t para_id, int val)	| Bind int value
 xdb_ret      | [**xdb_bind_float**](#xdb_bind_float) (xdb_stmt_t *pStmt, uint16_t para_id, float val) | Bind float value
 xdb_ret      | [**xdb_bind_str**](#xdb_bind_str) (xdb_stmt_t *pStmt, uint16_t para_id, const char *str) | Bind string value
+xdb_ret      | [**xdb_clear_bindings**](#xdb_clear_bindings) (xdb_stmt_t *pStmt) | Clear bindings
 xdb_res_t*   | [**xdb_stmt_exec**](#xdb_stmt_exec) (xdb_stmt_t *pStmt)				| Execute prepared SQL statement
 void         | [**xdb_stmt_close**](#xdb_stmt_close) (xdb_stmt_t *pStmt)			| Free prepared SQL statement
 xdb_ret      | [**xdb_begin**](#xdb_begin) (xdb_conn_t* pConn)						| Begin transaction
@@ -69,6 +70,17 @@ xdb_exec (xdb_conn_t* pConn, const char *sql);
 
 xdb_res_t*
 xdb_exec2 (xdb_conn_t *pConn, const char *sql, int len);
+
+// Use '?' to bind args then execute, only support single statement
+xdb_res_t*
+xdb_bexec (xdb_conn_t *pConn, const char *sql, ...);
+
+xdb_res_t*
+xdb_vbexec (xdb_conn_t *pConn, const char *sql, va_list ap);
+
+// Use '%' to format args then exectue, supports multi-statements
+xdb_res_t*
+xdb_pexec (xdb_conn_t *pConn, const char *sql, ...);
 ```
 
 - A valid xdb_res_t pointer is returned always.
@@ -83,8 +95,6 @@ xdb_exec2 (xdb_conn_t *pConn, const char *sql, int len);
 Execute formatted SQL statement and return result set.
 
 ``` c
-xdb_res_t*
-xdb_pexec (xdb_conn_t *pConn, const char *sql, ...);
 ```
 
 - A valid xdb_res_t pointer is returned always.
@@ -200,7 +210,7 @@ xdb_stmt_prepare (xdb_conn_t* pConn, const char *sql);
 
 ### xdb_bind_int
 
-Binds an int value to the prepared statement at the specified parameter index.
+Binds an int value to the prepared statement at the specified parameter index (from 1).
 
 ``` c
 xdb_ret
@@ -212,7 +222,7 @@ xdb_bind_int64 (xdb_stmt_t *pStmt, uint16_t para_id, int64_t val);
 
 ### xdb_bind_float
 
-Binds a double value to the prepared statement at the specified parameter index.
+Binds a double value to the prepared statement at the specified parameter index (from 1).
 
 ``` c
 xdb_ret
@@ -224,7 +234,7 @@ xdb_bind_double (xdb_stmt_t *pStmt, uint16_t para_id, double val)
 
 ### xdb_bind_str
 
-Binds a string value to the prepared statement at the specified parameter index.
+Binds a string value to the prepared statement at the specified parameter index (from 1).
 
 ``` c
 xdb_ret
@@ -234,14 +244,36 @@ xdb_ret
 xdb_bind_str2 (xdb_stmt_t *pStmt, uint16_t para_id, const char *str, int len)
 ```
 
+### xdb_clear_bindings
+
+Clear bindings.
+
+``` c
+xdb_ret
+xdb_clear_bindings (xdb_stmt_t *pStmt);
+```
+
+> **Note**
+> If you bind all args, don't need to call this APIs.
+
 ### xdb_stmt_exec
 
 Execute a prepared statement.
 
 ``` c
+// use binding APIs first then execute
 xdb_res_t*
 xdb_stmt_exec (xdb_stmt_t *pStmt);
+
+// bind args then execute
+xdb_res_t*
+xdb_stmt_bexec (xdb_stmt_t *pStmt, ...);
+
+xdb_res_t*
+xdb_stmt_vbexec (xdb_stmt_t *pStmt, va_list ap);
 ```
+
+Result refers [**xdb_exec**](#xdb_exec)
 
 ### xdb_stmt_close
 
@@ -379,7 +411,7 @@ typedef struct xdb_res_t {
 	uint64_t	affected_rows;	// 3*8 INSERT/UPDATE/DELETE
 	uint64_t	insert_id;		// 4*8 INSERT
 	uint64_t	col_meta;		// 5*8 xdb_meta_t, <ptr:ptr off: 0 following is meta>
-	uint64_t	row_data;		// 6*8 xdb_rowlist_t, ptr: base ptr or error str or infomation xdb_msg_t
+	uint64_t	row_data;		// 6*8 xdb_rowlist_t, ptr: base ptr or error str or information xdb_msg_t
 	uint64_t	data_len;		// 7*8
 } xdb_res_t;
 ```

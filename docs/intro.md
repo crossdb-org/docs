@@ -11,7 +11,7 @@ It's developed for high performance scenarios with main memory can hold whole DB
 
 - Support Multiple OS Platforms: Linux/Windows/MacOS/FreeBSD etc
 - Support Multiple CPU ARCH: X86/ARM/PPC/MIPS etc
-- Support OnDisk/In-memory/RamDisk/Hybrid Storage
+- Support OnDisk/In-memory(IMDB)/RamDisk/Hybrid Storage
 - Support Standard RDBMS model
 - Support Standard SQL and many extensions from MySQL
 - Support Multiple databases

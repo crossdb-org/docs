@@ -17,26 +17,26 @@ xdb_conn_t	*pConn = xdb_open (":memory:");
 
 ```c
 pRes = xdb_exec (pConn, "CREATE TABLE student (id INT PRIMARY KEY, name CHAR(16), age INT, class CHAR(16), score FLOAT, info CHAR(255))");
-XDB_CHECK(pRes, printf ("Can't create table student\n"); goto error;);
+XDB_RESCHK(pRes, printf ("Can't create table student\n"); goto error;);
 pRes = xdb_exec (pConn, "CREATE TABLE IF NOT EXISTS teacher (id INT PRIMARY KEY, name CHAR(16), age INT, info CHAR(255), INDEX (name))");
-XDB_CHECK(pRes, printf ("Can't create table teacher\n"); goto error;);
+XDB_RESCHK(pRes, printf ("Can't create table teacher\n"); goto error;);
 pRes = xdb_exec (pConn, "CREATE TABLE IF NOT EXISTS book (id INT PRIMARY KEY, name CHAR(64), author CHAR(32), count INT, INDEX (name))");
-XDB_CHECK(pRes, printf ("Can't create table book\n"); goto error;);
+XDB_RESCHK(pRes, printf ("Can't create table book\n"); goto error;);
 ```
 
 ## Insert Rows
 
 ```c
 pRes = xdb_exec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (1,'jack',10,'3-1',90),(2,'tom',11,'2-5',91),(3,'jack',11,'1-6',92),(4,'rose',10,'4-2',90),(5,'tim',10,'3-1',95)");
-XDB_CHECK(pRes, printf ("Can't insert table student\n"); goto error;);
+XDB_RESCHK(pRes, printf ("Can't insert table student\n"); goto error;);
 pRes = xdb_pexec (pConn, "INSERT INTO student (id,name,age,class,score,info) VALUES (6,'Tony',10,'3-1',95,'%s')", "He is a boy.\nHe likes playing football.\nWe all like him!");
-XDB_CHECK(pRes, printf ("Can't insert table student\n"); goto error;);
+XDB_RESCHK(pRes, printf ("Can't insert table student\n"); goto error;);
 pRes = xdb_pexec (pConn, "INSERT INTO student (id,name,age,class,score,info) VALUES (7,'Wendy',10,'3-1',95,'%s')", "She is a girl.\nShe likes cooking.\nWe all love her!");
-XDB_CHECK(pRes, printf ("Can't insert table student\n"); goto error;);
+XDB_RESCHK(pRes, printf ("Can't insert table student\n"); goto error;);
 pRes = xdb_exec (pConn, "INSERT INTO teacher (id,name,age) VALUES (1,'Tomas',40),(2,'Steven',50),(3,'Bill',31),(4,'Lucy',29)");
-XDB_CHECK(pRes, printf ("Can't insert table teacher\n"); goto error;);
+XDB_RESCHK(pRes, printf ("Can't insert table teacher\n"); goto error;);
 pRes = xdb_exec (pConn, "INSERT INTO book (id,name,author,count) VALUES (1,'Romeo and Juliet','Shakespeare',10),(2,'Pride and Prejudice','Austen',5),(3,'Great Expectations','Dickens',8),(4,'Sorrows of Young Werther','Von Goethe',4)");
-XDB_CHECK(pRes, printf ("Can't insert table book\n"); goto error;);
+XDB_RESCHK(pRes, printf ("Can't insert table book\n"); goto error;);
 ```
 
 ## Select Rows
@@ -56,7 +56,7 @@ xdb_free_result (pRes);
 ```c
 printf ("\n=== Update age = 9 for id = 2\n");
 pRes = xdb_exec (pConn, "UPDATE student set age=9 WHERE id = 2");
-XDB_CHECK(pRes, printf ("Can't update id=%d\n",2); goto error;);
+XDB_RESCHK(pRes, printf ("Can't update id=%d\n",2); goto error;);
 
 pRes = xdb_exec (pConn, "SELECT id,name,age,class,score from student WHERE id = 2");
 printf ("select %d rows\n", (int)pRes->row_count);
@@ -72,7 +72,7 @@ xdb_free_result (pRes);
 ```c
 printf ("\n=== Delete id = 3\n");
 pRes = xdb_exec (pConn, "DELETE FROM student WHERE id = 3");
-XDB_CHECK(pRes, printf ("Can't delete id=%d\n",3); goto error;);
+XDB_RESCHK(pRes, printf ("Can't delete id=%d\n",3); goto error;);
 
 pRes = xdb_exec (pConn, "SELECT * from student WHERE id = 3");
 printf ("select %d rows\n", (int)pRes->row_count);
@@ -207,7 +207,7 @@ id=2 name='tom'
   / ____|                 |  __ \|  _ \   _| |_
  | |     _ __ ___  ___ ___| |  | | |_) | |_   _|
  | |    | '__/ _ \/ __/ __| |  | |  _ <    |_|
- | |____| | | (_) \__ \__ \ |__| | |_) |  0.6.0
+ | |____| | | (_) \__ \__ \ |__| | |_) |  0.7.0
   \_____|_|  \___/|___/___/_____/|____/ crossdb.org
 
 ============ Welcome to CrossDB Shell ============
