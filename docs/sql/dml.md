@@ -35,10 +35,16 @@ SELECT col_name,... FROM tbl_name
 
 ```sql
 UPDATE tbl_name
-	SET col_name=val, ... 
+	SET col_name={val|set_expr}, ... 
     [WHERE expr]
     [ORDER BY col_name [ASC | DESC], ...]
     [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+
+set_expr:
+    {val|col_name} + {val|col_name}
+  | {val|col_name} - {val|col_name}
+  | {val|col_name} * {val|col_name}
+  | {val|col_name} / {val|col_name}
 ```
 
 ## Delete

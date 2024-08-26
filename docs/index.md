@@ -13,10 +13,10 @@ hide:
 		</p>
     </div>
     <div class="xdb-col-md-8">
-		<p class="xdb-description"><span class="xdb-accent">CrossDB</span><br>Super High-performance Lightweight Embedded and Server SQL RDBMS✨</p>
+		<p class="xdb-description"><span class="xdb-accent">CrossDB</span><br>Super High-performance Lightweight Embedded and Server OLTP RDBMS✨</p>
 		<p>
 			<a class="xdb-button xdb-button-primary" href="get-started/install/">Quick Learn🧭</a> 
-			<a class=xdb-button href="get-started/bench/#bench-test">Benchmark 📜</a>
+			<a class=xdb-button href="blog/benchmark/crossdb-vs-sqlite3">Benchmark 📜</a>
 <!--
 			<a class=xdb-button href="products/download/">Download 💾</a>
 -->
@@ -76,28 +76,36 @@ hide:
 	``` c linenums="1"
 	xdb_res_t	*pRes;
 	xdb_row_t	*pRow;
+
 	xdb_conn_t	*pConn = xdb_open (":memory:");
-	pRes = xdb_exec (pConn, "CREATE TABLE student (id INT, name CHAR(16), age INT, class CHAR(16), score INT)");
-	pRes = xdb_exec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (1,'jack',10,'3-1',90),(2,'tom',11,'2-5',91),(3,'jack',11,'1-6',92),(4,'rose',10,'4-2',90),(5,'tim',10,'3-1',95)");
-	pRes = xdb_exec (pConn, "SELECT * from student");
+	pRes = xdb_exec (pConn, "CREATE TABLE student (id INT PRIMARY KEY, name CHAR(16), age INT, class CHAR(16), score INT)");
+
+	pRes = xdb_exec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (1001,'Jack',10,'3-1',90),(1002,'Tom',11,'2-5',91),(1003,'David',11,'1-6',92),(1004,'Rose',10,'4-2',90),(1005,'Tim',10,'3-1',95)");
+	pRes = xdb_bexec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (?,?,?,?,?)", 1006, 'Wendy', '4-3', 99);
+
+	pRes = xdb_bexec (pConn, "SELECT * FROM student WHERE id = ?", 1001);
 	while (NULL != (pRow = xdb_fetch_row (pRes))) {
 		xdb_print_row (pRes->row_meta, pRow);
 		printf ("\n");
 	}
 	xdb_free_result (pRes);
-	pRes = xdb_exec (pConn, "UPDATE student set age=9 WHERE id = 2");
-	pRes = xdb_exec (pConn, "DELETE FROM student WHERE id = 3");
+
+	pRes = xdb_bexec (pConn, "UPDATE student set age = age + ? WHERE id = ?", 2, id);
+	pRes = xdb_bexec (pConn, "DELETE FROM student WHERE id = ?", id);
+
 	xdb_close (pConn);
 	```
 
 === "SQL"
 	``` sql linenums="1"
 	CREATE TABLE student (id INT, name CHAR(16), age INT, class CHAR(16), score INT);
+
 	INSERT INTO student (id,name,age,class,score) VALUES (1,'jack',10,'3-1',90),(2,'tom',11,'2-5',91),(3,'jack',11,'1-6',92),(4,'rose',10,'4-2',90),(5,'tim',10,'3-1',95);
-	SELECT * FROM student;
-	SELECT * FROM student WHERE id = 1;
-	UPDATE student set age=9 WHERE id = 2;
-	DELETE FROM student WHERE id = 3;
+
+	SELECT * FROM student WHERE id = 1001;
+
+	UPDATE student set age = age + 2 WHERE id = 1002;
+	DELETE FROM student WHERE id = 1003;
 	```
 
 <!--
