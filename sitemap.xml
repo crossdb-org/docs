@@ -66,6 +66,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://crossdb.org/blog/benchmark/crossdb-vs-sqlite3/</loc>
+         <lastmod>2024-08-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://crossdb.org/client/api-c/</loc>
          <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
