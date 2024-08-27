@@ -9,11 +9,11 @@ template: overrides/blog.html
   **Operator**           | Description      | Note
    ::                    | ----				| ----
          =               | Equal to			|
-      <\>, !=            | Not equal to		| TBD
-      \>                 | Greater than     | TBD
-       <                 | Less than        | TBD
-     \>=                 | Greater than or equal to | TBD
-      <=                 | Less than or equal to	| TBD
+      <\>, !=            | Not equal to		|
+      \>                 | Greater than     |
+       <                 | Less than        |
+     \>=                 | Greater than or equal to |
+      <=                 | Less than or equal to	|
    IS NULL               | NULL value test			| TBD
    IS NOT NULL           | NOT NULL value test		| TBD
  BETWEEN ... AND ...     | Whether a value is within a range of values		| TBD

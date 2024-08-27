@@ -5,7 +5,7 @@ template: overrides/blog.html
 # Introduction
 
 **CrossDB** is a super high-performance lightweight embedded and server SQL RDBMS. 
-It's developed for high performance scenarios with main memory can hold whole DB.
+It's developed for high performance scenarios where main memory can hold the whole DB.
 
 ## Features
 

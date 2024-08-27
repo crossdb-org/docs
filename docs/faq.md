@@ -4,6 +4,26 @@ template: overrides/blog.html
 
 # FAQ
 
+## Why is it called CrossDB?
+
+This DB can be used across many areas: 
+
+* Lightweight Embedded DB
+* High-performance OLTP DB
+* IMDB/OnDisk DB/Hybrid DB
+* Manage runtime data to replace STL, collection or hand-written data structures
+* Data-driven development
+* Native language trigger
+* Support JSON
+* Embedded and Standalone Server
+* Data PUBSUB
+* Data Replication
+* As Redis Server
+* As MySQL Server
+* etc
+
+So it's not just an embedded DB.
+
 ## Why is `CrossDB` so fast?
 
 * Use memory map to access DB data directly (so your DB must less than the main memory to get highest speed).

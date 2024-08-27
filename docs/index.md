@@ -72,6 +72,10 @@ hide:
 
 </div>
 
+
+> **NOTE** 
+> This project is still in early development stage, so please **DO NOT** use in your project now.
+
 === "C"
 	``` c linenums="1"
 	xdb_res_t	*pRes;
@@ -124,7 +128,3 @@ hide:
 -->
 
 <br>
-
-> **NOTE** 
-> This project was redesigned and rewritten from scratch.
-> It's still in early development stage, so please **DO NOT** use in your project now.

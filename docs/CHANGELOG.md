@@ -6,6 +6,24 @@
 - SQL: GROUP BY 
 - Add CrossDB `TCP-B` benchmark test
 - WAL
+
+## 0.7.0 <small>(2024-08-26)</small>
+
+**Features**
+**Improvements**
+**Test**
+**Bug Fixes**
+
+## 0.8.0 <small>(2024-08-26)</small>
+
+**Features**
+
+- Support operators: `>`, `>=`, `<`, `<=`, `!=`, `<>` https://github.com/crossdb-org/CrossDB/issues/13
+
+**Improvements**
+**Test**
+**Bug Fixes**
+
 -->
 
 ## 0.7.0 <small>(2024-08-26)</small>
