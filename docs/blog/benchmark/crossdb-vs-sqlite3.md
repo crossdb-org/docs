@@ -6,6 +6,8 @@ template: overrides/blog.html
 
 ## Test Tool
 
+This tool will use auto-commit transaction to test single CRUD performance.
+
 [**Bench Test**](../../../get-started/bench/)
 
 ## Test Server
