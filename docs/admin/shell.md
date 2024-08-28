@@ -10,10 +10,12 @@ This tool can
 
 - Open and operate local database
 - Connect and operate remote database
+<!--
 - Work as standalone database server
+-->
 
 ```
-$ crossdb -h
+$ xdb-cli -h
 crossdb: option requires an argument -- 'h'
 Usage: xdb-cli [OPTIONS] [[path/]db_name]
   -h                        Show this help
@@ -29,13 +31,13 @@ Usage: xdb-cli [OPTIONS] [[path/]db_name]
 ## Open DB
 
 ```
-crossdb school
+xdb-cli school
 ```
 
 ## Open DB and Execute Command
 
 ```
-crossdb -e 'SELECT * FROM student WHERE id=1; SELECT * FROM student WHERE age=10' school
+xdb-cli -e 'SELECT * FROM student WHERE id=1; SELECT * FROM student WHERE age=10' school
 ```
 
 ## Embedded Shell

@@ -4,6 +4,15 @@ template: overrides/blog.html
 
 # FAQ
 
+<!--
+## Why develop CrossDB?
+
+High-performance
+
+## CrossDB drawbacks or limitation?
+
+-->
+
 ## Why is it called CrossDB?
 
 This DB can be used across many areas: 
@@ -34,7 +43,6 @@ So it's not just an embedded DB.
 * High-efficient client-server protocols.
 * Avoid memory allocation/free as much as possible.
 * High-performance implementation code
-
 
 ## Why not use scanner and parser tool like Flex/Bison?
 

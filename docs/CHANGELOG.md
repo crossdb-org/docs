@@ -18,7 +18,8 @@
 
 **Features**
 
-- Support operators: `>`, `>=`, `<`, `<=`, `!=`, `<>` https://github.com/crossdb-org/CrossDB/issues/13
+- Support operators: `>`, `>=`, `<`, `<=`, `!=`, `<>` (issue13)[https://github.com/crossdb-org/CrossDB/issues/13]
+- Support CMake
 
 **Improvements**
 **Test**
