@@ -7,12 +7,11 @@ template: overrides/blog.html
 CrossDB transaction supports ACID.
 Default isolation level is `READ COMMITTED`
 
-## Reader-Writeer MVCC
+## Reader-Writer MVCC
 
-Current CrossDB uses table-level readwrite lock, only one writer connection thread can modify the table, other writer connection threads will be blocked. 
-However the reader connection threads won't be blocked and they'll see the old values. 
-When the writer connection change is committed, the new value is visible by these reader connections (read committed).  
-In short writer before commit will not block readers to read old values
+Currently, CrossDB uses table-level read-write locks. Only one writer connection thread can modify the table at a time, while other writer connection threads will be blocked. However, reader connection threads will not be blocked and will see the old values. Once the writer connection's changes are committed, the new values become visible to these reader connections (read committed). 
+
+In short, there are two versions: a writer version and a reader version. A writer, before commit or rollback, will not block readers from reading old values. If the writer executes for a long time, this mechanism will significantly improve concurrency.
 
 ## Auto-commit
 
@@ -53,7 +52,7 @@ Enabled by default.
 	```
 
 > **NOTE**
-> This operation is optional and transaction will begin automatically when changing table.
+> This operation is optional, and the transaction will begin automatically when the table is changed.
 
 ## Commit Transaction
 
@@ -88,4 +87,4 @@ Enabled by default.
 	```
 
 > **NOTE**
-> Even there's errors during statements execution, transaction won't be rollbacked automatically, and user have to issue `rollback` expilicitly.
+> Even if there are errors during statement execution, the transaction will not be rolled back automatically. The user must explicitly issue a rollback.

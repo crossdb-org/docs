@@ -8,8 +8,9 @@ template: overrides/blog.html
 
 This tool can
 
-- Open and operate local database
-- Connect and operate remote database
+- Open and operate many local databases.
+- Connect to and operate a remote database server.
+
 <!--
 - Work as standalone database server
 -->
@@ -42,7 +43,7 @@ xdb-cli -e 'SELECT * FROM student WHERE id=1; SELECT * FROM student WHERE age=10
 
 ## Embedded Shell
 
-You program can enter interactive shell use the `SHELL` statement.
+Your program can enter the interactive shell using the `SHELL` statement.
 
 === "SQL"
 
@@ -58,7 +59,7 @@ You program can enter interactive shell use the `SHELL` statement.
 
 ## Auto Completion
 
-Use `TAB` to do auto completion for SQL statements, keywords, db name, table name, field name, etc.
+Use `TAB` to auto-complete SQL statements, keywords, database names, table names, field names, etc.
 
 ```sql
 XDB> <TAB>

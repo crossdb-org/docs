@@ -5,7 +5,7 @@ template: overrides/blog.html
 # Misc
 
 ## Shell
-Enter interactive shell
+Enter the interactive shell.
 
 ```sql
 SHELL

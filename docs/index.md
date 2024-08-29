@@ -30,17 +30,15 @@ hide:
 
     ---
 
-    CrossDB is easy to install and deploy. It has zero external dependencies and runs in-process in its host application or as a single binary with tiny footprint.
+    _CrossDB is easy to install and deploy, with zero external dependencies. It runs in-process within its host application with a tiny footprint._
 
-<!--
     [:octicons-arrow-right-24: Read more](get-started/install/)
--->
 
 -   ♻️ __Portable__
 
     ---
 
-    CrossDB runs on Linux, macOS, Windows, BSD and all popular hardware architectures. It has idiomatic client APIs for major programming languages.
+    _CrossDB runs on Linux, macOS, Windows, BSD, and all popular hardware architectures. It offers idiomatic client APIs for major programming languages._
 
     [:octicons-arrow-right-24: Read more](client/api-c/)
 
@@ -48,19 +46,21 @@ hide:
 
     ---
 
-    The hand-writing SQL parser and memory-oriented design architecture make the database run SQL at blazing speed.
+    _The hand-written SQL parser and memory-oriented design architecture enable the database to execute SQL at blazing speed._
+
+    [:octicons-arrow-right-24: Read more](faq/#why-is-crossdb-so-fast)
 
 -   ⛽ __Hybrid Storage Mode__
 
     ---
 
-    CrossDB supports On-Disk database and In-Memory database(IMDB). It can also support Hybrid mode with some tables On-Disk and some In-Memory.
+    _CrossDB supports both On-Disk and In-Memory databases (IMDB). It can also operate in Hybrid mode, with some tables stored On-Disk and others In-Memory._
 
 -   🔱 __SQL__
 
     ---
 
-    Most SQL statements are Standard, and also support many extensive statements from MySQL for convenient management.
+    _Most SQL statements are standard, and CrossDB also supports many extended statements from MySQL for convenient management._
 
     [:octicons-arrow-right-24: Read more](sql/statements/)
 
@@ -68,13 +68,13 @@ hide:
 
     ---
 
-    Besides the Embedded RDBMS mode, CrossDB can also run in Embedded Server mode or run CrossDB as Standalone RDBMS server.
+    _In addition to the Embedded RDBMS mode, CrossDB can also operate in Embedded Server mode or as a Standalone RDBMS server._
 
 </div>
 
 
 > **NOTE** 
-> This project is still in early development stage, so please **DO NOT** use in your project now.
+> This project is still in the early development stage, so please **DO NOT** use in your project now.
 
 === "C"
 	``` c linenums="1"

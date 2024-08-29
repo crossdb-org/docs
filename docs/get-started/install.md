@@ -38,7 +38,7 @@ sudo make installmac
 ## Windows
 
 You need to install [MINGW64](https://www.mingw-w64.org/) to build.
-Then set `gcc` path to `system environment variables` `Path` and make sure `gcc` can run.
+Then set the `gcc` path to `system environment variables` `Path` and make sure `gcc` can run.
 
 ```
 winbuild.bat
@@ -46,7 +46,6 @@ winbuild.bat
 
 ### CMake
 ```
-mkdir -p build;
 cd build
 cmake ..
 make
@@ -55,7 +54,7 @@ sudo make install
 
 ## Build manually
 
-Though there're dozens of files, only one file need to build.
+There are dozens of source files, but only one needs to be built.
 
 ```bash
 gcc -o build/xdb-cli src/xdb-cli.c -lpthread -O2

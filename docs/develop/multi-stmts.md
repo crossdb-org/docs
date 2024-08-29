@@ -4,7 +4,7 @@ template: overrides/blog.html
 
 # Multi-Statements
 
-Multi-Statements feature can improve performance a lot especailly for client-server mode. As you can run a batch of statements in one query, then get result one by one in parallel. For database doesn't support Multi-Statements, you have to send one statement, wait result, then send next one which will be low performance especailly when network lattency is big. 
+The Multi-Statements feature can significantly improve performance, especially in client-server mode. By running a batch of statements in one query, you can retrieve results one by one in parallel. In databases that do not support Multi-Statements, you must send one statement, wait for the result, and then send the next one. This process results in lower performance, particularly when network latency is high.
 
 === "SQL"
 

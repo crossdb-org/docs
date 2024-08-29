@@ -4,7 +4,7 @@ template: overrides/blog.html
 
 # Prepared Statements
 
-Prepared Statements can save the SQL parsing time and improve performance.
+Prepared Statements can save SQL parsing time and improve performance.
 
 > **NOTE**
 > Now only support `INSERT`, `SELECT` `UPDATE` `DELETE` statements.

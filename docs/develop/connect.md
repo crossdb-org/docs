@@ -5,10 +5,10 @@ template: overrides/blog.html
 
 # Connect to CrossDB
 
-You need a connection instance to connect to CrossDB and all operations will use this connection handle.
+You need a connection instance to connect to CrossDB, and all operations will use this connection handle.
 
-- One thread can use only one connection. One connection can only be used by one thread.
-- All opened databases are shared with all opened connections, and they can `USE DATABASE db_name` to switch connection's default DB.
+- Each thread can use only one connection, and each connection can be used by only one thread.
+- All opened databases are shared among all opened connections, and you can use `USE DATABASE db_name` command to switch the connection's default database.
 
 ## C APIs
 

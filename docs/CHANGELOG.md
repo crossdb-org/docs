@@ -1,11 +1,19 @@
 # Change Log
 
 <!--
-- New data types: BOOL, TIMESTAMP
-- Client-Server Mode
+- select expr
+- join
+- insert expr
+- where exp: OR
+- operators: like, in, between
+- data types: BOOL, TIMESTAMP
+- function (math, str, time)
+- client-server mode
 - SQL: GROUP BY 
-- Add CrossDB `TCP-B` benchmark test
+- NULL, autoincr ID
 - WAL
+- TCP-B
+- TCP-C
 
 ## 0.7.0 <small>(2024-08-26)</small>
 
@@ -14,18 +22,26 @@
 **Test**
 **Bug Fixes**
 
+
 ## 0.8.0 <small>(2024-08-26)</small>
 
 **Features**
 
-- Support operators: `>`, `>=`, `<`, `<=`, `!=`, `<>` (issue13)[https://github.com/crossdb-org/CrossDB/issues/13]
+- Support operators: `>`, `>=`, `<`, `<=`, `!=`, `<>` [#13](https://github.com/crossdb-org/CrossDB/issues/13)
 - Support CMake
 
 **Improvements**
+
 **Test**
+
+- Add unite test framwork
+- Add some test cases
+
 **Bug Fixes**
 
+- Fix bug [#15](https://github.com/crossdb-org/CrossDB/issues/15) Segmentation fault occurs while using on-disk database
 -->
+
 
 ## 0.7.0 <small>(2024-08-26)</small>
 
