@@ -6,7 +6,7 @@ template: overrides/blog.html
 
 ## APIs List
 
-|            | **API**               | **Descritpion**
+|            | **API**               | **Description**
  ----        | ----                  | ----
 xdb_conn_t*  | [**xdb_open**](#xdb_open) (const char *path)		| Open a connection
 void         | [**xdb_close**](#xdb_close) (xdb_conn_t *pConn)	| Close a connection
@@ -78,7 +78,7 @@ xdb_bexec (xdb_conn_t *pConn, const char *sql, ...);
 xdb_res_t*
 xdb_vbexec (xdb_conn_t *pConn, const char *sql, va_list ap);
 
-// Use '%' to format args then exectue, supports multi-statements
+// Use '%' to format args then execute, supports multi-statements
 xdb_res_t*
 xdb_pexec (xdb_conn_t *pConn, const char *sql, ...);
 ```

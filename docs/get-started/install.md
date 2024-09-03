@@ -4,6 +4,13 @@ template: overrides/blog.html
 
 # Build and Install
 
+## Download code
+
+```bash
+git clone https://github.com/crossdb-org/crossdb.git
+cd crossdb
+```
+
 ## Build
 
 ```bash
@@ -19,6 +26,7 @@ make uninstallmac         Uninstall crossdb from MacOS
 make example              Build and run example (need to install crossdb first)
 make bench                Build and run bench test (need to install crossdb first)
 make bench-sqlite         Build and run sqlite bench test (need to install sqlite3 first)
+make bench-stlmap         Build and run C++ STL Map and HashMap(unordered_map) bench test
 ```
 
 ## Linux/FreeBSD
@@ -66,4 +74,20 @@ or clang
 ```bash
 clang -o build/xdb-cli src/xdb-cli.c -lpthread -O2
 clang -o build/libcrossdb.so src/crossdb.c -fPIC -shared -lpthread -O2
+```
+
+## Run Tests
+
+```bash
+crossdb$ make test
+```
+
+```
+[==========] Running 2 test cases.
+[ RUN      ] XdbTest.insert_one/0
+[       OK ] XdbTest.insert_one/0 (637281ns)
+[ RUN      ] XdbTest.update_one/0
+[       OK ] XdbTest.update_one/0 (195417ns)
+[==========] 2 test cases ran.
+[  PASSED  ] 2 tests.
 ```

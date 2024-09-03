@@ -4,7 +4,7 @@ template: overrides/blog.html
 
 # SQL Statements
 
- Statement                 							| Descritpion        						| Note
+ Statement                 							| Description        						| Note
  ----                  								| ----               						| ----
 [**BEGIN**](../transaction/#begin-transaction)      | Start a new transaction. 					|
 [**COMMIT**](../transaction/#commit-transaction)    | Commits the open transaction if exists.	|

@@ -2,21 +2,22 @@
 template: overrides/blog.html
 ---
 
-# Turorial
+# Tutorial
 
-## Open conection and create default memory database
+## Open connection and create default memory database
 
 ```c
 xdb_res_t	*pRes;
 xdb_row_t	*pRow;
 
 xdb_conn_t	*pConn = xdb_open (":memory:");
+XDB_CHECK (NULL != pConn, printf ("failed to create DB\n"); return -1;);
 ```
 
 ## Create Table
 
 ```c
-pRes = xdb_exec (pConn, "CREATE TABLE student (id INT PRIMARY KEY, name CHAR(16), age INT, class CHAR(16), score FLOAT, info CHAR(255))");
+pRes = xdb_exec (pConn, "CREATE TABLE IF NOT EXISTS student (id INT PRIMARY KEY, name CHAR(16), age INT, class CHAR(16), score FLOAT, info CHAR(255))");
 XDB_RESCHK(pRes, printf ("Can't create table student\n"); goto error;);
 pRes = xdb_exec (pConn, "CREATE TABLE IF NOT EXISTS teacher (id INT PRIMARY KEY, name CHAR(16), age INT, info CHAR(255), INDEX (name))");
 XDB_RESCHK(pRes, printf ("Can't create table teacher\n"); goto error;);
@@ -59,7 +60,7 @@ pRes = xdb_exec (pConn, "UPDATE student set age=9 WHERE id = 2");
 XDB_RESCHK(pRes, printf ("Can't update id=%d\n",2); goto error;);
 
 pRes = xdb_exec (pConn, "SELECT id,name,age,class,score from student WHERE id = 2");
-printf ("select %d rows\n", (int)pRes->row_count);
+printf ("  select %d rows\n  ", (int)pRes->row_count);
 while (NULL != (pRow = xdb_fetch_row (pRes))) {
 	xdb_print_row (pRes->col_meta, pRow, 0);
 	printf ("\n");
@@ -75,7 +76,7 @@ pRes = xdb_exec (pConn, "DELETE FROM student WHERE id = 3");
 XDB_RESCHK(pRes, printf ("Can't delete id=%d\n",3); goto error;);
 
 pRes = xdb_exec (pConn, "SELECT * from student WHERE id = 3");
-printf ("select %d rows\n", (int)pRes->row_count);
+printf ("  select %d rows\n", (int)pRes->row_count);
 while (NULL != (pRow = xdb_fetch_row (pRes))) {
 	xdb_print_row (pRes->col_meta, pRow, 0);
 	printf ("\n");
@@ -88,7 +89,7 @@ xdb_free_result (pRes);
 ```c
 printf ("\n=== AGG COUNT,MIN,MAX,SUM,AVG\n");
 pRes = xdb_exec (pConn, "SELECT COUNT(*),MIN(score),MAX(score),SUM(score),AVG(score) FROM student");
-printf ("=== select %d rows\n", (int)pRes->row_count);
+printf ("  --- select %d rows\n  ", (int)pRes->row_count);
 if (NULL != (pRow = xdb_fetch_row (pRes))) {
 	xdb_print_row (pRes->col_meta, pRow, 0);
 	printf ("\n");
@@ -101,18 +102,19 @@ xdb_free_result (pRes);
 ```c
 printf ("\n=== Rollback\n");
 xdb_begin (pConn);
+printf ("  update age=15 for id = 2\n");
 pRes = xdb_exec (pConn, "UPDATE student set age=15 WHERE id = 2");
 pRes = xdb_exec (pConn, "SELECT id,name,age from student WHERE id = 2");
-printf ("select %d rows\n", (int)pRes->row_count);
+printf ("  select %d rows: ", (int)pRes->row_count);
 if (NULL != (pRow = xdb_fetch_row (pRes))) {
 	xdb_print_row (pRes->col_meta, pRow, 0);
 	printf ("\n");
 }
 xdb_free_result (pRes);
-printf ("-- rollback\n");
+printf ("  -- rollback\n");
 xdb_rollback (pConn);
 pRes = xdb_exec (pConn, "SELECT id,name,age from student WHERE id = 2");
-printf ("select %d rows\n", (int)pRes->row_count);
+printf ("  select %d rows: ", (int)pRes->row_count);
 if (NULL != (pRow = xdb_fetch_row (pRes))) {
 	xdb_print_row (pRes->col_meta, pRow, 0);
 	printf ("\n");
@@ -125,18 +127,19 @@ xdb_free_result (pRes);
 ```c
 printf ("\n=== Commit\n");
 xdb_begin (pConn);
+printf ("  update age=15 for id = 2\n");
 pRes = xdb_exec (pConn, "UPDATE student set age=15 WHERE id = 2");
 pRes = xdb_exec (pConn, "SELECT * from student WHERE id = 2");
-printf ("select %d rows\n", (int)pRes->row_count);
+printf ("  select %d rows: ", (int)pRes->row_count);
 if (NULL != (pRow = xdb_fetch_row (pRes))) {
 	xdb_print_row (pRes->col_meta, pRow, 0);
 	printf ("\n");
 }
 xdb_free_result (pRes);
-printf ("-- commit\n");
+printf ("  -- commit\n");
 xdb_commit (pConn);
 pRes = xdb_exec (pConn, "SELECT * from student WHERE id = 2");
-printf ("select %d rows\n", (int)pRes->row_count);
+printf ("  select %d rows: ", (int)pRes->row_count);
 if (NULL != (pRow = xdb_fetch_row (pRes))) {
 	xdb_print_row (pRes->col_meta, pRow, 0);
 	printf ("\n");
@@ -149,6 +152,7 @@ xdb_free_result (pRes);
 ```c
 printf ("\n=== Muti-Statements\n");
 pRes = xdb_exec (pConn, "SELECT COUNT(*) FROM student; SELECT id,name FROM student WHERE id=2");
+printf ("  -- 1st result: ");
 // count(*)	
 if (NULL != (pRow = xdb_fetch_row (pRes))) {
 	xdb_print_row (pRes->col_meta, pRow, 0);
@@ -156,6 +160,7 @@ if (NULL != (pRow = xdb_fetch_row (pRes))) {
 }
 xdb_free_result (pRes);
 // select
+printf ("  -- 2nd result: ");
 pRes = xdb_next_result (pConn);
 if (NULL != pRes) {
 	if (NULL != (pRow = xdb_fetch_row (pRes))) {
@@ -164,14 +169,13 @@ if (NULL != pRes) {
 	}
 	xdb_free_result (pRes);
 }
-
-xdb_exec (pConn, "SHELL");
 ```
 
 ## Enter Embedded Shell
 
 ```c
-xdb_exec (pConn, "SHELL");
+	printf ("\n=== Enter interactive embedded shell\n");
+	xdb_exec (pConn, "SHELL");
 ```
 
 ## Example Output
@@ -192,22 +196,42 @@ She likes cooking.
 We all love her!'
 
 === Update age = 9 for id = 2
-select 1 rows
-id=2 name='tom' age=9 class='2-5' score=91.000000
+  select 1 rows
+  id=2 name='tom' age=9 class='2-5' score=91.000000
+  id=2 name='tom' age=9 class='2-5' score=91.000000
+  id=2 name='tom' age=9 class='2-5' score=91.000000
 
 === Delete id = 3
-select 0 rows
-=== select 1 rows
-COUNT(*)=6 MIN(score)=90.000000 MAX(score)=95.000000 SUM(score)=556.000000 AVG(score)=92.666667
+  select 0 rows
+
+=== AGG COUNT,MIN,MAX,SUM,AVG
+  --- select 1 rows
+  COUNT(*)=6 MIN(score)=90.000000 MAX(score)=95.000000 SUM(score)=556.000000 AVG(score)=92.666667
+  COUNT(*)=6 MIN(score)=90.000000 MAX(score)=95.000000 SUM(score)=556.000000 AVG(score)=92.666667
+  COUNT(*)=6 MIN(score)=90.000000 MAX(score)=95.000000 SUM(score)=556.000000 AVG(score)=92.666667
+
+=== Rollback
+  update age=15 for id = 2
+  select 1 rows: id=2 name='tom' age=15
+  -- rollback
+  select 1 rows: id=2 name='tom' age=9
+
+=== Commit
+  update age=15 for id = 2
+  select 1 rows: id=2 name='tom' age=15 class='2-5' score=91.000000 info=''
+  -- commit
+  select 1 rows: id=2 name='tom' age=15 class='2-5' score=91.000000 info=''
 
 === Muti-Statements
-COUNT(*)=6
-id=2 name='tom'
+  -- 1st result: COUNT(*)=6
+  -- 2nd result: id=2 name='tom'
+
+=== Enter interactive embedded shell
    _____                   _____  ____      _
   / ____|                 |  __ \|  _ \   _| |_
  | |     _ __ ___  ___ ___| |  | | |_) | |_   _|
  | |    | '__/ _ \/ __/ __| |  | |  _ <    |_|
- | |____| | | (_) \__ \__ \ |__| | |_) |  0.7.0
+ | |____| | | (_) \__ \__ \ |__| | |_) |  0.8.0
   \_____|_|  \___/|___/___/_____/|____/ crossdb.org
 
 ============ Welcome to CrossDB Shell ============

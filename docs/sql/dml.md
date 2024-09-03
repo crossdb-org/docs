@@ -14,6 +14,18 @@ INSERT INTO tbl_name
 INSERT INTO tbl_name SET col_name = value, [col_name = value], ...
 ```
 
+## Where Expression
+
+Support following simple expressions now only.
+
+```sql
+expr AND expr AND ...
+
+expr:
+    col_name {= | > | >= | < | <= | != | <>} value
+  | value {= | > | >= | < | <= | != | <>} col_name
+```
+
 ## Replace
 
 ```sql
@@ -25,10 +37,23 @@ REPLACE INTO tbl_name
 ## Select
 
 ```sql
-SELECT col_name,... FROM tbl_name
+SELECT {col_name | sel_expr | agg_func(col_name)}, ... FROM tbl_name
     [WHERE expr]
     [ORDER BY col_name [ASC | DESC], ...]
     [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+
+sel_expr:
+    {val|col_name} + {val|col_name}
+  | {val|col_name} - {val|col_name}
+  | {val|col_name} * {val|col_name}
+  | {val|col_name} / {val|col_name}
+
+agg_func:
+    COUNT({* | col_name})
+  | SUM(col_name)
+  | AVG(col_name)
+  | MIN(col_name)
+  | MAX(col_name)
 ```
 
 ## Update
@@ -36,7 +61,7 @@ SELECT col_name,... FROM tbl_name
 ```sql
 UPDATE tbl_name
 	SET col_name={val|set_expr}, ... 
-    [WHERE expr]
+    [WHERE where_expr]
     [ORDER BY col_name [ASC | DESC], ...]
     [LIMIT {[offset,] row_count | row_count OFFSET offset}]
 
@@ -51,7 +76,7 @@ set_expr:
 
 ```sql
 DELETE FROM tbl_name
-    [WHERE expr]
+    [WHERE where_expr]
     [ORDER BY col_name [ASC | DESC], ...]
     [LIMIT {[offset,] row_count | row_count OFFSET offset}]
 ```

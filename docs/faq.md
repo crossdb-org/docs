@@ -4,18 +4,21 @@ template: overrides/blog.html
 
 # FAQ
 
-<!--
-## Why develop CrossDB?
+## What are the reasons for creating a new Relational DBMS?
 
-High-performance, Objectbox, Realm, Raima, extremeDB, LMDB, SqLite, 
+CrossDB is engineered for ultra high-performance scenarios, where existing SQL and NoSQL databases fall short of meeting the stringent performance requirements. 
 
-## CrossDB drawbacks or limitation?
+We have investigated and tested the following databases:
 
-- ensuring maximum speed if the DB size is less than the main memory.
-- DB can't be too large, and the memory must be larger than DB to get maximum speed.
-- Doesn't supported network mounted disk
+- Open Source: `SQLite`, `H2`, `ObjectBox`, `Realm`, `PERST`, `BerkeleyDB`, `WiredTiger`(`MongoDB` Storage Engine), `LMDB`, `mdbx`, `LevelDB`, `RocksDB`, `forestdb`,   `Sophia`, `unqilite`, `upscaledb`, `Vedis`, `FastDB`
+- Commercial: `eXtremeDB`, `RaimaDB`
 
--->
+## What are the drawbacks or limitations of CrossDB?
+
+CrossDB has a few limitations to consider:
+
+- The database size must be relatively small, and the available memory must exceed the database size to achieve maximum speed.
+- It does not support network-mounted disks.
 
 ## Why is it called CrossDB?
 
@@ -23,7 +26,7 @@ CrossDB is named for its versatility across various applications:
 
 * Lightweight Embedded DB
 * High-performance OLTP DB
-* IMDB/OnDisk DB/Hybrid DB
+* In-Memory DB/OnDisk DB/Hybrid DB
 * Managing runtime data to replace STL, collections, or hand-written data structures
 * Embedded and Standalone Server
 * Data-driven development (future plan)
@@ -35,7 +38,7 @@ CrossDB is named for its versatility across various applications:
 * Functioning as a MySQL Server (future plan)
 * And more
 
-Thus, it is not just an embedded DB.
+Thus, it is not merely a pure embedded database.
 
 ## Why is CrossDB so fast?
 
@@ -46,6 +49,7 @@ Thus, it is not just an embedded DB.
 * Executes multiple SQL statements in a single API call, significantly enhancing client-server database interactions.
 * Uses highly efficient client-server protocols.
 * Minimizes memory allocation and deallocation.
+* Minimizes the use of temporary tables whenever possible.
 * Implements high-performance code.
 
 ## Why not use scanner and parser tools like Flex/Bison?

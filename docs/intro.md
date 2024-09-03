@@ -4,7 +4,7 @@ template: overrides/blog.html
 
 # Introduction
 
-**CrossDB** is a super high-performance, lightweight embedded and server OLTP RDBMS. 
+**CrossDB** is a ultra high-performance, lightweight embedded and server OLTP RDBMS. 
 It is designed for high-performance scenarios where the main memory can hold the entire database.
 
 ## Features
@@ -28,7 +28,7 @@ It is designed for high-performance scenarios where the main memory can hold the
 - Supports an embedded CrossDB shell with convenient auto-completion.
 - Supports multi-statement APIs.
 - Supports prepared statement APIs.
-- Super high performance.
+- Ultra high performance.
 - Very simple: Simple header and library file.
 - Zero config: No complex configuration, truly out-of-the-box.
 

@@ -4,194 +4,192 @@ template: overrides/blog.html
 
 # Bench Test
 
+## Quick Test
+
 ```bash
-make bench
-make bench-sqlite
+crossdb$ make bench
+crossdb$ make bench-sqlite
+crossdb$ make bench-stlmap
+```
+
+## Bench Tools
+
+Build all benchmark tools.
+
+```bash
+crossdb/bench/basic$ make build
+```
+
+Detailed output example
+
+```bash
+******************** Sequential Test *********************
+
+[============= SQL Test =============]
+
+------------ INSERT   1,000 ------------
+Use time     424us, QPS  2,358,490
+------------ Sequential LKUP  2,000,000 ------------
+Use time  307601us, QPS  6,501,929
+Use time  267009us, QPS  7,490,384
+Use time  269925us, QPS  7,409,465
+Use time  312344us, QPS  6,403,196
+Use time  279971us, QPS  7,143,597
+------------ Sequential UPDATE  1,000,000 ------------
+Use time  155097us, QPS  6,447,577
+------------ Sequential DELETE   1,000 ------------
+Use time     163us, QPS  6,134,969
+
+[============= STMT Test =============]
+
+------------ INSERT   1,000 ------------
+Use time     171us, QPS  5,847,953
+------------ Sequential LKUP 10,000,000 ------------
+Use time  390880us, QPS 25,583,299
+Use time  399394us, QPS 25,037,932
+Use time  394197us, QPS 25,368,026
+Use time  394975us, QPS 25,318,058
+Use time  392603us, QPS 25,471,022
+------------ Sequential UPDATE  1,000,000 ------------
+Use time   51747us, QPS 19,324,791
+------------ Sequential DELETE   1,000 ------------
+Use time      52us, QPS 19,230,769
+
+
+*********************     Random Test *********************
+
+[============= SQL Test =============]
+
+------------ INSERT   1,000 ------------
+Use time     338us, QPS  2,958,579
+------------ Random LKUP  2,000,000 ------------
+Use time  268122us, QPS  7,459,290
+Use time  269225us, QPS  7,428,730
+Use time  269999us, QPS  7,407,434
+Use time  273119us, QPS  7,322,815
+Use time  272693us, QPS  7,334,255
+------------ Random UPDATE  1,000,000 ------------
+Use time  158065us, QPS  6,326,511
+------------ Random DELETE   1,000 ------------
+Use time     138us, QPS  7,246,376
+
+[============= STMT Test =============]
+
+------------ INSERT   1,000 ------------
+Use time      61us, QPS 16,393,442
+------------ Random LKUP 10,000,000 ------------
+Use time  397232us, QPS 25,174,205
+Use time  414939us, QPS 24,099,927
+Use time  498385us, QPS 20,064,809
+Use time  431194us, QPS 23,191,417
+Use time  407655us, QPS 24,530,546
+------------ Random UPDATE  1,000,000 ------------
+Use time   51968us, QPS 19,242,610
+------------ Random DELETE   1,000 ------------
+Use time      52us, QPS 19,230,769
+#######################   1,000 Rows Sequential Test Result ###############################
+       DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
+  CrossDB |      SQL |  2,358,490 |  6,989,714 |  6,447,577 |  6,134,969
+  CrossDB |     STMT |  5,847,953 | 25,355,667 | 19,324,791 | 19,230,769
+#######################   1,000 Rows Random Test Result ###############################
+       DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
+  CrossDB |      SQL |  2,958,579 |  7,390,504 |  6,326,511 |  7,246,376
+  CrossDB |     STMT | 16,393,442 | 23,412,180 | 19,242,610 | 19,230,769
+```
+
+## CrossDB Test
+
+```bash
+crossdb/bench/basic$ make 
 
 crossdb/bench/basic$ ./bench-crossdb -h
 Usage:
   -h                        show this help
   -n <row count>            default 1000000
   -r <round count>          test round, default 1
+  -c <cpu core>             bind cpu core
   -q                        quite mode
+```
 
-bench/basic$ ./bench-sqlite -h
+```bash
+./bench-crossdb -q -n 1000
+
+./bench-crossdb -q -n 1000000
+
+#######################  1,000,000 Rows Sequential Test Result ###############################
+       DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
+  CrossDB |      SQL |  3,264,389 |  7,009,289 |  6,011,674 |  6,387,082
+  CrossDB |     STMT | 15,284,910 | 18,752,608 | 17,713,536 | 19,351,342
+#######################  1,000,000 Rows Random Test Result ###############################
+       DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
+  CrossDB |      SQL |  3,645,989 |  2,510,993 |  2,162,218 |  2,290,567
+  CrossDB |     STMT | 17,229,793 |  4,548,306 |  5,023,661 |  3,877,532
+```
+
+* Maximum performance
+
+This will build with `-O3` and `-march=native` flags.
+
+```bash
+crossdb/bench/basic$ make fast
+```
+
+
+## SQLite Test
+
+```bash
+crossdb/bench/basic$ make sqlite
+crossdb/bench/basic$ ./bench-sqlite -h
 Usage:
   -h                        show this help
   -n <row count>            default 1000000
   -r <round count>          test round, default 1
-  -j                        Charts output
+  -c <cpu core>             bind cpu core
   -q                        quite mode
 ```
 
-## Test with 1000 rows
-
 ```bash
-crossdb/bench/basic$ ./bench-crossdb -n 1000
-******************** Sequential Test *********************
 
-[============= SQL Test =============]
+./bench-sqlite -q -n 1000
 
------------- INSERT 1000 ------------
-Use time     440us, QPS  2,272,727
------------- Sequential LKUP 2000000 ------------
-Use time  233250us, QPS  8,574,490
-Use time  228780us, QPS  8,742,022
-Use time  228706us, QPS  8,744,851
-Use time  233798us, QPS  8,554,393
-Use time  230729us, QPS  8,668,177
------------- Sequential UPDATE 1000000 ------------
-Use time  233156us, QPS  4,288,973
------------- Sequential DELETE 1000 ------------
-Use time     253us, QPS  3,952,569
+./bench-sqlite -q -n 1000000
 
-[============= Prepared STMT Test =============]
-
------------- INSERT 1000 ------------
-Use time     114us, QPS  8,771,929
------------- Sequential LKUP 10000000 ------------
-Use time  332693us, QPS 30,057,740
-Use time  328084us, QPS 30,479,999
-Use time  337989us, QPS 29,586,761
-Use time  331483us, QPS 30,167,459
-Use time  326260us, QPS 30,650,401
------------- Sequential UPDATE 1000000 ------------
-Use time   95963us, QPS 10,420,682
------------- Sequential DELETE 1000 ------------
-Use time     103us, QPS  9,708,737
-
-
-*********************     Random Test *********************
-
-[============= SQL Test =============]
-
------------- INSERT 1000 ------------
-Use time     281us, QPS  3,558,718
------------- Random LKUP 2000000 ------------
-Use time  238836us, QPS  8,373,946
-Use time  232736us, QPS  8,593,427
-Use time  230396us, QPS  8,680,706
-Use time  234262us, QPS  8,537,449
-Use time  240881us, QPS  8,302,854
------------- Random UPDATE 1000000 ------------
-Use time  231788us, QPS  4,314,287
------------- Random DELETE 1000 ------------
-Use time     242us, QPS  4,132,231
-
-[============= Prepared STMT Test =============]
-
------------- INSERT 1000 ------------
-Use time     145us, QPS  6,896,551
------------- Random LKUP 10000000 ------------
-Use time  320446us, QPS 31,206,505
-Use time  320016us, QPS 31,248,437
-Use time  321470us, QPS 31,107,101
-Use time  320841us, QPS 31,168,086
-Use time  319414us, QPS 31,307,331
------------- Random UPDATE 1000000 ------------
-Use time   96081us, QPS 10,407,885
------------- Random DELETE 1000 ------------
-Use time     104us, QPS  9,615,384
-
-####################### 1000 Rows Sequential Test Result ###############################
-
-     Rows |       DB |     Access | INSERT QPS |  QUERY QPS | UPDATE QPS
-  CrossDB |      SQL |  2,272,727 |  8,656,786 |  4,288,973 |  3,952,569
-  CrossDB |    PSTMT |  8,771,929 | 30,188,472 | 10,420,682 |  9,708,737
-
-####################### 1000 Rows Random Test Result ###############################
-
-     Rows |       DB |     Access | INSERT QPS |  QUERY QPS | UPDATE QPS
-  CrossDB |      SQL |  3,558,718 |  8,497,676 |  4,314,287 |  4,132,231
-  CrossDB |    PSTMT |  6,896,551 | 31,207,492 | 10,407,885 |  9,615,384
+#######################  1,000,000 Rows Sequential Test Result ###############################
+       DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
+   SQLite |      SQL |    376,208 |    265,398 |    341,315 |    385,447
+   SQLite |     STMT |    730,936 |  1,190,511 |  1,226,903 |  1,185,077
+#######################  1,000,000 Rows Random Test Result ###############################
+       DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
+   SQLite |      SQL |    383,971 |    212,220 |    272,373 |    261,880
+   SQLite |     STMT |    855,666 |    556,285 |    451,552 |    397,380
 ```
 
-## Test with 1000,1000 rows
+
+## C++ STL Map and HashMap Test
 
 ```bash
-crossdb/bench/basic$ ./bench-crossdb -n 1000000
-******************** Sequential Test *********************
-
-[============= SQL Test =============]
-
------------- INSERT 1000000 ------------
-Use time  283026us, QPS  3,533,244
------------- Sequential LKUP 2000000 ------------
-Use time  239741us, QPS  8,342,336
-Use time  241488us, QPS  8,281,985
-Use time  250842us, QPS  7,973,146
-Use time  248089us, QPS  8,061,623
-Use time  244100us, QPS  8,193,363
------------- Sequential UPDATE 1000000 ------------
-Use time  232698us, QPS  4,297,415
------------- Sequential DELETE 1000000 ------------
-Use time  182755us, QPS  5,471,806
-
-[============= Prepared STMT Test =============]
-
------------- INSERT 1000000 ------------
-Use time  114352us, QPS  8,744,927
------------- Sequential LKUP 10000000 ------------
-Use time  340243us, QPS 29,390,758
-Use time  345961us, QPS 28,904,992
-Use time  335192us, QPS 29,833,647
-Use time  330887us, QPS 30,221,797
-Use time  331956us, QPS 30,124,474
------------- Sequential UPDATE 1000000 ------------
-Use time  101290us, QPS  9,872,642
------------- Sequential DELETE 1000000 ------------
-Use time   91695us, QPS 10,905,720
-
-
-*********************     Random Test *********************
-
-[============= SQL Test =============]
-
------------- INSERT 1000000 ------------
-Use time  286132us, QPS  3,494,890
------------- Random LKUP 2000000 ------------
-Use time  509310us, QPS  3,926,881
-Use time  521360us, QPS  3,836,120
-Use time  520938us, QPS  3,839,228
-Use time  507936us, QPS  3,937,503
-Use time  511362us, QPS  3,911,123
------------- Random UPDATE 1000000 ------------
-Use time  349326us, QPS  2,862,655
------------- Random DELETE 1000000 ------------
-Use time  321771us, QPS  3,107,800
-
-[============= Prepared STMT Test =============]
-
------------- INSERT 1000000 ------------
-Use time  166302us, QPS  6,013,156
------------- Random LKUP 10000000 ------------
-Use time 1693871us, QPS  5,903,637
-Use time 1696559us, QPS  5,894,283
-Use time 1684474us, QPS  5,936,571
-Use time 1615879us, QPS  6,188,582
-Use time 1658627us, QPS  6,029,083
------------- Random UPDATE 1000000 ------------
-Use time  218351us, QPS  4,579,782
------------- Random DELETE 1000000 ------------
-Use time  224281us, QPS  4,458,692
-
-####################### 1000000 Rows Sequential Test Result ###############################
-
-     Rows |       DB |     Access | INSERT QPS |  QUERY QPS | UPDATE QPS
-  CrossDB |      SQL |  3,533,244 |  8,170,490 |  4,297,415 |  5,471,806
-  CrossDB |    PSTMT |  8,744,927 | 29,695,133 |  9,872,642 | 10,905,720
-
-####################### 1000000 Rows Random Test Result ###############################
-
-     Rows |       DB |     Access | INSERT QPS |  QUERY QPS | UPDATE QPS
-  CrossDB |      SQL |  3,494,890 |  3,890,171 |  2,862,655 |  3,107,800
-  CrossDB |    PSTMT |  6,013,156 |  5,990,431 |  4,579,782 |  4,458,692
+crossdb/bench/basic$ make stlmap
+crossdb/bench/basic$ ./bench-stlmap -h
+Usage:
+  -h                        show this help
+  -n <row count>            default 1000000
+  -r <round count>          test round, default 1
+  -c <cpu core>             bind cpu core
+  -q                        quite mode
 ```
 
-## Maximum performance
-
-This will build with `-O3` and `-march=native` flags
-
 ```bash
-make fast
+./bench-stlmap -q -n 1000
+
+./bench-stlmap -q -n 1000000
+
+#######################  1,000,000 Rows Sequential Test Result ###############################
+       DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
+      STL |      Map |  2,376,887 | 10,532,768 | 11,597,765 | 12,824,772
+      STL |  HashMap | 18,233,311 | 42,200,012 | 41,266,471 | 37,572,742
+#######################  1,000,000 Rows Random Test Result ###############################
+       DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
+      STL |      Map |  3,208,118 |  1,287,031 |  1,391,215 |  1,314,713
+      STL |  HashMap | 19,734,531 |  5,906,412 |  8,522,950 |  5,002,691
+
 ```

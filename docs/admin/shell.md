@@ -11,22 +11,18 @@ This tool can
 - Open and operate many local databases.
 - Connect to and operate a remote database server.
 
+> **NOTE**
+> `xdb-cli` creates a default memory database, allowing you to directly create tables for practice.
+
 <!--
 - Work as standalone database server
 -->
 
 ```
 $ xdb-cli -h
-crossdb: option requires an argument -- 'h'
-Usage: xdb-cli [OPTIONS] [[path/]db_name]
-  -h                        Show this help
-  -S                        Server: Start in server mode
-  -h <ip>                   IP address to bind to or connect to
-  -P <port>                 Port to listen or connect
-  -D <datadir>              Server: Data directory to store databases
-  -u <user>                 Client user
-  -p              			Client password
-  -e <sql>                  Execute SQL statements and quite
+Usage: xdb-cli [OPTIONS] [[path]/db_name]
+  -?                        Show this help
+  -e <sql>                  Client: Execute command and quit.
 ```
 
 ## Open DB
@@ -73,7 +69,7 @@ DELETE      Delete rows from table
 BEGIN       Begin transaction
 COMMIT      Commit transaction
 ROLLBACK    Rollback transaction
-USE         Switch Databae
+USE         Switch Database
 SHOW        Show database, table, index, etc
 DESCRIBE    Show Table Schema
 EXPLAIN     Show SELECT statement index selection

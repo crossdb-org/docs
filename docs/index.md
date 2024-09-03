@@ -13,7 +13,7 @@ hide:
 		</p>
     </div>
     <div class="xdb-col-md-8">
-		<p class="xdb-description"><span class="xdb-accent">CrossDB</span><br>Super High-performance Lightweight Embedded and Server OLTP RDBMS✨</p>
+		<p class="xdb-description"><span class="xdb-accent">CrossDB</span><br>Ultra High-performance Lightweight Embedded and Server OLTP RDBMS✨</p>
 		<p>
 			<a class="xdb-button xdb-button-primary" href="get-started/install/">Quick Learn🧭</a> 
 			<a class=xdb-button href="blog/benchmark/crossdb-vs-sqlite3">Benchmark 📜</a>
@@ -42,7 +42,7 @@ hide:
 
     [:octicons-arrow-right-24: Read more](client/api-c/)
 
--   🚀 __Super Fast__
+-   🚀 __Ultra Fast__
 
     ---
 
@@ -72,9 +72,15 @@ hide:
 
 </div>
 
+<br>
 
-> **NOTE** 
-> This project is still in the early development stage, so please **DO NOT** use in your project now.
+<figure class="xdb-figure">
+	<a href="blog/benchmark/crossdb-vs-sqlite3">
+		<img src="images/crossdb-vs-sqlite.png">
+	</a>
+</figure>
+
+<br>
 
 === "C"
 	``` c linenums="1"
@@ -85,7 +91,7 @@ hide:
 	pRes = xdb_exec (pConn, "CREATE TABLE student (id INT PRIMARY KEY, name CHAR(16), age INT, class CHAR(16), score INT)");
 
 	pRes = xdb_exec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (1001,'Jack',10,'3-1',90),(1002,'Tom',11,'2-5',91),(1003,'David',11,'1-6',92),(1004,'Rose',10,'4-2',90),(1005,'Tim',10,'3-1',95)");
-	pRes = xdb_bexec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (?,?,?,?,?)", 1006, 'Wendy', '4-3', 99);
+	pRes = xdb_bexec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (?,?,?,?,?)", 1006, 'Wendy', 10, '4-3', 99);
 
 	pRes = xdb_bexec (pConn, "SELECT * FROM student WHERE id = ?", 1001);
 	while (NULL != (pRow = xdb_fetch_row (pRes))) {
@@ -126,5 +132,13 @@ hide:
 		print(row)
 	```
 -->
+
+<br>
+
+<figure class="xdb-figure">
+	<a href="blog/benchmark/crossdb-vs-stlmap">
+		<img src="images/crossdb-vs-stlmap.png">
+	</a>
+</figure>
 
 <br>

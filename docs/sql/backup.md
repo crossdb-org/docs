@@ -37,7 +37,7 @@ dump_option:
 ```
 
 <!--
-// run with embedded mode, or with native libary or crossdb client  
+// run with embedded mode, or with native library or crossdb client  
 dump
 source
 

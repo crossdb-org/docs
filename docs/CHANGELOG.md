@@ -1,15 +1,17 @@
 # Change Log
 
 <!--
-- select expr
-- join
+- distinct
+- group by, having
+- select expr a+b, a*b
 - insert expr
+- where a<b
 - where exp: OR
+- join
 - operators: like, in, between
 - data types: BOOL, TIMESTAMP
-- function (math, str, time)
+- function (math[abs,round,floor], str[length], time[now()])
 - client-server mode
-- SQL: GROUP BY 
 - NULL, autoincr ID
 - WAL
 - TCP-B
@@ -22,25 +24,35 @@
 **Test**
 **Bug Fixes**
 
+-->
 
-## 0.8.0 <small>(2024-08-26)</small>
+## 0.8.0 <small>(2024-09-03)</small>
 
 **Features**
 
+- `SELECT` supports simple expr, ex: `a + 10` `a - b` [#12](https://github.com/crossdb-org/crossdb/issues/12)
 - Support operators: `>`, `>=`, `<`, `<=`, `!=`, `<>` [#13](https://github.com/crossdb-org/CrossDB/issues/13)
-- Support CMake
+- `WHERE` expression supports having the field on the right side, ex: `5 < id`
+- `xdb-cli` creates a default memory database, allowing you to directly create tables for practice.
+- Support `CMake`
 
 **Improvements**
 
+- Optimize `INSERT` `UPDATE` `DELETE` auto-commit performance for in-memory database 
+
 **Test**
 
-- Add unite test framwork
-- Add some test cases
+- Refactor benchmark test framework and support binding cpu core
+- New crossdb and `SQLite` benchmark test driver
+- Add C++ `STL Map` and `HashMap(unordered_map)` benchmark test driver
+- Import unit test framework
+- Add few test cases
 
 **Bug Fixes**
 
 - Fix bug [#15](https://github.com/crossdb-org/CrossDB/issues/15) Segmentation fault occurs while using on-disk database
--->
+- Fix close connection then reopen connection will cause previous connection use-after-free issue and memory leak issue
+- Fix query misses issue during hash index rehashing
 
 
 ## 0.7.0 <small>(2024-08-26)</small>
@@ -56,7 +68,7 @@
 
 - `INSERT` parser avoids malloc
 - `UPDATE` only updates affected indexes
-- Optimize `INSERT` `UPDATE` `DELETE` auto-commit performance for `IMDB` 
+- Optimize `INSERT` `UPDATE` `DELETE` auto-commit performance for in-memory database 
 
 **Test**
 

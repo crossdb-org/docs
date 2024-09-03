@@ -11,7 +11,7 @@ Prepared Statements can save SQL parsing time and improve performance.
 
 ## Steps
 
-- Create Prepared Statments
+- Create Prepared Statements
 
 	``` c
 	xdb_stmt_t *pStmt = xdb_stmt_prepare (pConn, "SELECT * FROM student WHERE id=?");
@@ -26,7 +26,7 @@ Prepared Statements can save SQL parsing time and improve performance.
 
 - Method B: Bind then Execute
 
-	- Bind paramters
+	- Bind parameters
 
 	```c
 	xdb_bind_int (pStmt, 1, id);
