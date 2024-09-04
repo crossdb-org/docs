@@ -37,7 +37,7 @@ REPLACE INTO tbl_name
 ## Select
 
 ```sql
-SELECT {col_name | sel_expr | agg_func(col_name)}, ... FROM tbl_name
+SELECT {col_name | sel_expr | agg_func(col_name)} [AS as_name], ... FROM tbl_name
     [WHERE expr]
     [ORDER BY col_name [ASC | DESC], ...]
     [LIMIT {[offset,] row_count | row_count OFFSET offset}]

@@ -29,21 +29,21 @@ make bench-sqlite         Build and run sqlite bench test (need to install sqlit
 make bench-stlmap         Build and run C++ STL Map and HashMap(unordered_map) bench test
 ```
 
-## Linux/FreeBSD
+### Linux/FreeBSD
 
 ```bash
 make build
 sudo make install
 ```
 
-## MacOS
+### MacOS
 
 ```bash
 make build
 sudo make installmac
 ```
 
-## Windows
+### Windows
 
 You need to install [MINGW64](https://www.mingw-w64.org/) to build.
 Then set the `gcc` path to `system environment variables` `Path` and make sure `gcc` can run.

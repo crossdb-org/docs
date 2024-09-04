@@ -8,9 +8,15 @@ template: overrides/blog.html
 
 This tool will use auto-commit transaction to test single CRUD performance for CrossDB Prepared STMT.
 
-[**Bench Test**](../../../get-started/bench/)
+[**Bench Tool**](../../../get-started/bench/)
 
-Test scripts which will conduct 5 rounds of testing and select the average value.
+[**Bench Test Framework**](https://github.com/crossdb-org/crossdb/blob/main/bench/basic/bench.h)
+
+[**STL Map&HashMap Bench Driver**](https://github.com/crossdb-org/crossdb/blob/main/bench/basic/bench-stlmap.cpp)
+
+[**CrossDB Bench Driver**](https://github.com/crossdb-org/crossdb/blob/main/bench/basic/bench-crossdb.c)
+
+The test scripts will conduct five rounds of testing and select the average value.
 
 ```bash
 crossdb/bench/basic$ ./bench-stlmap -q -r 5 -n 1000
@@ -28,29 +34,33 @@ crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 1000000
 crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 10000000
 ```
 
-To make test fair, STL Map and HashMap(unordered_map) use pthread read-write lock as CrossDB is thread-safe with read-write lock also. 
+> **NOTE**
+> - To ensure fairness in testing, both STL Map and HashMap (unordered_map) use pthread read-write locks, as CrossDB is thread-safe with read-write locks by default. 
+> - `std::shared_mutex` is not used because, in a single-threaded context, the compiler optimizes the code and omits the lock.
+> - CrossDB will support a lockless mode in the future, and the benchmark tool will offer an option to configure the lock mode.
+> - There is a macro `USE_STRING` that allows configuration to use either `C char array` or `C++ string`. By default, it uses `C char array`, which offers better performance.
 
 > **NOTE**
-> std::shared_mutex is not used because, in a single-threaded context, the compiler optimizes the code and omits the lock.
-
-> **NOTE**
-> Test result will vary with CPU/OS/Compiler/SQLite/System Load. And even on the same server, it'll vary each time.
+> Test results will vary depending on the CPU, OS, compiler, and system load. Even on the same server, the results will differ each time.
 
 ## Test Server
 ```
 CPU			: 11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz, Cache size 16384 KB
 OS			: Ubuntu 24.04
 CrossDB		: 0.8.0
-gcc 		: 13.2.0
+Compiler 	: gcc 13.2.0 with -O2 optimization
+c++ std		: c++17
 ```
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-## 1,000 Rows
+## In-Memory DB Test with INT
+
+### 1,000 Rows
 -------------------------------------------------------------------------------
 
-### Sequential Access Test
+#### Sequential Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
@@ -84,7 +94,7 @@ gcc 		: 13.2.0
   });
 </script>
 
-### Random Access Test
+#### Random Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
@@ -119,10 +129,10 @@ gcc 		: 13.2.0
 </script>
 
 
-## 10,000 Rows
+### 10,000 Rows
 -------------------------------------------------------------------------------
 
-### Sequential Access Test
+#### Sequential Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
@@ -156,7 +166,7 @@ gcc 		: 13.2.0
   });
 </script>
 
-### Random Access Test
+#### Random Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
@@ -191,10 +201,10 @@ gcc 		: 13.2.0
 </script>
 
 
-## 100,000 Rows
+### 100,000 Rows
 -------------------------------------------------------------------------------
 
-### Sequential Access Test
+#### Sequential Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
@@ -228,7 +238,7 @@ gcc 		: 13.2.0
   });
 </script>
 
-### Random Access Test
+#### Random Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
@@ -263,10 +273,10 @@ gcc 		: 13.2.0
 </script>
 
 
-## 1,000,000 Rows 
+### 1,000,000 Rows 
 -------------------------------------------------------------------------------
 
-### Sequential Access Test
+#### Sequential Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
@@ -300,7 +310,7 @@ gcc 		: 13.2.0
   });
 </script>
 
-### Random Access Test
+#### Random Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
@@ -335,10 +345,10 @@ gcc 		: 13.2.0
 </script>
 
 
-## 10,000,000 Rows 
+### 10,000,000 Rows 
 -------------------------------------------------------------------------------
 
-### Sequential Access Test
+#### Sequential Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
@@ -372,7 +382,7 @@ gcc 		: 13.2.0
   });
 </script>
 
-### Random Access Test
+#### Random Access Test
 
   DB      | Access   | Insert QPS | Query QPS  | Update QPS | Delete QPS
  ::       | ::       | ----       | ----       | ----       | ---- 
