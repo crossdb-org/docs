@@ -24,9 +24,11 @@ make uninstall            Uninstall crossdb from Linux/FreeBSD
 make installmac           Install crossdb(lib&tool&header) to MacOS
 make uninstallmac         Uninstall crossdb from MacOS
 make example              Build and run example (need to install crossdb first)
+make smoketest            Build and run smoke test (need to install crossdb first)
 make bench                Build and run bench test (need to install crossdb first)
 make bench-sqlite         Build and run sqlite bench test (need to install sqlite3 first)
 make bench-stlmap         Build and run C++ STL Map and HashMap(unordered_map) bench test
+make bench-boostmidx      Build and run C++ Boost MultiIndex Order and Hash bench test
 ```
 
 ### Linux/FreeBSD
@@ -45,7 +47,7 @@ sudo make installmac
 
 ### Windows
 
-You need to install [MINGW64](https://www.mingw-w64.org/) to build.
+You need to install [MINGW64](https://www.mingw-w64.org/) to build, [Github Download](https://github.com/niXman/mingw-builds-binaries/releases).
 Then set the `gcc` path to `system environment variables` `Path` and make sure `gcc` can run.
 
 ```

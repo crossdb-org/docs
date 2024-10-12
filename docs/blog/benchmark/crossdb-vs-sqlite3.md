@@ -19,19 +19,19 @@ This tool will use auto-commit transaction to test single CRUD performance.
 The test scripts will conduct five rounds of testing and select the average value.
 
 ```bash
-crossdb/bench/basic$ ./bench-sqlite -q -r 5 -n 1000
-crossdb/bench/basic$ ./bench-sqlite -q -r 5 -n 10000
-crossdb/bench/basic$ ./bench-sqlite -q -r 5 -n 100000
-crossdb/bench/basic$ ./bench-sqlite -q -r 5 -n 1000000
-crossdb/bench/basic$ ./bench-sqlite -q -r 5 -n 10000000
+crossdb/bench/basic$ ./bench-sqlite.bin -q -r 5 -n 1000
+crossdb/bench/basic$ ./bench-sqlite.bin -q -r 5 -n 10000
+crossdb/bench/basic$ ./bench-sqlite.bin -q -r 5 -n 100000
+crossdb/bench/basic$ ./bench-sqlite.bin -q -r 5 -n 1000000
+crossdb/bench/basic$ ./bench-sqlite.bin -q -r 5 -n 10000000
 ```
 
 ```bash
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 1000
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 10000
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 100000
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 1000000
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 10000000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 1000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 10000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 100000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 1000000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 10000000
 ```
 
 ## Test Server

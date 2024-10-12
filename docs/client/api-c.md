@@ -14,7 +14,9 @@ xdb_res_t*   | [**xdb_exec**](#xdb_exec) (xdb_conn_t* pConn, const char *sql) 		
 xdb_res_t*   | [**xdb_next_result**](#xdb_next_result) (xdb_conn_t *pConn) | Get next SQL statement result
 bool         | [**xdb_more_result**](#xdb_more_result) (xdb_conn_t* pRes)  | Check is there more result
 void      	 | [**xdb_free_result**](#xdb_free_result) (xdb_res_t* pRes)   | Free result set
-xdb_col_t*   | [**xdb_column_meta**](#xdb_column_meta) (uint64_t meta, uint16_t iCol)	| Fetch one row
+xdb_col_t*   | [**xdb_column_meta**](#xdb_column_meta) (uint64_t meta, uint16_t iCol)	| Get column meta
+xdb_type_t   | [**xdb_column_type**](#xdb_column_type) (uint64_t meta, uint16_t iCol)	| Get column type
+const char*  | [**xdb_column_name**](#xdb_column_name) (uint64_t meta, uint16_t iCol)	| Get column name
 xdb_row_t*   | [**xdb_fetch_row**](#xdb_fetch_row) (xdb_res_t* pRes)       | Fetch one row
 int          | [**xdb_column_int**](#xdb_column_int) (uint64_t meta, void *pRow, uint16_t iCol)     	| Get int column from row
 float        | [**xdb_column_float**](#xdb_column_float) (uint64_t meta, void *pRow, uint16_t iCol) 	| Get float/double column from row
@@ -29,8 +31,9 @@ void         | [**xdb_stmt_close**](#xdb_stmt_close) (xdb_stmt_t *pStmt)			| Fre
 xdb_ret      | [**xdb_begin**](#xdb_begin) (xdb_conn_t* pConn)						| Begin transaction
 xdb_ret      | [**xdb_commit**](#xdb_commit) (xdb_conn_t* pConn)					| Commit transaction
 xdb_ret      | [**xdb_rollback**](#xdb_rollback) (xdb_conn_t* pConn)				| Rollback transaction
-int          | [**xdb_print_row**](#xdb_print_row) (uint64_t meta, void *pRow, int format) 	| Print row to console
+const char * | [**xdb_type2str**](#xdb_type2str) (xdb_type_t type)					| Get data type string
 const char * | [**xdb_errmsg**](#xdb_errmsg) (xdb_res_t *pRes)						| Get error/information message
+int          | [**xdb_print_row**](#xdb_print_row) (uint64_t meta, void *pRow, int format) 	| Print row to console
 const char * | [**xdb_version**](#xdb_version) ()									| Get CrossDB version string
 
 ### xdb_open
@@ -89,18 +92,7 @@ xdb_pexec (xdb_conn_t *pConn, const char *sql, ...);
 - affected rows: `pRes->affected_rows` for `INSERT` `UPDATE` `DELETE` rows 
 - column count: `pRes->col_count` for query statement
 - column meta: `pRes->row_meta`, use `xdb_column_meta` to get column meta.
-
-### xdb_pexec
-
-Execute formatted SQL statement and return result set.
-
-``` c
-```
-
-- A valid xdb_res_t pointer is returned always.
-
-> **Note**
-> If `sql` contains `%`, should use escape `\%`.
+- For `xdb_pexec`, if `sql` contains `%`, should use escape `\%`.
 
 ### xdb_next_result
 
@@ -143,8 +135,23 @@ const xdb_col_t*
 xdb_column_meta (uint64_t meta, uint16_t iCol)
 ```
 
-> **Note**
-> This is an inline function.
+### xdb_column_type
+
+Get column type.
+
+``` c
+xdb_type_t 
+xdb_column_type (uint64_t meta, uint16_t iCol);
+```
+
+### xdb_column_name
+
+Get column name.
+
+``` c
+const char* 
+xdb_column_name (uint64_t meta, uint16_t iCol);
+```
 
 ### xdb_fetch_row
 
@@ -317,13 +324,13 @@ xdb_rollback (xdb_conn_t* pConn);
 
 - For embedded local connection, always return `XDB_OK`.
 
-### xdb_print_row
+### xdb_type2str
 
-Print row to console.
+Get data type string.
 
 ``` c
-int 
-xdb_print_row (uint64_t meta, xdb_row_t *pRow, int format);
+const char*
+xdb_type2str (xdb_type_t type);
 ```
 
 ### xdb_errmsg
@@ -333,6 +340,15 @@ Get error/information message in result.
 ``` c
 const char *
 xdb_errmsg (xdb_res_t *pRes);
+```
+
+### xdb_print_row
+
+Print row to console.
+
+``` c
+int 
+xdb_print_row (uint64_t meta, xdb_row_t *pRow, int format);
 ```
 
 ### xdb_version

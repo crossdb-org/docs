@@ -4,6 +4,14 @@ template: overrides/blog.html
 
 # C++ STL Map and HashMap Benchmark vs. CrossDB 
 
+## Overview
+
+This benchmark test aims to demonstrate that the performance of the CrossDB in-memory database is sufficient to serve as an alternative to STL Map/HashMap or Boost Multi-Index.
+
+When dealing with complex relational data, significant effort may be required to design and optimize your complex lookup strategy using maps or hashmaps. Databases excel in effective query planning and indexing. If you create efficient indexes and query plans for your maps, you can achieve high performance. However, if you have complex relationships involving numerous tables, do you really want to handle all the query planning yourself?
+
+One of the key advantages of a database is its flexibility. While bespoke solutions for known and stable data relations or structures can match or even surpass database performance, any changes would necessitate rewriting your complex lookup logic. In contrast, with a RDBMS, you can simply use UML to model and adjust your SQL queries.
+
 ## Test Tool
 
 This tool will use auto-commit transaction to test single CRUD performance for CrossDB Prepared STMT.
@@ -19,26 +27,25 @@ This tool will use auto-commit transaction to test single CRUD performance for C
 The test scripts will conduct five rounds of testing and select the average value.
 
 ```bash
-crossdb/bench/basic$ ./bench-stlmap -q -r 5 -n 1000
-crossdb/bench/basic$ ./bench-stlmap -q -r 5 -n 10000
-crossdb/bench/basic$ ./bench-stlmap -q -r 5 -n 100000
-crossdb/bench/basic$ ./bench-stlmap -q -r 5 -n 1000000
-crossdb/bench/basic$ ./bench-stlmap -q -r 5 -n 10000000
+crossdb/bench/basic$ ./bench-stlmap.bin -q -r 5 -n 1000
+crossdb/bench/basic$ ./bench-stlmap.bin -q -r 5 -n 10000
+crossdb/bench/basic$ ./bench-stlmap.bin -q -r 5 -n 100000
+crossdb/bench/basic$ ./bench-stlmap.bin -q -r 5 -n 1000000
+crossdb/bench/basic$ ./bench-stlmap.bin -q -r 5 -n 10000000
 ```
 
 ```bash
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 1000
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 10000
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 100000
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 1000000
-crossdb/bench/basic$ ./bench-crossdb -q -r 5 -n 10000000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 1000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 10000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 100000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 1000000
+crossdb/bench/basic$ ./bench-crossdb.bin -q -r 5 -n 10000000
 ```
 
 > **NOTE**
 > - To ensure fairness in testing, both STL Map and HashMap (unordered_map) use pthread read-write locks, as CrossDB is thread-safe with read-write locks by default. 
 > - `std::shared_mutex` is not used because, in a single-threaded context, the compiler optimizes the code and omits the lock.
 > - CrossDB will support a lockless mode in the future, and the benchmark tool will offer an option to configure the lock mode.
-> - There is a macro `USE_STRING` that allows configuration to use either `C char array` or `C++ string`. By default, it uses `C char array`, which offers better performance.
 
 > **NOTE**
 > Test results will vary depending on the CPU, OS, compiler, and system load. Even on the same server, the results will differ each time.

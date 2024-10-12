@@ -20,12 +20,14 @@ template: overrides/blog.html
  NOT BETWEEN ... AND ... | Whether a value is not within a range of values	| TBD
      IN                  | Whether a value is not within a set of values	| TBD
      NOT IN              | Negation of simple pattern matching	| TBD
-     LIKE                | Wildcard match			| TBD
+     LIKE                | Wildcard match			|
 
 LIKE is used together with wildcards to match strings. Its usage is described as follows:
 
-- '%' matches 0 or any number of characters, '\_' matches any single ASCII character.
-- `\_` is used to match the \_ in the string.
+- `%` matches 0 or any number of characters.
+- `_` matches any single ASCII character.
+- `\_` is used to match the `_` in the string.
+- `\%` is used to match the `%` in the string.
 
 ## Logical Operators
 

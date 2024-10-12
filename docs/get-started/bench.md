@@ -102,7 +102,7 @@ Use time      52us, QPS 19,230,769
 ```bash
 crossdb/bench/basic$ make 
 
-crossdb/bench/basic$ ./bench-crossdb -h
+crossdb/bench/basic$ ./bench-crossdb.bin -h
 Usage:
   -h                        show this help
   -n <row count>            default 1000000
@@ -112,9 +112,9 @@ Usage:
 ```
 
 ```bash
-./bench-crossdb -q -n 1000
+./bench-crossdb.bin -q -n 1000
 
-./bench-crossdb -q -n 1000000
+./bench-crossdb.bin -q -n 1000000
 
 #######################  1,000,000 Rows Sequential Test Result ###############################
        DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
@@ -139,7 +139,7 @@ crossdb/bench/basic$ make fast
 
 ```bash
 crossdb/bench/basic$ make sqlite
-crossdb/bench/basic$ ./bench-sqlite -h
+crossdb/bench/basic$ ./bench-sqlite.bin -h
 Usage:
   -h                        show this help
   -n <row count>            default 1000000
@@ -150,9 +150,9 @@ Usage:
 
 ```bash
 
-./bench-sqlite -q -n 1000
+./bench-sqlite.bin -q -n 1000
 
-./bench-sqlite -q -n 1000000
+./bench-sqlite.bin -q -n 1000000
 
 #######################  1,000,000 Rows Sequential Test Result ###############################
        DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
@@ -169,7 +169,7 @@ Usage:
 
 ```bash
 crossdb/bench/basic$ make stlmap
-crossdb/bench/basic$ ./bench-stlmap -h
+crossdb/bench/basic$ ./bench-stlmap.bin -h
 Usage:
   -h                        show this help
   -n <row count>            default 1000000
@@ -179,9 +179,9 @@ Usage:
 ```
 
 ```bash
-./bench-stlmap -q -n 1000
+./bench-stlmap.bin -q -n 1000
 
-./bench-stlmap -q -n 1000000
+./bench-stlmap.bin -q -n 1000000
 
 #######################  1,000,000 Rows Sequential Test Result ###############################
        DB |   Access | INSERT QPS |  QUERY QPS | UPDATE QPS | DELETE QPS
