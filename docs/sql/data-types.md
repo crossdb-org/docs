@@ -19,7 +19,7 @@ template: overrides/blog.html
         FLOAT       | 4            | Floating point number.				|
        DOUBLE       | 8            | Double precision floating point number.			|
           CHAR [COLLATE collation_name]  | User-defined, max 65535 | Fixed-length UTF-8 string. 	|
-        VARCHAR [COLLATE collation_name] | User-defined, max 65535 | Variable-Length UTF-8 string. | TBD
+        VARCHAR [COLLATE collation_name] | User-defined, max 65535 | Variable-Length UTF-8 string.	|
          BINARY     | User-defined, max 65535 | Fixed-length binary data. 		| TBD
        VARBINARY    | User-defined, max 65535 | Variable-Length binary data.	| TBD
 

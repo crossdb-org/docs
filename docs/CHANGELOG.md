@@ -24,6 +24,20 @@
 **Test**
 **Bug Fixes**
 - Support simple SQL inner join
+
+
+## 0.10.0 <small>(2024-10-26)</small>
+
+**Features**
+	- Support `VARCHAR`
+	- Support simple SQL inner join
+
+**Improvements**
+
+**Test**
+
+**Bug Fixes**
+
 -->
 
 ## 0.9.0 <small>(2024-10-11)</small>

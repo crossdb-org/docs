@@ -16,11 +16,12 @@ template: overrides/blog.html
       <=                 | Less than or equal to	|
    IS NULL               | NULL value test			| TBD
    IS NOT NULL           | NOT NULL value test		| TBD
- BETWEEN ... AND ...     | Whether a value is within a range of values		| TBD
- NOT BETWEEN ... AND ... | Whether a value is not within a range of values	| TBD
-     IN                  | Whether a value is not within a set of values	| TBD
-     NOT IN              | Negation of simple pattern matching	| TBD
-     LIKE                | Wildcard match			|
+ BETWEEN ... AND ...     | Value is within a range		| TBD
+ NOT BETWEEN ... AND ... | Value is not within a range	| TBD
+     IN                  | Value is within a list of values		| TBD
+     NOT IN              | Value is not within a list of values	| TBD
+     LIKE                | Simple pattern matching		|
+     NOT LIKE            | Negation of simple pattern matching	| TBD
 
 LIKE is used together with wildcards to match strings. Its usage is described as follows:
 
@@ -34,4 +35,4 @@ LIKE is used together with wildcards to match strings. Its usage is described as
  **Operator** | Description		| Note
      ::       | ----            | ----
     AND       | Logical AND     |
-    OR        | Logical OR      | TBD
+    OR        | Logical OR      |
