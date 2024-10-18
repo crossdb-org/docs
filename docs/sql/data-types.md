@@ -7,10 +7,10 @@ template: overrides/blog.html
 |     **Type**      |  **Bytes**   | **Description**	| Note
        ::           | ----         | ----				| ----
          BOOL       | 1            | Bool, the value range is {true, false}.			| TBD
-       TINYINT      | 1            | Single-byte integer, the value range is [-128, 127].	|
-      SMALLINT      | 2            | Short integer, the value range is [-32768, 32767].	|
-        INT         | 4            | Integer, the value range is [-2^31, 2^31-1].		|
-        BIGINT      | 8            | Long integer, the value range is [-2^63, 2^63-1].	|
+       TINYINT      | 1            | Single-byte integer, the value range is [-128, 127].	 |
+      SMALLINT      | 2            | Short integer, the value range is [-32768, 32767].	 |
+        INT         | 4            | Integer, the value range is [-2^31, 2^31-1].		 |
+        BIGINT      | 8            | Long integer, the value range is [-2^63, 2^63-1].	 |
   TINYINT UNSIGNED  | 1            | unsigned single-byte integer, the value range is [0, 255].	| TBD
   SMALLINT UNSIGNED | 2            | unsigned integer, the value range is [0, 65535].	| TBD
     INT UNSIGNED    | 4            | Unsigned integer, the value range is [0, 2^32-1].	| TBD
@@ -19,15 +19,27 @@ template: overrides/blog.html
         FLOAT       | 4            | Floating point number.				|
        DOUBLE       | 8            | Double precision floating point number.			|
           CHAR [COLLATE collation_name]  | User-defined, max 65535 | Fixed-length UTF-8 string. 	|
-        VARCHAR [COLLATE collation_name] | User-defined, max 65535 | Variable-Length UTF-8 string.	|
-         BINARY     | User-defined, max 65535 | Fixed-length binary data. 		| TBD
-       VARBINARY    | User-defined, max 65535 | Variable-Length binary data.	| TBD
+        VARCHAR [COLLATE collation_name] | User-defined, max 65535 | Variable-length UTF-8 string.	|
+         BINARY     | User-defined, max 65535 | Fixed-length binary data. 		|
+       VARBINARY    | User-defined, max 65535 | Variable-length binary data.	|
 
-## Collation 
+## Collation
+
 |     **Type**      |  **Description**
         ::          |----            
 	NOCASE          | Case insensitive [**Default**].
 	BINARY          | Case sensitive.
+
+## Literals
+
+|     **Type**      |  Literals
+        ::          | ----
+        Boolean     | `true`, `false`
+        Integer     | `123`, `-123`
+    Floating-Point  | `1.23`, `-1.23`
+        Character   | `'abc'`, `"abc"`
+        Binary      | `x'a23f5fde'`, `X'A23F5FDE'`, `0xa23f5fde`, `0XA23F5FDE`
+      Timestamp     | TBD
 
 ## Escape Characters
 | **Escape Character**	| **Actual Meaning**

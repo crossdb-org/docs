@@ -21,6 +21,7 @@ xdb_row_t*   | [**xdb_fetch_row**](#xdb_fetch_row) (xdb_res_t* pRes)       | Fet
 int          | [**xdb_column_int**](#xdb_column_int) (uint64_t meta, void *pRow, uint16_t iCol)     	| Get int column from row
 float        | [**xdb_column_float**](#xdb_column_float) (uint64_t meta, void *pRow, uint16_t iCol) 	| Get float/double column from row
 const char * | [**xdb_column_str**](#xdb_column_str) (uint64_t meta, void *pRow, uint16_t iCol)       	| Get string column from row
+const void * | [**xdb_column_blob**](#xdb_column_blob) (uint64_t meta, xdb_row_t *pRow, uint16_t iCol, int *pLen) | Get binary column from row
 xdb_stmt_t*  | [**xdb_stmt_prepare**](#xdb_stmt_prepare) (xdb_conn_t* pConn, const char *sql) 		 	| Prepare statement
 xdb_ret      | [**xdb_bind_int**](#xdb_bind_int) (xdb_stmt_t *pStmt, uint16_t para_id, int val)	| Bind int value
 xdb_ret      | [**xdb_bind_float**](#xdb_bind_float) (xdb_stmt_t *pStmt, uint16_t para_id, float val) | Bind float value
@@ -203,6 +204,18 @@ xdb_column_str (uint64_t meta, xdb_row_t *pRow, uint16_t iCol);
 
 const char*
 xdb_column_str2 (uint64_t meta, xdb_row_t *pRow, uint16_t iCol, int *pLen);
+```
+
+> **Note**
+> You can access the pointer directly: `*(const char*)pVal[iCol]`, get the length `*(uint16_t*)(pVal[iCol]-2)`
+
+### xdb_column_blob
+
+Get blob column from row.
+
+``` c
+const void*
+xdb_column_blob (uint64_t meta, xdb_row_t *pRow, uint16_t iCol, int *pLen);
 ```
 
 > **Note**
