@@ -12,10 +12,10 @@ CREATE DATABASE [IF NOT EXISTS] {db_name | '[path/]db_name'} [db_option] ...
 db_option:
     ENGINE = {MMAP | MEMORY}
   | LOCKMODE = {THREAD | PROCESS | NOLOCK}
+  | SYNCMODE = {ASYNC | SYNC | NOSYNC | 2~1000000}
 ```
 
 <!--
-  | FLUSHMODE = {ASYNC | SYNC | NOSYNC}
   | ROWLOCK = {0 | 1}
   | MVCC = {0 | 1}
 -->
@@ -25,6 +25,13 @@ db_option:
 THREAD [*default*]	| high-performance thread read-write lock   | For single process multiple threads access.
 PROCESS    			| file read-write lock                      | For multiple processes multiple threads access.
 NOLOCK    			| no lock                      				| For test/diag purpose only.
+
+|  **SYNCMODE**    	|  **Description** |
+  ::               	|  ----
+ASYNC [*default*]	|  Flush WAL to disk once per second (Schedule OS to flush WAL to disk asynchronously if possible)
+SYNC   		    	|  Flush WAL to disk at each transaction commit
+NOSYNC        		|  Don't do flush [*for ramdisk only*]
+2~1000000		 	|  Flush WAL to disk after number of transaction commits or per second
 
 > **Note**
 > `'[path]/db_name'` is only valid for embedded database.
@@ -36,8 +43,7 @@ NOLOCK    			| no lock                      				| For test/diag purpose only.
 OPEN DATABASE {db_name | '[path/]db_name'} [dbg_option] ...
 
 dbg_option:
-    FLUSHMODE = {ASYNC | SYNC | NOSYNC}
-  | LOCKMODE = {THREAD | PROCESS | NOLOCK}
+  LOCKMODE = {THREAD | PROCESS | NOLOCK}
 ```
 
 > **Note**
