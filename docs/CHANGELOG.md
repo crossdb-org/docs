@@ -26,6 +26,20 @@
 - Support simple SQL inner join
 - Support new statements: `FLUSH` `REPAIR`
 
+## 0.11.0 <small>(2024-11-01)</small>
+
+**Features**
+
+- Support `BOOL`, `TIMESTAMP`
+
+**Improvements**
+
+**Test**
+
+**Bug Fixes**
+
+- INSERT without column list will set all columns to NULL
+
 -->
 
 ## 0.10.0 <small>(2024-11-01)</small>

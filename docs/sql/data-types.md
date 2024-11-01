@@ -6,7 +6,7 @@ template: overrides/blog.html
 
 |     **Type**      |  **Bytes**   | **Description**	| Note
        ::           | ----         | ----				| ----
-         BOOL       | 1            | Bool, the value range is {true, false}.			| TBD
+         BOOL       | 1            | Bool, the value range is {`true`, `false`}.			|
        TINYINT      | 1            | Single-byte integer, the value range is [-128, 127].	 |
       SMALLINT      | 2            | Short integer, the value range is [-32768, 32767].	 |
         INT         | 4            | Integer, the value range is [-2^31, 2^31-1].		 |
@@ -15,7 +15,7 @@ template: overrides/blog.html
   SMALLINT UNSIGNED | 2            | unsigned integer, the value range is [0, 65535].	| TBD
     INT UNSIGNED    | 4            | Unsigned integer, the value range is [0, 2^32-1].	| TBD
    BIGINT UNSIGNED  | 8            | unsigned long integer, the value range is [0, 2^64-1].	| TBD
-      TIMESTAMP     | 8            | Default precision is microsecond.	| TBD
+      TIMESTAMP     | 8            | Default precision is millisecond.	|
         FLOAT       | 4            | Floating point number.				|
        DOUBLE       | 8            | Double precision floating point number.			|
           CHAR [COLLATE collation_name]  | User-defined, max 65535 | Fixed-length UTF-8 string. 	|
@@ -39,7 +39,7 @@ template: overrides/blog.html
     Floating-Point  | `1.23`, `-1.23`
         Character   | `'abc'`, `"abc"`
         Binary      | `x'a23f5fde'`, `X'A23F5FDE'`, `0xa23f5fde`, `0XA23F5FDE`
-      Timestamp     | TBD
+      Timestamp     | `'2024-11-01'`, `'2024-11-01T19:05:12'`, `'2024-11-01T19:05:12.561'`, `'2024-11-01T19:05:12.561288'`, `1730459112561288`(*millisecond*)
 
 ## Escape Characters
 | **Escape Character**	| **Actual Meaning**
@@ -49,7 +49,7 @@ template: overrides/blog.html
 		\t				| tab
 		\'				| Single quote '
 		\"				| Double quote "
-		\`				| backtick  `
-		\\				| Back Slash \
-		\%				| % see below for details
-		\_				| _ see below for details
+		\\`				| backtick
+		\\\\			| Back Slash `\`
+		\%				| Percent sign `%`
+		\\_				| Unserscore  `_`
