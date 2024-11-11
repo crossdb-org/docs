@@ -11,11 +11,13 @@ template: overrides/blog.html
 [**CLOSE DATABASE**](../database/#close-database)   | Close an opened database.					| Embedded Mode only
 [**CREATE DATABASE**](../database/#create-database) | Create a database.						|
 [**CREATE INDEX**](../indexes/#create-index) 		| Create an index on the specified table.	|
+[**CREATE SERVER**](../server/#create-server) 		| Create a CrossDB Server.					|
 [**CREATE TABLE**](../table/#create-table) 			| Create a new table.						|
 [**DELETE**](../dml/#delete) 						| Delete rows in a table.					|
 [**DESCRIBE**](../table/#show-table-columns) 		| Describe the specified table.				|
 [**DROP DATABASE**](../database/#drop-database) 	| Drop a database.							|
 [**DROP INDEX**](../indexes/#drop-index) 			| Drop the specified index on the specified table.	|
+[**DROP SERVER**](../server/#drop-server) 			| Drop the specified server.	|
 [**DROP TABLE**](../table/#drop-table) 				| Drop the specified table.					|
 [**DUMP DATABASE**](../backup/#dump-database)  		| Dump database into file.		            |
 [**EXPLAIN**](../dml/#explain) 				        | Returns detailed information on how the query is executed.      |
@@ -30,6 +32,7 @@ template: overrides/blog.html
 [**SHOW CREATE TABLE**](../table/#show-create-table) | Show the `CREATE TABLE` statement.				|
 [**SHOW DATABASE**](../database/#show-databases)    | Show the list of databases.				|
 [**SHOW INDEXES**](../indexes/#show-index)          | Show the list of indexes associated with a given table.	       |
+[**SHOW SERVERS**](../server/#show-servers) 		| Show the list of servers.	|
 [**SHOW TABLES**](../table/#show-all-tables)        | Show the list of tables in database.		|
 [**SOURCE**](../backup/#source)        				| Load and execute SQL file.		        |
 [**UPDATE**](../dml/#update) 						| Modifies rows in a table.					|

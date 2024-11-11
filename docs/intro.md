@@ -15,7 +15,7 @@ It is designed for high-performance scenarios where the main memory can hold the
 - Supports the standard RDBMS model.
 - Supports standard SQL and many extensions from MySQL.
 - Supports multiple databases.
-- Supports embedded and client-server modes (TBD).
+- Supports embedded and client-server modes
 - Supports primary keys and multiple secondary indexes.
 - Supports HASH and RBTREE (TBD) indexes.
 - Supports multi-column indexes.

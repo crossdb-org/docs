@@ -193,6 +193,7 @@ nav:
       - get-started/tutorial.md
       - get-started/bench.md
     - Developer Guide:
+      - develop/server.md
       - develop/connect.md
       - develop/ddl.md
       - develop/dml.md
@@ -214,6 +215,7 @@ nav:
       - sql/indexes.md
       - sql/dml.md
       - sql/transaction.md
+      - sql/server.md
       - sql/backup.md
       - sql/misc.md
     - System Tables:

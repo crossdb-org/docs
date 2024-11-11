@@ -10,7 +10,13 @@ You need a connection instance to connect to CrossDB, and all operations will us
 - Each thread can use only one connection, and each connection can be used by only one thread.
 - All opened databases are shared among all opened connections, and you can use `USE DATABASE db_name` command to switch the connection's default database.
 
-## C APIs
+## Connection Modes
+
+* Embedded mode (local connections)
+* Server mode (remote connections over TCP/IP)
+* Mixed mode (local and remote connections at the same time)
+
+## Connect to Embedded Database
 
 - Open a connection
 
@@ -39,45 +45,22 @@ xdb_conn_t *pConn = xdb_open ("school");
 xdb_conn_t *pConn = xdb_open ("/var/crossdb/school");
 ```
 
-<!--
-## Embedded Database
+## Connect to CrossDB Server
 
-## Embedded Server Database
-TBD
+- Connect to local host CrossDB Server
 
-## Standalone CrossDB Server
-TBD
+```c
+xdb_conn_t *pConn = xdb_connect (NULL, NULL, NULL, NULL, 7777);
+```
 
-Start CrossDB Server
-crossdb -S -D
+- Connect to remote host CrossDB Server
 
-Default CrossDB Data Directory
+```c
+xdb_conn_t *pConn = xdb_connect ("192.168.1.1", NULL, NULL, NULL, 7777);
+```
 
-## Connection Modes
+Set current DB
 
-* Embedded mode (local connections)
-* Server mode (remote connections over TCP/IP)
-* Mixed mode (local and remote connections at the same time)
-
-# Running Mode
-
-## Embedded Database
-
-## Embedded Server Database
-TBD
-
-## Standalone CrossDB Server
-TBD
-
-Start CrossDB Server
-crossdb -S -D
-
-Default CrossDB Data Directory
-
-## Connection Modes
-
-* Embedded mode (local connections)
-* Server mode (remote connections over TCP/IP)
-* Mixed mode (local and remote connections at the same time)
-
--->
+```c
+xdb_conn_t *pConn = xdb_connect ("192.168.1.1", NULL, NULL, "school", 7777);
+```

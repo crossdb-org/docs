@@ -10,18 +10,23 @@ This tool can
 
 - Open and operate many local databases.
 - Connect to and operate a remote database server.
+- Work as standalone database server.
 
 > **NOTE**
 > `xdb-cli` creates a default memory database, allowing you to directly create tables for practice.
 
-<!--
-- Work as standalone database server
--->
 
 ```
 $ xdb-cli -h
 Usage: xdb-cli [OPTIONS] [[path]/db_name]
   -?                        Show this help
+  -S                        Server: Start in server mode, default port 7777
+  -h <ip>                   IP address to bind to or connect to
+  -P <port>                 Port to listen or connect
+  -D <datadir>              Server: Data directory to store databases, default '/var/xdb_data'
+  -q                        Server: quite mode.
+  -u <user>                 Client user
+  -p                        Client password
   -e <sql>                  Client: Execute command and quit.
 ```
 
@@ -35,6 +40,62 @@ xdb-cli school
 
 ```
 xdb-cli -e 'SELECT * FROM student WHERE id=1; SELECT * FROM student WHERE age=10' school
+```
+
+## Connect to CrossDB Server
+
+```
+xdb-cli -P 7777
+xdb-cli -h 192.168.172.176
+xdb-cli -h 192.168.172.176 -P 8888
+
+xdb-cli -P 7777 school
+xdb-cli -h 192.168.172.176 school
+xdb-cli -h 192.168.172.176 -P 7777 school
+```
+
+## Connect to CrossDB Server and Execute Command
+
+```
+xdb-cli -P 7777 -e 'SELECT * FROM school.student WHERE id=1; SELECT * FROM school.student WHERE age=10'
+xdb-cli -h 192.168.172.176 -e 'SELECT * FROM school.student WHERE id=1; SELECT * FROM school.student WHERE age=10'
+xdb-cli -h 192.168.172.176 -P 7777 -e 'SELECT * FROM school.student WHERE id=1; SELECT * FROM school.student WHERE age=10'
+
+xdb-cli -P 7777 -e 'SELECT * FROM student WHERE id=1; SELECT * FROM student WHERE age=10' school
+xdb-cli -h 192.168.172.176 -e 'SELECT * FROM student WHERE id=1; SELECT * FROM student WHERE age=10' school
+xdb-cli -h 192.168.172.176 -P 7777 -e 'SELECT * FROM student WHERE id=1; SELECT * FROM student WHERE age=10' school
+```
+
+## Connect to CrossDB with Telnet
+
+```
+$ telnet 127.0.0.1 7777
+Trying 127.0.0.1...
+Connected to 127.0.0.1.
+Escape character is '^]'.
+USE school;
+Database changed
+
+SHOW TABLES;
++---------+--------+
+| table   | engine |
++---------+--------+
+| student | MMAP   |
++---------+--------+
+1 row in set (0.048 ms)
+
+SELECT * FROM student;
++----+------+-----+-------+-----------+------+
+| id | name | age | class | score     | info |
++----+------+-----+-------+-----------+------+
+| 1  | Jack | 10  | 3-1   | 90.500000 | NULL |
+| 2  | Tom  | 10  | 2-5   | 91.900002 | NULL |
+| 3  | Jack | 11  | 1-6   | 92.300003 | NULL |
++----+------+-----+-------+-----------+------+
+3 rows in set (0.023 ms)
+
+exit
+Connection closed by foreign host.
 ```
 
 ## Embedded Shell

@@ -70,6 +70,8 @@ hide:
 
     _In addition to the Embedded RDBMS mode, CrossDB can also operate in Embedded Server mode or as a Standalone RDBMS server._
 
+    [:octicons-arrow-right-24: Read more](develop/server/)
+
 </div>
 
 <br>
@@ -91,7 +93,7 @@ hide:
 	pRes = xdb_exec (pConn, "CREATE TABLE student (id INT PRIMARY KEY, name CHAR(16), age INT, class CHAR(16), score INT)");
 
 	pRes = xdb_exec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (1001,'Jack',10,'3-1',90),(1002,'Tom',11,'2-5',91),(1003,'David',11,'1-6',92),(1004,'Rose',10,'4-2',90),(1005,'Tim',10,'3-1',95)");
-	pRes = xdb_bexec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (?,?,?,?,?)", 1006, 'Wendy', 10, '4-3', 99);
+	pRes = xdb_bexec (pConn, "INSERT INTO student (id,name,age,class,score) VALUES (?,?,?,?,?)", 1006, "Wendy", 10, "4-3", 99);
 
 	pRes = xdb_bexec (pConn, "SELECT * FROM student WHERE id = ?", 1001);
 	while (NULL != (pRow = xdb_fetch_row (pRes))) {
@@ -104,6 +106,24 @@ hide:
 	pRes = xdb_bexec (pConn, "DELETE FROM student WHERE id = ?", id);
 
 	xdb_close (pConn);
+	```
+
+=== "Python"
+	``` python linenums="1"
+	import crossdb
+
+	conn = crossdb.connect(database=":memory:")
+	cursor = conn.cursor()
+	
+	cursor.execute("CREATE TABLE student (name CHAR(16), age INT, class CHAR(16))")
+	cursor.execute("INSERT INTO student (name,age,class) VALUES ('jack',10,'3-1'), ('tom',11,'2-5')")
+
+	cursor.execute("SELECT * FROM student")
+	for row in cursor:
+		print (row)
+	
+	cursor.close()
+	conn.close()
 	```
 
 === "SQL"

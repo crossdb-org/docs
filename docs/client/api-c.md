@@ -8,7 +8,8 @@ template: overrides/blog.html
 
 |            | **API**               | **Description**
  ----        | ----                  | ----
-xdb_conn_t*  | [**xdb_open**](#xdb_open) (const char *path)		| Open a connection
+xdb_conn_t*  | [**xdb_open**](#xdb_open) (const char *path)		| Open a connection for local DB direct access
+xdb_conn_t*  | [**xdb_connect**](#xdb_connect) (const char *host, const char *user, const char *pass, const char *db, uint16_t port)		| Connect CrossDB Server
 void         | [**xdb_close**](#xdb_close) (xdb_conn_t *pConn)	| Close a connection
 xdb_res_t*   | [**xdb_exec**](#xdb_exec) (xdb_conn_t* pConn, const char *sql) 		| Execute SQL statement
 xdb_res_t*   | [**xdb_next_result**](#xdb_next_result) (xdb_conn_t *pConn) | Get next SQL statement result
@@ -39,7 +40,7 @@ const char * | [**xdb_version**](#xdb_version) ()									| Get CrossDB version 
 
 ### xdb_open
 
-Open a connection and create/open a Database.
+Open a connection and create/open a local Database.
 
 ``` c
 xdb_conn_t*
@@ -54,6 +55,21 @@ xdb_open2 (const char *path, uint32_t flags);
 - If `path` is `NULL`: Only open a connection. User has to use `OPEN DATABASE '[path/]db_name'` or `CREATE DATABASE '[path/]db_name'` or `USE DATABASE db_name`.
 - One thread can use only one connection. One connection can only be used by one thread
 - All opened databases are shared with all opened connections, and they can `USE DATABASE db_name` to switch connection default DB.
+
+### xdb_connect
+
+Connect CrossDB Server.
+
+``` c
+xdb_conn_t*
+xdb_connect (const char *host, const char *user, const char *pass, const char *db, uint16_t port);
+```
+
+- `host` is NULL will connect CrossDB server on same host.
+- `user` and `pass` are not implemented yet.
+- `port` = 0 will call `xdb_open` and pass `db` as `path`.
+- One thread can use only one connection. One connection can only be used by one thread
+- If db is NULL, can `USE DATABASE db_name` to switch connection default DB.
 
 ### xdb_close
 

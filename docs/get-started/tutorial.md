@@ -174,8 +174,8 @@ if (NULL != pRes) {
 ## Enter Embedded Shell
 
 ```c
-	printf ("\n=== Enter interactive embedded shell\n");
-	xdb_exec (pConn, "SHELL");
+printf ("\n=== Enter interactive embedded shell\n");
+xdb_exec (pConn, "SHELL");
 ```
 
 ## Example Output
