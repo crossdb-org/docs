@@ -19,10 +19,8 @@ make build                Build crossdb library and tool
 make debug                Build crossdb library and tool with debug
 make run                  Run crossdb tool
 make clean                Clean build result
-make install              Install crossdb(lib&tool&header) to Linux/FreeBSD
-make uninstall            Uninstall crossdb from Linux/FreeBSD
-make installmac           Install crossdb(lib&tool&header) to MacOS
-make uninstallmac         Uninstall crossdb from MacOS
+make install              Install crossdb(lib&tool&header) to Linux/MacOS/FreeBSD
+make uninstall            Uninstall crossdb from Linux/MacOS/FreeBSD
 make example              Build and run example (need to install crossdb first)
 make smoketest            Build and run smoke test (need to install crossdb first)
 make bench                Build and run bench test (need to install crossdb first)
@@ -31,18 +29,11 @@ make bench-stlmap         Build and run C++ STL Map and HashMap(unordered_map) b
 make bench-boostmidx      Build and run C++ Boost MultiIndex Order and Hash bench test
 ```
 
-### Linux/FreeBSD
+### Linux/MacOS/FreeBSD
 
 ```bash
 make build
 sudo make install
-```
-
-### MacOS
-
-```bash
-make build
-sudo make installmac
 ```
 
 ### Windows
