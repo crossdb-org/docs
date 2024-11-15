@@ -433,6 +433,9 @@ typedef enum {
 	XDB_TYPE_BINARY     = 13, // fixed-length binary(at most 65535 byte)
 	XDB_TYPE_VCHAR      = 14, // varied-length string(at most 65535 byte)
 	XDB_TYPE_VBINARY    = 15, // varied-length binary(at most 65535 byte)
+	XDB_TYPE_BOOL		= 16, // 1 byte
+	XDB_TYPE_INET		= 17, // 18 bytes
+	XDB_TYPE_MAC		= 18, // 6 bytes
 	XDB_TYPE_MAX        = 21
 } xdb_type_t;
 ```

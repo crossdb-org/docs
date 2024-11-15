@@ -26,6 +26,19 @@
 - Support simple SQL inner join
 - Support new statements: `FLUSH` `REPAIR`
 
+## 0.12.0 <small>(2024-11-22)</small>
+
+**Features**
+
+- Support data types: `INET`(IPv4 and IPv6 host and subnet), `MAC` address
+- Support SQL statements: 
+
+**Improvements**
+
+**Test**
+
+**Bug Fixes**
+
 -->
 
 ## 0.11.0 <small>(2024-11-11)</small>

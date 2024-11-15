@@ -22,6 +22,8 @@ template: overrides/blog.html
         VARCHAR [COLLATE collation_name] | User-defined, max 65535 | Variable-length UTF-8 string.	|
          BINARY     | User-defined, max 65535 | Fixed-length binary data. 		|
        VARBINARY    | User-defined, max 65535 | Variable-length binary data.	|
+        INET        | 18           | IPv4 or IPv6 address, and optionally subnet. |
+         MAC        | 6            | MAC addresses.	|
 
 ## Collation
 
@@ -40,6 +42,8 @@ template: overrides/blog.html
         Character   | `'abc'`, `"abc"`
         Binary      | `x'a23f5fde'`, `X'A23F5FDE'`, `0xa23f5fde`, `0XA23F5FDE`
       Timestamp     | `'2024-11-01'`, `'2024-11-01T19:05:12'`, `'2024-11-01T19:05:12.561'`, `'2024-11-01T19:05:12.561288'`, `1730459112561288`(*millisecond*)
+      Inet Address  | `'10.1.1.1'`, `'10.1.1.0/24'`, `'2001:4f8:3:ba:​2e0:81ff:fe22:d1f1'`, `'2001:4f8:3:ba::/64'`
+      Mac Address   | `'08:00:2b:01:02:03'`, `'08-00-2b-01-02-03'`, `'0800.2b01.0203'`, `'0800-2b01-0203'`, `'08002b:010203'`, `'08002b-010203'`, `'08002b010203'`
 
 ## Escape Characters
 | **Escape Character**	| **Actual Meaning**
