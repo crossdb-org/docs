@@ -204,6 +204,7 @@ nav:
     - Client APIs:
       - client/api-c.md
       - client/api-python.md
+      - client/api-nodejs.md
     - SQL:
       - sql/statements.md
       - sql/data-types.md
