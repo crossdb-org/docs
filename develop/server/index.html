@@ -2,7 +2,7 @@
 </code></pre></div> <ul> <li>Listen on specified port 8888</li> </ul> <div class=highlight><pre><span></span><code><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a><span class=n>xdb_exec</span><span class=w> </span><span class=p>(</span><span class=n>pConn</span><span class=p>,</span><span class=w> </span><span class=s>&quot;CREATE SERVER myserver2 PORT=8888&quot;</span><span class=p>);</span>
 </code></pre></div> <h2 id=start-standalone-crossdb-server>Start Standalone CrossDB Server<a class=headerlink href=#start-standalone-crossdb-server title="Permanent link">&para;</a></h2> <p>You can use <code>xdb-cli</code> to start a CrossDB Server.</p> <div class="admonition note"> <p class=admonition-title>Note</p> <p><code>xdb-cli</code> should have <code>read&amp;write</code> permission to access <code>DataDir</code></p> </div> <ul> <li>Start a default server </li> </ul> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a>$ xdb-cli -S
 <a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a>   _____                   _____  ____      _
-<a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a>  / ____|                 |  __ \|  _ \   _| |_    CrossDB Server v0.11.0
+<a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a>  / ____|                 |  __ \|  _ \   _| |_    CrossDB Server v0.12.0
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a> | |     _ __ ___  ___ ___| |  | | |_) | |_   _|   Port: 7777
 <a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a> | |    | &#39;__/ _ \/ __/ __| |  | |  _ &lt;    |_|     DataDir: /var/xdb_data
 <a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a> | |____| | | (_) \__ \__ \ |__| | |_) |
@@ -11,7 +11,7 @@
 <a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a>XDB&gt;
 </code></pre></div> <ul> <li>Create a sever with specified port and DataDir</li> </ul> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a>$ xdb-cli -S -P 8888 -D /tmp/xdb_data
 <a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a>   _____                   _____  ____      _
-<a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a>  / ____|                 |  __ \|  _ \   _| |_    CrossDB Server v0.11.0
+<a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a>  / ____|                 |  __ \|  _ \   _| |_    CrossDB Server v0.12.0
 <a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a> | |     _ __ ___  ___ ___| |  | | |_) | |_   _|   Port: 8888
 <a id=__codelineno-3-5 name=__codelineno-3-5 href=#__codelineno-3-5></a> | |    | &#39;__/ _ \/ __/ __| |  | |  _ &lt;    |_|     DataDir: /tmp/xdb_data
 <a id=__codelineno-3-6 name=__codelineno-3-6 href=#__codelineno-3-6></a> | |____| | | (_) \__ \__ \ |__| | |_) |
