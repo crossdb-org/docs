@@ -7,7 +7,7 @@ template: overrides/blog.html
  Statement                 							| Description        						| Note
  ----                  								| ----               						| ----
 [**BEGIN**](../transaction/#begin-transaction)      | Start a new transaction. 					|
-[**COMMIT**](../transaction/#commit-transaction)    | Commits the open transaction if exists.	|
+[**COMMIT**](../transaction/#commit-transaction)    | Commit the open transaction if exists.	|
 [**CLOSE DATABASE**](../database/#close-database)   | Close an opened database.					| Embedded Mode only
 [**CREATE DATABASE**](../database/#create-database) | Create a database.						|
 [**CREATE INDEX**](../indexes/#create-index) 		| Create an index on the specified table.	|
@@ -17,26 +17,27 @@ template: overrides/blog.html
 [**DESCRIBE**](../table/#show-table-columns) 		| Describe the specified table.				|
 [**DROP DATABASE**](../database/#drop-database) 	| Drop a database.							|
 [**DROP INDEX**](../indexes/#drop-index) 			| Drop the specified index on the specified table.	|
-[**DROP SERVER**](../server/#drop-server) 			| Drop the specified server.	|
+[**DROP SERVER**](../server/#drop-server) 			| Drop the specified server.				|
 [**DROP TABLE**](../table/#drop-table) 				| Drop the specified table.					|
 [**DUMP DATABASE**](../backup/#dump-database)  		| Dump database into file.		            |
-[**EXPLAIN**](../dml/#explain) 				        | Returns detailed information on how the query is executed.      |
+[**EXPLAIN**](../dml/#explain) 				        | Return detailed information on how the query is executed.      |
 [**HELP**](../misc/#help) 				            | SQL statements help.                      |
-[**INSERT**](../dml/#insert) 						| Insert data into a table.					|
+[**INSERT**](../dml/#insert) 						| Insert row into a table.					|
 [**OPEN DATABASE**](../database/#open-database)     | Open a database on disk.					| Embedded Mode only
-[**ROLLBACK**](../transaction/#rollback-transaction) | Roll back the open transaction if exists.		|
-[**SELECT**](../dml/#select) 						| Retrieves data from a table.						|
-[**SET AUTOCOMMIT**](../transaction/#set-auto-commit) | Set session transaction auto-commit.			|
-[**SHELL**](../misc/#shell) 						| Enter interactive shell.	|
+[**REPLACE**](../dml/#replace) 						| Insert or Modify row into a table.		|
+[**ROLLBACK**](../transaction/#rollback-transaction) | Roll back the open transaction if exists.|
+[**SELECT**](../dml/#select) 						| Retrieve data from a table.				|
+[**SET AUTOCOMMIT**](../transaction/#set-auto-commit) | Set session transaction auto-commit.	|
+[**SHELL**](../misc/#shell) 						| Enter interactive shell.					|
 [**SHOW COLUMNS**](../table/#show-table-columns) 	| Show the list of columns within a given table.	|
-[**SHOW CREATE TABLE**](../table/#show-create-table) | Show the `CREATE TABLE` statement.				|
+[**SHOW CREATE TABLE**](../table/#show-create-table) | Show the `CREATE TABLE` statement.		|
 [**SHOW DATABASE**](../database/#show-databases)    | Show the list of databases.				|
 [**SHOW INDEXES**](../indexes/#show-index)          | Show the list of indexes associated with a given table.	       |
-[**SHOW SERVERS**](../server/#show-servers) 		| Show the list of servers.	|
+[**SHOW SERVERS**](../server/#show-servers) 		| Show the list of servers.					|
 [**SHOW TABLES**](../table/#show-all-tables)        | Show the list of tables in database.		|
 [**SOURCE**](../backup/#source)        				| Load and execute SQL file.		        |
-[**UPDATE**](../dml/#update) 						| Modifies rows in a table.					|
-[**USE**](../database/#use-database) 			| Use the database as the current default database.	|
+[**UPDATE**](../dml/#update) 						| Modify rows in a table.					|
+[**USE**](../database/#use-database) 				| Use the database as the current default database.	|
 
 <!--
 [**REPLACE**](../transaction/#rollback-transaction) | Check if `PRIMARY KEY` exits will delete old row, then insert.  | TBD

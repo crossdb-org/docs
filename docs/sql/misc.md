@@ -8,7 +8,7 @@ template: overrides/blog.html
 Enter the interactive shell.
 
 ```sql
-SHELL
+SHELL [PROMPT='prompt> ']
 ```
 
 ## Help

@@ -97,7 +97,7 @@ hide:
 
 	pRes = xdb_bexec (pConn, "SELECT * FROM student WHERE id = ?", 1001);
 	while (NULL != (pRow = xdb_fetch_row (pRes))) {
-		xdb_print_row (pRes->row_meta, pRow);
+		xdb_print_row (pRes, pRow);
 		printf ("\n");
 	}
 	xdb_free_result (pRes);

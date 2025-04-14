@@ -10,21 +10,11 @@ template: overrides/blog.html
 INSERT INTO tbl_name 
 	[(col_name,...)] 
 	VALUES (val,...), ...
+```
 
+<!--
 INSERT INTO tbl_name SET col_name = value, [col_name = value], ...
-```
-
-## Where Expression
-
-Support following simple expressions now only.
-
-```sql
-expr AND expr AND ...
-
-expr:
-    col_name {= | > | >= | < | <= | != | <>} value
-  | value {= | > | >= | < | <= | != | <>} col_name
-```
+-->
 
 ## Replace
 
@@ -54,6 +44,18 @@ agg_func:
   | AVG(col_name)
   | MIN(col_name)
   | MAX(col_name)
+```
+
+## Where Expression
+
+Support following simple expressions now only.
+
+```sql
+expr AND expr AND ...
+
+expr:
+    col_name {= | > | >= | < | <= | != | <>} value
+  | value {= | > | >= | < | <= | != | <>} col_name
 ```
 
 ## Update

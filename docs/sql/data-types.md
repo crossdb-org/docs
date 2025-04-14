@@ -34,7 +34,7 @@ template: overrides/blog.html
 
 ## Literals
 
-|     **Type**      |  Literals
+|     **Type**      |  Literals |
         ::          | ----
         Boolean     | `true`, `false`
         Integer     | `123`, `-123`

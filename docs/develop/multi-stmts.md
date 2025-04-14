@@ -18,7 +18,7 @@ The Multi-Statements feature can significantly improve performance, especially i
 	pRes = xdb_exec (pConn, "SELECT COUNT(*) FROM student; SELECT id,name FROM student WHERE id=2");
 	printf ("-- 1st result: ");
 	if (NULL != (pRow = xdb_fetch_row (pRes))) {
-		xdb_print_row (pRes->col_meta, pRow, 0);
+		xdb_print_row (pRes, pRow, 0);
 		printf ("\n");
 	}
 	xdb_free_result (pRes);
@@ -26,7 +26,7 @@ The Multi-Statements feature can significantly improve performance, especially i
 	pRes = xdb_next_result (pConn);
 	if (NULL != pRes) {
 		if (NULL != (pRow = xdb_fetch_row (pRes))) {
-			xdb_print_row (pRes->col_meta, pRow, 0);
+			xdb_print_row (pRes, pRow, 0);
 			printf ("\n");
 		}
 		xdb_free_result (pRes);

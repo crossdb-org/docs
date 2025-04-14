@@ -29,7 +29,7 @@ You can use `xdb-cli` to start a CrossDB Server.
 ```
 $ xdb-cli -S
    _____                   _____  ____      _
-  / ____|                 |  __ \|  _ \   _| |_    CrossDB Server v0.11.0
+  / ____|                 |  __ \|  _ \   _| |_    CrossDB Server v0.12.0
  | |     _ __ ___  ___ ___| |  | | |_) | |_   _|   Port: 7777
  | |    | '__/ _ \/ __/ __| |  | |  _ <    |_|     DataDir: /var/xdb_data
  | |____| | | (_) \__ \__ \ |__| | |_) |
@@ -43,7 +43,7 @@ XDB>
 ```
 $ xdb-cli -S -P 8888 -D /tmp/xdb_data
    _____                   _____  ____      _
-  / ____|                 |  __ \|  _ \   _| |_    CrossDB Server v0.11.0
+  / ____|                 |  __ \|  _ \   _| |_    CrossDB Server v0.12.0
  | |     _ __ ___  ___ ___| |  | | |_) | |_   _|   Port: 8888
  | |    | '__/ _ \/ __/ __| |  | |  _ <    |_|     DataDir: /tmp/xdb_data
  | |____| | | (_) \__ \__ \ |__| | |_) |

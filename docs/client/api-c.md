@@ -15,14 +15,30 @@ xdb_res_t*   | [**xdb_exec**](#xdb_exec) (xdb_conn_t* pConn, const char *sql) 		
 xdb_res_t*   | [**xdb_next_result**](#xdb_next_result) (xdb_conn_t *pConn) | Get next SQL statement result
 bool         | [**xdb_more_result**](#xdb_more_result) (xdb_conn_t* pRes)  | Check is there more result
 void      	 | [**xdb_free_result**](#xdb_free_result) (xdb_res_t* pRes)   | Free result set
-xdb_col_t*   | [**xdb_column_meta**](#xdb_column_meta) (uint64_t meta, uint16_t iCol)	| Get column meta
-xdb_type_t   | [**xdb_column_type**](#xdb_column_type) (uint64_t meta, uint16_t iCol)	| Get column type
-const char*  | [**xdb_column_name**](#xdb_column_name) (uint64_t meta, uint16_t iCol)	| Get column name
+xdb_errno_e	 | [**xdb_errcode**](#xdb_errcode )(xdb_res_t *pRes)           | Get error code
+int          | [**xdb_column_count**](#xdb_column_count) (xdb_res_t *pRes) | Get column count
+xdb_type_t   | [**xdb_column_type**](#xdb_column_type) (xdb_res_t *pRes, uint16_t iCol)	| Get column type
+const char*  | [**xdb_column_name**](#xdb_column_name) (xdb_res_t *pRes, uint16_t iCol)	| Get column name
+int          | [**xdb_column_id**](#xdb_column_id) (xdb_res_t *pRes, const char *name)	| Get column ID
+xdb_rowid    | [**xdb_row_count**](#xdb_row_count) (xdb_res_t* pRes)       | Get row count
+xdb_rowid    | [**xdb_affected_rows**](#xdb_affected_rows) (xdb_res_t* pRes)	| Get affected rows
 xdb_row_t*   | [**xdb_fetch_row**](#xdb_fetch_row) (xdb_res_t* pRes)       | Fetch one row
-int          | [**xdb_column_int**](#xdb_column_int) (uint64_t meta, void *pRow, uint16_t iCol)     	| Get int column from row
-float        | [**xdb_column_float**](#xdb_column_float) (uint64_t meta, void *pRow, uint16_t iCol) 	| Get float/double column from row
-const char * | [**xdb_column_str**](#xdb_column_str) (uint64_t meta, void *pRow, uint16_t iCol)       	| Get string column from row
-const void * | [**xdb_column_blob**](#xdb_column_blob) (uint64_t meta, xdb_row_t *pRow, uint16_t iCol, int *pLen) | Get binary column from row
+bool         | [**xdb_column_null**](#xdb_column_null) (xdb_res_t *pRes, void *pRow, uint16_t iCol)     | If column is NULL
+bool         | [**xdb_column_bool**](#xdb_column_bool) (xdb_res_t *pRes, void *pRow, uint16_t iCol)     | Get bool column from row
+int          | [**xdb_column_int**](#xdb_column_int) (xdb_res_t *pRes, void *pRow, uint16_t iCol)     	| Get int column from row
+float        | [**xdb_column_float**](#xdb_column_float) (xdb_res_t *pRes, void *pRow, uint16_t iCol) 	| Get float/double column from row
+const char * | [**xdb_column_str**](#xdb_column_str) (xdb_res_t *pRes, void *pRow, uint16_t iCol)       	| Get string column from row
+const void * | [**xdb_column_blob**](#xdb_column_blob) (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol, int *pLen) | Get binary column from row
+xdb_mac_t    | [**xdb_column_mac**](#xdb_column_mac) (xdb_res_t *pRes, void *pRow, uint16_t iCol)     	| Get mac column from row
+xdb_inet_t   | [**xdb_column_inet**](#xdb_column_inet) (xdb_res_t *pRes, void *pRow, uint16_t iCol) 	| Get inet column from row
+bool         | [**xdb_col_null**](#xdb_col_null) (xdb_res_t *pRes, void *pRow, const char *name)     	| If column is NULL
+bool         | [**xdb_col_bool**](#xdb_col_bool) (xdb_res_t *pRes, void *pRow, const char *name)     	| Get bool column from row
+int          | [**xdb_col_int**](#xdb_col_int) (xdb_res_t *pRes, void *pRow, const char *name)     		| Get int column from row
+float        | [**xdb_col_float**](#xdb_col_float) (xdb_res_t *pRes, void *pRow, const char *name) 		| Get float/double column from row
+const char * | [**xdb_col_str**](#xdb_col_str) (xdb_res_t *pRes, void *pRow, const char *name)       	| Get string column from row
+const void * | [**xdb_col_blob**](#xdb_col_blob) (xdb_res_t *pRes, xdb_row_t *pRow, const char *name, int *pLen) | Get binary column from row
+xdb_mac_t    | [**xdb_col_mac**](#xdb_col_mac) (xdb_res_t *pRes, void *pRow, const char *name)     		| Get mac column from row
+xdb_inet_t   | [**xdb_col_inet**](#xdb_col_inet) (xdb_res_t *pRes, void *pRow,const char *name) 		| Get inet column from row
 xdb_stmt_t*  | [**xdb_stmt_prepare**](#xdb_stmt_prepare) (xdb_conn_t* pConn, const char *sql) 		 	| Prepare statement
 xdb_ret      | [**xdb_bind_int**](#xdb_bind_int) (xdb_stmt_t *pStmt, uint16_t para_id, int val)	| Bind int value
 xdb_ret      | [**xdb_bind_float**](#xdb_bind_float) (xdb_stmt_t *pStmt, uint16_t para_id, float val) | Bind float value
@@ -35,7 +51,7 @@ xdb_ret      | [**xdb_commit**](#xdb_commit) (xdb_conn_t* pConn)					| Commit tr
 xdb_ret      | [**xdb_rollback**](#xdb_rollback) (xdb_conn_t* pConn)				| Rollback transaction
 const char * | [**xdb_type2str**](#xdb_type2str) (xdb_type_t type)					| Get data type string
 const char * | [**xdb_errmsg**](#xdb_errmsg) (xdb_res_t *pRes)						| Get error/information message
-int          | [**xdb_print_row**](#xdb_print_row) (uint64_t meta, void *pRow, int format) 	| Print row to console
+int          | [**xdb_print_row**](#xdb_print_row) (xdb_res_t *pRes, void *pRow, int format) 	| Print row to console
 const char * | [**xdb_version**](#xdb_version) ()									| Get CrossDB version string
 
 ### xdb_open
@@ -104,11 +120,10 @@ xdb_pexec (xdb_conn_t *pConn, const char *sql, ...);
 ```
 
 - A valid xdb_res_t pointer is returned always.
-- errcode:	if != 0, then can use `xdb_errmsg(pRes)` to get the error message.
-- row count: `pRes->row_count` for query statement
-- affected rows: `pRes->affected_rows` for `INSERT` `UPDATE` `DELETE` rows 
-- column count: `pRes->col_count` for query statement
-- column meta: `pRes->row_meta`, use `xdb_column_meta` to get column meta.
+- `xdb_errcode(pRes)`:	if `xdb_errcode(pRes)` = 0, then can use `xdb_errmsg(pRes)` to get the error message.
+- row count: `xdb_row_count(pRes)` for query statement
+- affected rows: `xdb_affected_rows(pRes)` for `INSERT` `UPDATE` `DELETE` rows 
+- column count: `xdb_column_count(pRes` for query statement
 - For `xdb_pexec`, if `sql` contains `%`, should use escape `\%`.
 
 ### xdb_next_result
@@ -143,13 +158,23 @@ xdb_free_result (xdb_res_t *pRes);
 > **Note**
 > You only need to call `xdb_free_result` for query statements with errcode=0.
 
-### xdb_column_meta
+### xdb_errcode
 
-Get column meta.
+Get error code
 
 ``` c
-const xdb_col_t* 
-xdb_column_meta (uint64_t meta, uint16_t iCol)
+xdb_errno_e
+xdb_errcode (xdb_res_t *pRes);
+```
+
+
+### xdb_column_count
+
+Get column count
+
+``` c
+int
+xdb_column_count (xdb_res_t *pRes);
 ```
 
 ### xdb_column_type
@@ -158,7 +183,7 @@ Get column type.
 
 ``` c
 xdb_type_t 
-xdb_column_type (uint64_t meta, uint16_t iCol);
+xdb_column_type (xdb_res_t *pRes, uint16_t iCol);
 ```
 
 ### xdb_column_name
@@ -167,7 +192,14 @@ Get column name.
 
 ``` c
 const char* 
-xdb_column_name (uint64_t meta, uint16_t iCol);
+xdb_column_name (xdb_res_t *pRes, uint16_t iCol);
+```
+
+Get column ID.
+
+``` c
+int 
+xdb_column_id (xdb_res_t *pRes, const char *name);
 ```
 
 ### xdb_fetch_row
@@ -179,20 +211,50 @@ xdb_row_t*
 xdb_fetch_row (xdb_res_t *pRes);
 ```
 
+### xdb_row_count
+
+Get row count.
+
+``` c
+xdb_rowid
+xdb_row_count (xdb_res_t *pRes);
+```
+
+### xdb_affected_rows
+
+Get row count.
+
+``` c
+xdb_rowid
+xdb_affected_rows (xdb_res_t *pRes);
+```
+
+### xdb_column_null
+
+If column value is NULL.
+``` c
+bool 
+xdb_column_null (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol);
+```
+
+### xdb_column_bool
+
+Get bool column from row.
+``` c
+bool 
+xdb_column_bool (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol);
+```
+
 ### xdb_column_int
 
 Get int column from row.
 ``` c
 int 
-xdb_column_int (uint64_t meta, void *pRow, uint16_t iCol);
+xdb_column_int (xdb_res_t *pRes, void *pRow, uint16_t iCol);
 
 int64_t 
-xdb_column_int64 (uint64_t meta, void *pRow, uint16_t iCol);
+xdb_column_int64 (xdb_res_t *pRes, void *pRow, uint16_t iCol);
 ```
-
-> **Note**
-> If you know the detailed format, you can access the pointer directly.
-> `*(int8_t*)pVal[iCol]`, `*(int16_t*)pVal[iCol]`, `*(int32_t*)pVal[iCol]`, `*(int64_t*)pVal[iCol]`
 
 ### xdb_column_float
 
@@ -200,15 +262,11 @@ Get float column from row.
 
 ``` c
 float
-xdb_column_float (uint64_t meta, xdb_row_t *pRow, uint16_t iCol);
+xdb_column_float (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol);
 
 double 
-xdb_column_double (uint64_t meta, void *pRow, uint16_t iCol);
+xdb_column_double (xdb_res_t *pRes, void *pRow, uint16_t iCol);
 ```
-
-> **Note**
-> If you know the detailed format, you can access the pointer directly.
-> `*(float*)pVal[iCol]`, `*(double*)pVal[iCol]`
 
 ### xdb_column_str
 
@@ -216,14 +274,11 @@ Get string column from row.
 
 ``` c
 const char*
-xdb_column_str (uint64_t meta, xdb_row_t *pRow, uint16_t iCol);
+xdb_column_str (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol);
 
 const char*
-xdb_column_str2 (uint64_t meta, xdb_row_t *pRow, uint16_t iCol, int *pLen);
+xdb_column_str2 (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol, int *pLen);
 ```
-
-> **Note**
-> You can access the pointer directly: `*(const char*)pVal[iCol]`, get the length `*(uint16_t*)(pVal[iCol]-2)`
 
 ### xdb_column_blob
 
@@ -231,11 +286,103 @@ Get blob column from row.
 
 ``` c
 const void*
-xdb_column_blob (uint64_t meta, xdb_row_t *pRow, uint16_t iCol, int *pLen);
+xdb_column_blob (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol, int *pLen);
 ```
 
-> **Note**
-> You can access the pointer directly: `*(const char*)pVal[iCol]`, get the length `*(uint16_t*)(pVal[iCol]-2)`
+
+### xdb_column_mac
+
+Get mac column from row.
+``` c
+const xdb_mac_t*
+xdb_column_mac (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol);
+```
+
+### xdb_column_inet
+
+Get inet column from row.
+``` c
+const xdb_inet_t*
+xdb_column_inet (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol);
+```
+
+
+### xdb_col_null
+
+If column value is NULL.
+``` c
+bool 
+xdb_col_null (xdb_res_t *pRes, xdb_row_t *pRow, const char *name);
+```
+
+### xdb_col_bool
+
+Get bool column from row.
+``` c
+bool 
+xdb_col_bool (xdb_res_t *pRes, xdb_row_t *pRow, const char *name);
+```
+
+### xdb_col_int
+
+Get int column from row.
+``` c
+int 
+xdb_col_int (xdb_res_t *pRes, void *pRow, const char *name);
+
+int64_t 
+xdb_col_int64 (xdb_res_t *pRes, void *pRow, const char *name);
+```
+
+### xdb_col_float
+
+Get float column from row.
+
+``` c
+float
+xdb_col_float (xdb_res_t *pRes, xdb_row_t *pRow, const char *name);
+
+double 
+xdb_col_double (xdb_res_t *pRes, void *pRow, const char *name);
+```
+
+### xdb_col_str
+
+Get string column from row.
+
+``` c
+const char*
+xdb_col_str (xdb_res_t *pRes, xdb_row_t *pRow, const char *name);
+
+const char*
+xdb_col_str2 (xdb_res_t *pRes, xdb_row_t *pRow, const char *name, int *pLen);
+```
+
+### xdb_col_blob
+
+Get blob column from row.
+
+``` c
+const void*
+xdb_col_blob (xdb_res_t *pRes, xdb_row_t *pRow, const char *name, int *pLen);
+```
+
+### xdb_col_mac
+
+Get mac column from row.
+``` c
+const xdb_mac_t*
+xdb_col_mac (xdb_res_t *pRes, xdb_row_t *pRow, const char *name);
+```
+
+### xdb_col_inet
+
+Get inet column from row.
+``` c
+const xdb_inet_t*
+xdb_col_inet (xdb_res_t *pRes, xdb_row_t *pRow, const char *name);
+```
+
 
 ### xdb_stmt_prepare
 
@@ -377,7 +524,7 @@ Print row to console.
 
 ``` c
 int 
-xdb_print_row (uint64_t meta, xdb_row_t *pRow, int format);
+xdb_print_row (xdb_res_t *pRes, xdb_row_t *pRow, int format);
 ```
 
 ### xdb_version
@@ -442,82 +589,20 @@ typedef enum {
 
 ## Structures
 
-### xdb_res_t
-Result Set
-``` c
-typedef struct xdb_res_t {
-	uint32_t	len_type;		// MSB 4bit are type xdb_restype_t
-	uint16_t	errcode;		// 4
-	uint16_t	status;			// 6 xdb_status_t
+### xdb_inet_t
 
-	uint32_t	meta_len;		// 8
-	uint16_t	col_count;		// 12
-	uint8_t		stmt_type;		// 14 SQL type(create/delete/drop/show/select/delete/update...)
-	uint8_t		rsvd;
-
-	uint64_t	row_count;		// 2*8 SELECT/SHOW
-	uint64_t	affected_rows;	// 3*8 INSERT/UPDATE/DELETE
-	uint64_t	insert_id;		// 4*8 INSERT
-	uint64_t	col_meta;		// 5*8 xdb_meta_t, <ptr:ptr off: 0 following is meta>
-	uint64_t	row_data;		// 6*8 xdb_rowlist_t, ptr: base ptr or error str or information xdb_msg_t
-	uint64_t	data_len;		// 7*8
-} xdb_res_t;
-```
-
-### xdb_msg_t
-Return Message
 ``` c
 typedef struct {
-	uint32_t	len_type;		// LSB 4bit are type
-	uint16_t	len;
-	char		msg[];
-} xdb_msg_t;
+	uint8_t		mask;
+	uint8_t		family;	// 4=ipv4, 6=ipv6 
+	uint8_t		addr[16];
+} xdb_inet_t;
 ```
 
-### xdb_meta_t
-Query Meta information
+### xdb_mac_t
+
 ``` c
 typedef struct {
-	uint32_t	len_type;		// LSB 4bit are type
-	uint16_t	col_count;		// 3*4
-	uint16_t	null_off;		// 3*4+2
-	uint16_t	row_size;
-	uint16_t	rsvd;
-	uint64_t	col_list;		// xdb_col_t list
-	xdb_col_t	cols[];
-} xdb_meta_t;
-```
-
-### xdb_col_t
-Query Column information
-``` c
-typedef struct {
-	uint16_t	col_len;	// colum total len
-	uint8_t		col_type;	// xdb_type_t
-	uint8_t		col_rsvd;
-	uint32_t	col_off;
-	uint16_t	col_rsvd2;
-	uint8_t		col_nmlen;
-	char		col_name[];
-} xdb_col_t;
-```
-
-### xdb_rowdat_t
-Query row data information
-``` c
-typedef struct {
-	uint32_t	len_type;		// LSB 4bit are type
-	uint8_t		rowdat[];
-} xdb_rowdat_t;
-```
-
-### xdb_rowlist_t
-``` c
-typedef uint64_t xdb_row_t;	// xdb_rowdat_t
-
-typedef struct {
-	uint32_t	rl_count;
-	uint32_t	rl_curid;
-	xdb_row_t 	rl_pRows[];
-} xdb_rowlist_t;
+	uint8_t		addr[6];
+} xdb_mac_t;
 ```
