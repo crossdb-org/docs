@@ -13,6 +13,7 @@ template: overrides/blog.html
 [**CREATE INDEX**](../indexes/#create-index) 		| Create an index on the specified table.	|
 [**CREATE SERVER**](../server/#create-server) 		| Create a CrossDB Server.					|
 [**CREATE TABLE**](../table/#create-table) 			| Create a new table.						|
+[**CREATE TRIGGER**](../trigger/#create-trigger) 	| Create a trigger  on the specified table.	|
 [**DELETE**](../dml/#delete) 						| Delete rows in a table.					|
 [**DESCRIBE**](../table/#show-table-columns) 		| Describe the specified table.				|
 [**DROP DATABASE**](../database/#drop-database) 	| Drop a database.							|

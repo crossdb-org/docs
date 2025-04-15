@@ -28,11 +28,3 @@ SHOW TRIGGER [FROM tbl_name]
 ```sql
 SHOW TRIGGER STATUS
 ```
-
-<!--
-### Show Table Status
-
-```sql
-SHOW TABLE STATUS [FROM db_name] [LIKE 'pattern' | WHERE expr]
-```
--->

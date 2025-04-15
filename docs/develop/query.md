@@ -40,7 +40,7 @@ for (int i = 0; i < xdb_column_count(pRes); ++i) {
 xdb_row_t *pRow = xdb_fetch_row (pRes);
 ```
 
-## Get Column Values
+## Get Column Values by ID
 
 ```c
 printf ("char value %d\n",		xdb_column_int(pRes, pRow, 0));
@@ -52,4 +52,18 @@ printf ("double value %d\n",	xdb_column_double(pRes, pRow, 5));
 printf ("string value %s\n",	xdb_column_str(pRes, pRow, 6));
 int len;
 printf ("string value %s, len %d\n", xdb_column_str2(pRes, pRow, 6, &len), len);
+```
+
+## Get Column Values by Name
+
+```c
+printf ("char value %d\n",		xdb_col_int(pRes, pRow, "age"));
+printf ("short value %d\n",		xdb_column_int(pRes, pRow, ""));
+printf ("int value %d\n", 		xdb_column_int(pRes, pRow, "id"));
+printf ("bigint value %"PRIi64"\n",	xdb_column_int64(pRes, pRow, "distance"));
+printf ("float value %f\n",		xdb_column_float(pRes, pRow, "score"));
+printf ("double value %d\n",	xdb_column_double(pRes, pRow, "totoal"));
+printf ("string value %s\n",	xdb_column_str(pRes, pRow, "name"));
+int len;
+printf ("string value %s, len %d\n", xdb_col_str2(pRes, pRow, "name", &len), len);
 ```

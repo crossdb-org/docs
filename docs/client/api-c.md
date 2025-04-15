@@ -49,6 +49,7 @@ void         | [**xdb_stmt_close**](#xdb_stmt_close) (xdb_stmt_t *pStmt)			| Fre
 xdb_ret      | [**xdb_begin**](#xdb_begin) (xdb_conn_t* pConn)						| Begin transaction
 xdb_ret      | [**xdb_commit**](#xdb_commit) (xdb_conn_t* pConn)					| Commit transaction
 xdb_ret      | [**xdb_rollback**](#xdb_rollback) (xdb_conn_t* pConn)				| Rollback transaction
+xdb_ret      | [**xdb_create_func**](#xdb_create_func) (const char *name, xdb_func_e type, const char *lang, void *cb_func, void *pArg) | Create function
 const char * | [**xdb_type2str**](#xdb_type2str) (xdb_type_t type)					| Get data type string
 const char * | [**xdb_errmsg**](#xdb_errmsg) (xdb_res_t *pRes)						| Get error/information message
 int          | [**xdb_print_row**](#xdb_print_row) (xdb_res_t *pRes, void *pRow, int format) 	| Print row to console
@@ -499,6 +500,23 @@ xdb_rollback (xdb_conn_t* pConn);
 ```
 
 - For embedded local connection, always return `XDB_OK`.
+
+
+### xdb_create_func
+
+Create function.
+
+``` c
+typedef int (*xdb_trig_callback) (xdb_conn_t *pConn, xdb_res_t *pRes, xdb_trig_e type, xdb_row_t *pNewRow, xdb_row_t *pOldRow, void *pArg);
+
+typedef enum {
+	XDB_FUNC_TRIG,
+	XDB_FUNC_MAX,
+} xdb_func_e;
+
+xdb_ret 
+xdb_create_func (const char *name, xdb_func_e type, const char *lang, void *cb_func, void *pArg);
+```
 
 ### xdb_type2str
 
