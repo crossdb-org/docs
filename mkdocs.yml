@@ -202,6 +202,7 @@ nav:
       - develop/multi-stmts.md
       - develop/prep-stmts.md
       - develop/trigger.md
+      - develop/replication.md
     - Client APIs:
       - client/api-c.md
       - client/api-python.md
@@ -219,6 +220,7 @@ nav:
       - sql/transaction.md
       - sql/trigger.md
       - sql/server.md
+      - sql/replication.md
       - sql/backup.md
       - sql/misc.md
     - System Tables:

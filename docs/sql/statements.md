@@ -11,6 +11,7 @@ template: overrides/blog.html
 [**CLOSE DATABASE**](../database/#close-database)   | Close an opened database.					| Embedded Mode only
 [**CREATE DATABASE**](../database/#create-database) | Create a database.						|
 [**CREATE INDEX**](../indexes/#create-index) 		| Create an index on the specified table.	|
+[**CREATE REPLICA**](../replication/#create-replication) | Create a CrossDB Replica.	     		|
 [**CREATE SERVER**](../server/#create-server) 		| Create a CrossDB Server.					|
 [**CREATE TABLE**](../table/#create-table) 			| Create a new table.						|
 [**CREATE TRIGGER**](../trigger/#create-trigger) 	| Create a trigger  on the specified table.	|
@@ -18,6 +19,7 @@ template: overrides/blog.html
 [**DESCRIBE**](../table/#show-table-columns) 		| Describe the specified table.				|
 [**DROP DATABASE**](../database/#drop-database) 	| Drop a database.							|
 [**DROP INDEX**](../indexes/#drop-index) 			| Drop the specified index on the specified table.	|
+[**DROP REPLICA**](../replication/#drop-replication)    | Drop a CrossDB Replica.	     		    |
 [**DROP SERVER**](../server/#drop-server) 			| Drop the specified server.				|
 [**DROP TABLE**](../table/#drop-table) 				| Drop the specified table.					|
 [**DUMP DATABASE**](../backup/#dump-database)  		| Dump database into file.		            |
@@ -34,6 +36,7 @@ template: overrides/blog.html
 [**SHOW CREATE TABLE**](../table/#show-create-table) | Show the `CREATE TABLE` statement.		|
 [**SHOW DATABASE**](../database/#show-databases)    | Show the list of databases.				|
 [**SHOW INDEXES**](../indexes/#show-index)          | Show the list of indexes associated with a given table.	       |
+[**SHOW REPLICAS**](../replication/#show-replication)  | Show the list of servers.					|
 [**SHOW SERVERS**](../server/#show-servers) 		| Show the list of servers.					|
 [**SHOW TABLES**](../table/#show-all-tables)        | Show the list of tables in database.		|
 [**SOURCE**](../backup/#source)        				| Load and execute SQL file.		        |
