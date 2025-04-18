@@ -14,8 +14,8 @@ replication_option:
   | PORT = xx 
   | USER = xx 
   | PASSWORD = xx 
-  | DB = db_name, db_name, ...
-  | TABLE = db_name.tbl_name, ...
+  | DO_DB = (db_name, db_name, ...)
+  | DO_TABLE = (db_name.tbl_name, ...)
 ```
 
 ## Drop Replication

@@ -53,6 +53,16 @@ make
 sudo make install
 ```
 
+**Windows**
+
+You need to install [MINGW64](https://www.mingw-w64.org/) [CMAKE](https://cmake.org/download/) and [make](https://gnuwin32.sourceforge.net/packages/make.htm) to build.
+
+```
+cd build
+cmake -G "MinGW Makefiles" -DCMAKE_C_COMPILER=gcc ..
+make
+```
+
 ## Build manually
 
 There are dozens of source files, but only one needs to be built.
