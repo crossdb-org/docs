@@ -20,18 +20,21 @@
 <a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a>cmake ..
 <a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a>make
 <a id=__codelineno-4-4 name=__codelineno-4-4 href=#__codelineno-4-4></a>sudo make install
-</code></pre></div> <h2 id=build-manually>Build manually<a class=headerlink href=#build-manually title="Permanent link">&para;</a></h2> <p>There are dozens of source files, but only one needs to be built.</p> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a>gcc<span class=w> </span>-o<span class=w> </span>build/xdb-cli<span class=w> </span>src/xdb-cli.c<span class=w> </span>-lpthread<span class=w> </span>-O2
-<a id=__codelineno-5-2 name=__codelineno-5-2 href=#__codelineno-5-2></a>gcc<span class=w> </span>-o<span class=w> </span>build/libcrossdb.so<span class=w> </span>src/crossdb.c<span class=w> </span>-fPIC<span class=w> </span>-shared<span class=w> </span>-lpthread<span class=w> </span>-O2
-</code></pre></div> <p>or clang</p> <div class=highlight><pre><span></span><code><a id=__codelineno-6-1 name=__codelineno-6-1 href=#__codelineno-6-1></a>clang<span class=w> </span>-o<span class=w> </span>build/xdb-cli<span class=w> </span>src/xdb-cli.c<span class=w> </span>-lpthread<span class=w> </span>-O2
-<a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a>clang<span class=w> </span>-o<span class=w> </span>build/libcrossdb.so<span class=w> </span>src/crossdb.c<span class=w> </span>-fPIC<span class=w> </span>-shared<span class=w> </span>-lpthread<span class=w> </span>-O2
-</code></pre></div> <h2 id=run-tests>Run Tests<a class=headerlink href=#run-tests title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code><a id=__codelineno-7-1 name=__codelineno-7-1 href=#__codelineno-7-1></a>crossdb$<span class=w> </span>make<span class=w> </span><span class=nb>test</span>
-</code></pre></div> <div class=highlight><pre><span></span><code><a id=__codelineno-8-1 name=__codelineno-8-1 href=#__codelineno-8-1></a>[==========] Running 2 test cases.
-<a id=__codelineno-8-2 name=__codelineno-8-2 href=#__codelineno-8-2></a>[ RUN      ] XdbTest.insert_one/0
-<a id=__codelineno-8-3 name=__codelineno-8-3 href=#__codelineno-8-3></a>[       OK ] XdbTest.insert_one/0 (637281ns)
-<a id=__codelineno-8-4 name=__codelineno-8-4 href=#__codelineno-8-4></a>[ RUN      ] XdbTest.update_one/0
-<a id=__codelineno-8-5 name=__codelineno-8-5 href=#__codelineno-8-5></a>[       OK ] XdbTest.update_one/0 (195417ns)
-<a id=__codelineno-8-6 name=__codelineno-8-6 href=#__codelineno-8-6></a>[==========] 2 test cases ran.
-<a id=__codelineno-8-7 name=__codelineno-8-7 href=#__codelineno-8-7></a>[  PASSED  ] 2 tests.
+</code></pre></div> <p><strong>Windows</strong></p> <p>You need to install <a href=https://www.mingw-w64.org/ >MINGW64</a> <a href=https://cmake.org/download/ >CMAKE</a> and <a href=https://gnuwin32.sourceforge.net/packages/make.htm>make</a> to build.</p> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a>cd build
+<a id=__codelineno-5-2 name=__codelineno-5-2 href=#__codelineno-5-2></a>cmake -G &quot;MinGW Makefiles&quot; -DCMAKE_C_COMPILER=gcc ..
+<a id=__codelineno-5-3 name=__codelineno-5-3 href=#__codelineno-5-3></a>make
+</code></pre></div> <h2 id=build-manually>Build manually<a class=headerlink href=#build-manually title="Permanent link">&para;</a></h2> <p>There are dozens of source files, but only one needs to be built.</p> <div class=highlight><pre><span></span><code><a id=__codelineno-6-1 name=__codelineno-6-1 href=#__codelineno-6-1></a>gcc<span class=w> </span>-o<span class=w> </span>build/xdb-cli<span class=w> </span>src/xdb-cli.c<span class=w> </span>-lpthread<span class=w> </span>-O2
+<a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a>gcc<span class=w> </span>-o<span class=w> </span>build/libcrossdb.so<span class=w> </span>src/crossdb.c<span class=w> </span>-fPIC<span class=w> </span>-shared<span class=w> </span>-lpthread<span class=w> </span>-O2
+</code></pre></div> <p>or clang</p> <div class=highlight><pre><span></span><code><a id=__codelineno-7-1 name=__codelineno-7-1 href=#__codelineno-7-1></a>clang<span class=w> </span>-o<span class=w> </span>build/xdb-cli<span class=w> </span>src/xdb-cli.c<span class=w> </span>-lpthread<span class=w> </span>-O2
+<a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a>clang<span class=w> </span>-o<span class=w> </span>build/libcrossdb.so<span class=w> </span>src/crossdb.c<span class=w> </span>-fPIC<span class=w> </span>-shared<span class=w> </span>-lpthread<span class=w> </span>-O2
+</code></pre></div> <h2 id=run-tests>Run Tests<a class=headerlink href=#run-tests title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code><a id=__codelineno-8-1 name=__codelineno-8-1 href=#__codelineno-8-1></a>crossdb$<span class=w> </span>make<span class=w> </span><span class=nb>test</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><a id=__codelineno-9-1 name=__codelineno-9-1 href=#__codelineno-9-1></a>[==========] Running 2 test cases.
+<a id=__codelineno-9-2 name=__codelineno-9-2 href=#__codelineno-9-2></a>[ RUN      ] XdbTest.insert_one/0
+<a id=__codelineno-9-3 name=__codelineno-9-3 href=#__codelineno-9-3></a>[       OK ] XdbTest.insert_one/0 (637281ns)
+<a id=__codelineno-9-4 name=__codelineno-9-4 href=#__codelineno-9-4></a>[ RUN      ] XdbTest.update_one/0
+<a id=__codelineno-9-5 name=__codelineno-9-5 href=#__codelineno-9-5></a>[       OK ] XdbTest.update_one/0 (195417ns)
+<a id=__codelineno-9-6 name=__codelineno-9-6 href=#__codelineno-9-6></a>[==========] 2 test cases ran.
+<a id=__codelineno-9-7 name=__codelineno-9-7 href=#__codelineno-9-7></a>[  PASSED  ] 2 tests.
 </code></pre></div> <h2 id=__comments>Comments</h2> <script src=https://giscus.app/client.js data-repo=crossdb-org/docs data-repo-id=R_kgDOHf96fA data-category=Announcements data-category-id=DIC_kwDOHf96fM4CWGDD data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=light data-lang=en crossorigin=anonymous async>
 </script> <!--
         data-lang="zh-CN"
