@@ -68,7 +68,7 @@ hide:
 
     ---
 
-    _In addition to the Embedded RDBMS mode, CrossDB can also operate in Embedded Server mode or as a Standalone RDBMS server._
+    _In addition to the Embedded RDBMS mode, CrossDB can also operate in Embedded Server mode or as a Standalone RDBMS server. [**Replication**](develop/replication/) is aslo supported_
 
     [:octicons-arrow-right-24: Read more](develop/server/)
 

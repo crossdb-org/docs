@@ -189,6 +189,7 @@ nav:
   - Document:
     - intro.md
     - Get Started:
+      - get-started/download.md
       - get-started/install.md
       - get-started/tutorial.md
       - get-started/bench.md

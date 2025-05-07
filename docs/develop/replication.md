@@ -4,6 +4,26 @@ template: overrides/blog.html
 
 # Replication
 
+## Set Server ID
+
+=== "xdb-cli"
+
+	```sql
+	xdb-cli -S -I server1;
+	```
+
+=== "SQL"
+
+	```sql
+	SET SERVERF_ID='server1';
+	```
+
+=== "C"
+
+	```c
+	xdb_exec (pConn, "SET SERVERF_ID='server1'");
+	```
+
 ## Source-replica replication
 
 === "SQL"

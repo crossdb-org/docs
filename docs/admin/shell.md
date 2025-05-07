@@ -17,10 +17,11 @@ This tool can
 
 
 ```
-$ xdb-cli -h
+$ xdb-cli -?
 Usage: xdb-cli [OPTIONS] [[path]/db_name]
   -?                        Show this help
   -S                        Server: Start in server mode, default port 7777
+  -I                        Server ID: <string>
   -h <ip>                   IP address to bind to or connect to
   -P <port>                 Port to listen or connect
   -D <datadir>              Server: Data directory to store databases, default '/var/xdb_data'
