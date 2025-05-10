@@ -91,6 +91,18 @@ DROP DATABASE [IF EXISTS] db_name
 USE db_name
 ```
 
+## Flush Database
+
+```sql
+FLUSH
+```
+
+## Repair Database
+
+```sql
+REPAIR
+```
+
 ## Show Databases
 
 ```sql

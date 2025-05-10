@@ -19,14 +19,16 @@ template: overrides/blog.html
 [**DESCRIBE**](../table/#show-table-columns) 		| Describe the specified table.				|
 [**DROP DATABASE**](../database/#drop-database) 	| Drop a database.							|
 [**DROP INDEX**](../indexes/#drop-index) 			| Drop the specified index on the specified table.	|
-[**DROP REPLICA**](../replication/#drop-replication)    | Drop a CrossDB Replica.	     		    |
+[**DROP REPLICA**](../replication/#drop-replication)| Drop a CrossDB Replica.	     		    |
 [**DROP SERVER**](../server/#drop-server) 			| Drop the specified server.				|
 [**DROP TABLE**](../table/#drop-table) 				| Drop the specified table.					|
 [**DUMP DATABASE**](../backup/#dump-database)  		| Dump database into file.		            |
 [**EXPLAIN**](../dml/#explain) 				        | Return detailed information on how the query is executed.      |
+[**FLUSH**](../database/#flush-database) 			| Flush database.                           |
 [**HELP**](../misc/#help) 				            | SQL statements help.                      |
 [**INSERT**](../dml/#insert) 						| Insert row into a table.					|
 [**OPEN DATABASE**](../database/#open-database)     | Open a database on disk.					| Embedded Mode only
+[**REPAIR**](../database/#repair-database) 			   | Repair database.                          |
 [**REPLACE**](../dml/#replace) 						| Insert or Modify row into a table.		|
 [**ROLLBACK**](../transaction/#rollback-transaction) | Roll back the open transaction if exists.|
 [**SELECT**](../dml/#select) 						| Retrieve data from a table.				|
@@ -36,7 +38,7 @@ template: overrides/blog.html
 [**SHOW CREATE TABLE**](../table/#show-create-table) | Show the `CREATE TABLE` statement.		|
 [**SHOW DATABASE**](../database/#show-databases)    | Show the list of databases.				|
 [**SHOW INDEXES**](../indexes/#show-index)          | Show the list of indexes associated with a given table.	       |
-[**SHOW REPLICAS**](../replication/#show-replication)  | Show the list of servers.					|
+[**SHOW REPLICAS**](../replication/#show-replication)  | Show the list of servers.				|
 [**SHOW SERVERS**](../server/#show-servers) 		| Show the list of servers.					|
 [**SHOW TABLES**](../table/#show-all-tables)        | Show the list of tables in database.		|
 [**SOURCE**](../backup/#source)        				| Load and execute SQL file.		        |

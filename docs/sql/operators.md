@@ -21,7 +21,10 @@ template: overrides/blog.html
      IN                  | Value is within a list of values		| TBD
      NOT IN              | Value is not within a list of values	| TBD
      LIKE                | Simple pattern matching		|
-     NOT LIKE            | Negation of simple pattern matching	| TBD
+     NOT LIKE            | Negation of LIKE	            | TBD
+     REGEXP              | Regular expression pattern matches 	|
+     NOT REGEXP          | Negation of REGEXP	| TBD
+     RLIKE               | Synonym for REGEXP 	|
 
 LIKE is used together with wildcards to match strings. Its usage is described as follows:
 
