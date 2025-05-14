@@ -203,6 +203,7 @@ nav:
       - develop/multi-stmts.md
       - develop/prep-stmts.md
       - develop/trigger.md
+      - develop/ttl.md
       - develop/replication.md
     - Client APIs:
       - client/api-c.md

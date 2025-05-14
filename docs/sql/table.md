@@ -49,6 +49,7 @@ table_option:
   | LOCKMODE = {THREAD | PROCESS | NOLOCK}
   | ROWLOCK = {0 | 1}
   | MVCC = {0 | 1}
+  | TTL = col_name + INTERVAL <num> <MICROSECOND | MILLISECOND | SECOND | MINUTE | HOUR | DAY | WEEK | MONTH | QUARTER | YEAR>
 ```
 
 <!--
