@@ -20,6 +20,7 @@ template: overrides/blog.html
        DOUBLE       | 8            | Double precision floating point number.			|
           CHAR [COLLATE collation_name]  | User-defined, max 65535 | Fixed-length UTF-8 string. 	|
         VARCHAR [COLLATE collation_name] | User-defined, max 65535 | Variable-length UTF-8 string.	|
+          JSON      |              | JSON document, max 65535.	|
          BINARY     | User-defined, max 65535 | Fixed-length binary data. 		|
        VARBINARY    | User-defined, max 65535 | Variable-length binary data.	|
         INET        | 18           | IPv4 or IPv6 address, and optionally subnet. |

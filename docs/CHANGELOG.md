@@ -33,6 +33,7 @@
 - Support `REGEXP`,`RLIKE` operator
 - Support new statements: `FLUSH` `REPAIR`
 - Support `TTL` feature
+- Support basic `JSON` type and query
 
 **Improvements**
 
@@ -41,7 +42,6 @@
 - Fix `TIMESTAMP` show/update bugs
 
 **Test**
-
 
 -->
 

@@ -39,3 +39,34 @@ LIKE is used together with wildcards to match strings. Its usage is described as
      ::       | ----            | ----
     AND       | Logical AND     |
     OR        | Logical OR      |
+
+## JSON Operators
+
+Use `->'field'` to access the top field.
+
+```sql
+CREATE TABLE example (student JSON);
+INSERT INTO example VALUES ('{ "id":1, "name": "Tommy", "class": "1-2" }');
+INSERT INTO example VALUES ('{ "id":2, "name": "Jack", "class": "1-3" }');
+INSERT INTO example VALUES ('{ "id":3, "name": "Rose", "class": "1-2" }');
+INSERT INTO example VALUES ('{ "id":4, "name": "Tommy", "class": "1-3" }');
+```
+
+```sql
+XDB> SELECT * FROM example WHERE student->'id'=1;
++---------------------------------------------+
+| student                                     |
++---------------------------------------------+
+| { "id":1, "name": "Tommy", "class": "1-2" } |
++---------------------------------------------+
+```
+
+```sql
+XDB> SELECT * FROM example WHERE student->'name'='Tommy';
++---------------------------------------------+
+| student                                     |
++---------------------------------------------+
+| { "id":1, "name": "Tommy", "class": "1-2" } |
+| { "id":4, "name": "Tommy", "class": "1-3" } |
++---------------------------------------------+
+```
