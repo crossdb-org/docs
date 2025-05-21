@@ -255,6 +255,12 @@ xdb_column_int (xdb_res_t *pRes, void *pRow, uint16_t iCol);
 
 int64_t 
 xdb_column_int64 (xdb_res_t *pRes, void *pRow, uint16_t iCol);
+
+uint32_t 
+xdb_column_uint (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol);
+
+uint64_t 
+xdb_column_uint64 (xdb_res_t *pRes, xdb_row_t *pRow, uint16_t iCol);
 ```
 
 ### xdb_column_float

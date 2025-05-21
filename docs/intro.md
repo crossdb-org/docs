@@ -13,7 +13,7 @@ It is designed for high-performance scenarios where the main memory can hold the
  ----                       | ----
  Description    			| Ultra High-performance Lightweight Embedded and Server OLTP RDBMS✨  
  Primary database model  	| Relational DBMS  
- Secondary database models	| Document store(TBD)<br>Key-value store(TBD)
+ Secondary database models	| Document store(JSON)<br>Key-value store(TBD)
  Website					| crossdb.org
  Technical documentation	| crossdb.org/intro
  Initial release			| 2023
@@ -22,9 +22,9 @@ It is designed for high-performance scenarios where the main memory can hold the
  Implementation language	| C
  Server operating systems	| Server-Less Mode<br>Embedded Server Mode<br>Standalone Server Mode<br>Linux/MacOS/Windows/FreeBSD<br>32-bit or 64-bit X86, ARM, PowerPC, MIPS, etc
  Data scheme				| yes
- Typing 					| yes<br>BOOL<br>TINYINT, SMALLINT, INT, BIGINT<br>TIMESTAMP<br>FLOAT, DOUBLE<br>CHAR, VARCHAR<br>BINARY, VARBINARY<br>INET(IPv4/IPv6 host and subnet), MAC address
+ Typing 					| yes<br>BOOL<br>TINYINT, SMALLINT, INT, BIGINT<br>UNSIGNED TINYINT, SMALLINT, INT, BIGINT<br>TIMESTAMP<br>FLOAT, DOUBLE<br>CHAR, VARCHAR<br>BINARY, VARBINARY<br>INET(IPv4/IPv6 host and subnet), MAC address<br>JSON
  XML support				| no
- Secondary indexes			| yes<br>HASH, RBTREE
+ Secondary indexes			| yes<br>HASH, RBTREE(TBD)
  SQL 						| yes, many extensions from MySQL
  APIs and other access methods		| Proprietary native APIs<br>Multi-statement APIs<br>Prepared statement APIs
  Supported programming languages	| C, C++, Python, GO, Rust<br>More bindings(TBD)
@@ -49,7 +49,7 @@ It is designed for high-performance scenarios where the main memory can hold the
  Stored Procedures			| yes, native languages (TBD)
  Views						| yes (TBD)
  Joins						| yes (TBD)
- TTL						| yes (TBD)
+ Document Store				| yes (JSON/JSONB/Protobuf/Flatbuffer/cap'n proto)
 
 - Supports multiple OS platforms: Linux, Windows, MacOS, FreeBSD, etc.
 - Supports multiple CPU architectures: X86, ARM, PPC, MIPS, etc.

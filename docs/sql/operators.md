@@ -42,7 +42,7 @@ LIKE is used together with wildcards to match strings. Its usage is described as
 
 ## JSON Operators
 
-Use `->'field'` to access the top field.
+Use `->'field'` to access the top field. `field` is case-sensitive.
 
 ```sql
 CREATE TABLE example (student JSON);

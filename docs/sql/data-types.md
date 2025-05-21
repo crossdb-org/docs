@@ -11,20 +11,20 @@ template: overrides/blog.html
       SMALLINT      | 2            | Short integer, the value range is [-32768, 32767].	 |
         INT         | 4            | Integer, the value range is [-2^31, 2^31-1].		 |
         BIGINT      | 8            | Long integer, the value range is [-2^63, 2^63-1].	 |
-  TINYINT UNSIGNED  | 1            | unsigned single-byte integer, the value range is [0, 255].	| TBD
-  SMALLINT UNSIGNED | 2            | unsigned integer, the value range is [0, 65535].	| TBD
-    INT UNSIGNED    | 4            | Unsigned integer, the value range is [0, 2^32-1].	| TBD
-   BIGINT UNSIGNED  | 8            | unsigned long integer, the value range is [0, 2^64-1].	| TBD
+  TINYINT UNSIGNED  | 1            | unsigned single-byte integer, the value range is [0, 255].	|
+  SMALLINT UNSIGNED | 2            | unsigned integer, the value range is [0, 65535].	|
+    INT UNSIGNED    | 4            | Unsigned integer, the value range is [0, 2^32-1].	|
+   BIGINT UNSIGNED  | 8            | unsigned long integer, the value range is [0, 2^64-1].	|
       TIMESTAMP     | 8            | Default precision is microsecond.	|
         FLOAT       | 4            | Floating point number.				|
        DOUBLE       | 8            | Double precision floating point number.			|
           CHAR [COLLATE collation_name]  | User-defined, max 65535 | Fixed-length UTF-8 string. 	|
         VARCHAR [COLLATE collation_name] | User-defined, max 65535 | Variable-length UTF-8 string.	|
-          JSON      |              | JSON document, max 65535.	|
          BINARY     | User-defined, max 65535 | Fixed-length binary data. 		|
        VARBINARY    | User-defined, max 65535 | Variable-length binary data.	|
         INET        | 18           | IPv4 or IPv6 address, and optionally subnet. |
          MAC        | 6            | MAC addresses.	|
+        JSON        | max 65535.   | JSON document.	|
 
 ## Collation
 
