@@ -30,8 +30,8 @@ template: overrides/blog.html
 
 |     **Type**      |  **Description**
         ::          |----            
-	NOCASE          | Case insensitive [**Default**].
-	BINARY          | Case sensitive.
+	BINARY          | Case sensitive [**Default**].
+	NOCASE          | Case insensitive.
 
 ## Literals
 
@@ -45,6 +45,7 @@ template: overrides/blog.html
       Timestamp     | `'2024-11-01'`, `'2024-11-01T19:05:12'`, `'2024-11-01T19:05:12.561'`, `'2024-11-01T19:05:12.561288'`, `1730459112561288`(*microsecond*)
       Inet Address  | `'10.1.1.1'`, `'10.1.1.0/24'`, `'2001:4f8:3:ba:​2e0:81ff:fe22:d1f1'`, `'2001:4f8:3:ba::/64'`
       Mac Address   | `'08:00:2b:01:02:03'`, `'08-00-2b-01-02-03'`, `'0800.2b01.0203'`, `'0800-2b01-0203'`, `'08002b:010203'`, `'08002b-010203'`, `'08002b010203'`
+	      JSON      | `{ "id":1, "name": "Tommy", "class": "1-2" }`
 
 ## Escape Characters
 | **Escape Character**	| **Actual Meaning**

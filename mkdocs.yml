@@ -215,6 +215,7 @@ nav:
     - SQL:
       - sql/statements.md
       - sql/data-types.md
+      - sql/json.md
       - sql/operators.md
       - sql/functions.md
       - sql/name-limit.md
