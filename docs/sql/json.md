@@ -38,7 +38,7 @@ XDB> SELECT * FROM example WHERE student->'name'='Tommy';
 ## Index on JSON Field 
 
 ```sql
-CREATE IDX idx_id ON example (student->'id');
+CREATE INDEX idx_id ON example (student->'id');
 
-CREATE IDX idx_name ON example (student->'name');
+CREATE INDEX idx_name ON example (student->'name');
 ```

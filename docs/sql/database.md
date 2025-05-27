@@ -7,7 +7,7 @@ template: overrides/blog.html
 ## Create Database
 
 ```sql
-CREATE DATABASE [IF NOT EXISTS] {db_name | '[path/]db_name'} [db_option] ...
+CREATE DATABASE [IF NOT EXISTS] {db_name | '[path/]db_name'} [db_option,] ...
 
 db_option:
     ENGINE = {MMAP | MEMORY}
