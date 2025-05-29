@@ -2,257 +2,257 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://crossdb.org/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/CHANGELOG/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/community/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/faq/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/glossary/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/intro/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/buy/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/privacy/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/refund/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/about/terms/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/admin/data-backup/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/admin/data-restore/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/admin/shell/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/blog/benchmark/crossdb-vs-sqlite3/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/blog/benchmark/crossdb-vs-stlmap/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/client/api-c/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/client/api-nodejs/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/client/api-python/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/connect/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/ddl/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/dml/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/multi-stmts/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/prep-stmts/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/query/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/replication/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/server/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/transaction/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/trigger/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/develop/ttl/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/get-started/bench/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/get-started/download/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/get-started/install/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/get-started/tutorial/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/backup/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/data-types/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/database/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/dml/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/functions/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/indexes/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/json/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/misc/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/name-limit/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/operators/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/replication/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/server/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/statements/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/table/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/transaction/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sql/trigger/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sysdb/information-schema/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://crossdb.org/sysdb/system/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
