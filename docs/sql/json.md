@@ -65,6 +65,32 @@ XDB> SELECT student->'id' AS id,student->'name' AS name,student->'class' AS clas
 +----+-------+-------+
 ```
 
+## Order by JSON Field
+
+```sql
+XDB> SELECT * FROM example ORDER BY student->'id' DESC;
++---------------------------------------------+
+| student                                     |
++---------------------------------------------+
+| { "id":4, "name": "Tommy", "class": "1-3" } |
+| { "id":3, "name": "Rose", "class": "1-2" }  |
+| { "id":2, "name": "Jack", "class": "1-3" }  |
+| { "id":1, "name": "Tommy", "class": "1-2" } |
++---------------------------------------------+
+```
+
+```sql
+XDB> SELECT * FROM example ORDER BY student->'name', student->'class' DESC;
++---------------------------------------------+
+| student                                     |
++---------------------------------------------+
+| { "id":2, "name": "Jack", "class": "1-3" }  |
+| { "id":3, "name": "Rose", "class": "1-2" }  |
+| { "id":4, "name": "Tommy", "class": "1-3" } |
+| { "id":1, "name": "Tommy", "class": "1-2" } |
++---------------------------------------------+
+```
+
 ## Index on JSON Field 
 
 You can accelerate querying JSON data by using secondary indexes directly without extra generated column like MySQL.
