@@ -6,10 +6,10 @@ template: overrides/blog.html
 
 ```sql
 CREATE TABLE example (student JSON);
-INSERT INTO example VALUES ('{ "id":1, "name": "Tommy", "class": "1-2" }');
-INSERT INTO example VALUES ('{ "id":2, "name": "Jack", "class": "1-3" }');
-INSERT INTO example VALUES ('{ "id":3, "name": "Rose", "class": "1-2" }');
-INSERT INTO example VALUES ('{ "id":4, "name": "Tommy", "class": "1-3" }');
+INSERT INTO example VALUES ('{ "id":1, "name": "Tommy", "class": "1-2", "age": 11 }');
+INSERT INTO example VALUES ('{ "id":2, "name": "Jack", "class": "1-3", "age": 9 }');
+INSERT INTO example VALUES ('{ "id":3, "name": "Rose", "class": "1-2", "age": 12 }');
+INSERT INTO example VALUES ('{ "id":4, "name": "Tommy", "class": "1-3", "age": 10 }');
 ```
 
 ## JSON Operators
@@ -20,21 +20,21 @@ Use `->'field'` to access the top field. `field` is case-sensitive.
 
 ```sql
 XDB> SELECT * FROM example WHERE student->'id'=1;
-+---------------------------------------------+
-| student                                     |
-+---------------------------------------------+
-| { "id":1, "name": "Tommy", "class": "1-2" } |
-+---------------------------------------------+
++--------------------------------------------------------+
+| student                                                |
++--------------------------------------------------------+
+| { "id":1, "name": "Tommy", "class": "1-2", "age": 11 } |
++--------------------------------------------------------+
 ```
 
 ```sql
 XDB> SELECT * FROM example WHERE student->'name'='Tommy';
-+---------------------------------------------+
-| student                                     |
-+---------------------------------------------+
-| { "id":1, "name": "Tommy", "class": "1-2" } |
-| { "id":4, "name": "Tommy", "class": "1-3" } |
-+---------------------------------------------+
++--------------------------------------------------------+
+| student                                                |
++--------------------------------------------------------+
+| { "id":1, "name": "Tommy", "class": "1-2", "age": 11 } |
+| { "id":4, "name": "Tommy", "class": "1-3", "age": 10 } |
++--------------------------------------------------------+
 ```
 
 ## Select with JSON Field
@@ -68,27 +68,41 @@ XDB> SELECT student->'id' AS id,student->'name' AS name,student->'class' AS clas
 ## Order by JSON Field
 
 ```sql
-XDB> SELECT * FROM example ORDER BY student->'id' DESC;
-+---------------------------------------------+
-| student                                     |
-+---------------------------------------------+
-| { "id":4, "name": "Tommy", "class": "1-3" } |
-| { "id":3, "name": "Rose", "class": "1-2" }  |
-| { "id":2, "name": "Jack", "class": "1-3" }  |
-| { "id":1, "name": "Tommy", "class": "1-2" } |
-+---------------------------------------------+
+XDB> SELECT * FROM examtle ORDER BY student->'age' DESC;
++--------------------------------------------------------+
+| student                                                |
++--------------------------------------------------------+
+| { "id":3, "name": "Rose", "class": "1-2", "age": 12 }  |
+| { "id":1, "name": "Tommy", "class": "1-2", "age": 11 } |
+| { "id":4, "name": "Tommy", "class": "1-3", "age": 10 } |
+| { "id":2, "name": "Jack", "class": "1-3", "age": 9 }   |
++--------------------------------------------------------+
 ```
 
 ```sql
 XDB> SELECT * FROM example ORDER BY student->'name', student->'class' DESC;
-+---------------------------------------------+
-| student                                     |
-+---------------------------------------------+
-| { "id":2, "name": "Jack", "class": "1-3" }  |
-| { "id":3, "name": "Rose", "class": "1-2" }  |
-| { "id":4, "name": "Tommy", "class": "1-3" } |
-| { "id":1, "name": "Tommy", "class": "1-2" } |
-+---------------------------------------------+
++--------------------------------------------------------+
+| student                                                |
++--------------------------------------------------------+
+| { "id":2, "name": "Jack", "class": "1-3", "age": 9 }   |
+| { "id":3, "name": "Rose", "class": "1-2", "age": 12 }  |
+| { "id":4, "name": "Tommy", "class": "1-3", "age": 10 } |
+| { "id":1, "name": "Tommy", "class": "1-2", "age": 11 } |
++--------------------------------------------------------+
+```
+
+## Update JSON Field
+
+```sql
+XDB> UPDATE example SET student->age=20 WHERE student->'id'=2;
+XDB> UPDATE example SET student->'name'='Sophia', student->'class'='1-3' WHERE student->'id'=2;
+
+XDB> SELECT * FROM example WHERE student->'id'=2;
++---------------------------------------------------------+
+| student                                                 |
++---------------------------------------------------------+
+| { "id":2, "name": "Sophia", "class": "1-3", "age": 20 } |
++---------------------------------------------------------+
 ```
 
 ## Index on JSON Field 
