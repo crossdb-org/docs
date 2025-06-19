@@ -43,6 +43,7 @@ xdb_stmt_t*  | [**xdb_stmt_prepare**](#xdb_stmt_prepare) (xdb_conn_t* pConn, con
 xdb_ret      | [**xdb_bind_int**](#xdb_bind_int) (xdb_stmt_t *pStmt, uint16_t para_id, int val)	| Bind int value
 xdb_ret      | [**xdb_bind_float**](#xdb_bind_float) (xdb_stmt_t *pStmt, uint16_t para_id, float val) | Bind float value
 xdb_ret      | [**xdb_bind_str**](#xdb_bind_str) (xdb_stmt_t *pStmt, uint16_t para_id, const char *str) | Bind string value
+xdb_ret      | [**xdb_bind_blob**](#xdb_bind_blob) (xdb_stmt_t *pStmt, uint16_t para_id, const void *blob, int len) | Bind BLOB value
 xdb_ret      | [**xdb_clear_bindings**](#xdb_clear_bindings) (xdb_stmt_t *pStmt) | Clear bindings
 xdb_res_t*   | [**xdb_stmt_exec**](#xdb_stmt_exec) (xdb_stmt_t *pStmt)				| Execute prepared SQL statement
 void         | [**xdb_stmt_close**](#xdb_stmt_close) (xdb_stmt_t *pStmt)			| Free prepared SQL statement
@@ -109,6 +110,7 @@ xdb_res_t*
 xdb_exec2 (xdb_conn_t *pConn, const char *sql, int len);
 
 // Use '?' to bind args then execute, only support single statement
+// For BINARY/VARBINARY type, 1st arg is len, 2nd arg is data pointer
 xdb_res_t*
 xdb_bexec (xdb_conn_t *pConn, const char *sql, ...);
 
@@ -446,6 +448,15 @@ xdb_ret
 xdb_bind_str2 (xdb_stmt_t *pStmt, uint16_t para_id, const char *str, int len)
 ```
 
+### xdb_bind_blob
+
+Binds a blob value to the prepared statement at the specified parameter index (from 1).
+
+``` c
+xdb_ret
+xdb_bind_blob (xdb_stmt_t *pStmt, uint16_t para_id, const void *blob, int len);
+```
+
 ### xdb_clear_bindings
 
 Clear bindings.
@@ -468,6 +479,7 @@ xdb_res_t*
 xdb_stmt_exec (xdb_stmt_t *pStmt);
 
 // bind args then execute
+// For BINARY/VARBINARY type, 1st arg is len, 2nd arg is data pointer
 xdb_res_t*
 xdb_stmt_bexec (xdb_stmt_t *pStmt, ...);
 

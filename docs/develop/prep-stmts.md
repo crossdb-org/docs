@@ -20,6 +20,7 @@ Prepared Statements can save SQL parsing time and improve performance.
 - Method A: Execute with Args
 
 	```c
+	// For BINARY/VARBINARY type, 1st arg is len, 2nd arg is data pointer
 	xdb_res_t *pRes = xdb_stmt_bexec (pStmt, id);
 	```
 
